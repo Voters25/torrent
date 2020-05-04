@@ -32,6 +32,4 @@ export let addNewFileAC = (file) => {
 }
 
 
-
-
 export default downloadPageReducer;

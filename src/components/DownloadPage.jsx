@@ -16,7 +16,7 @@ let DownloadPage = (props) => {
         //let file = newFile.curent.value;
         let file = newFileElement.current.files[0];
         props.addNewFileValue(file); // Забирает обновлённый state
-
+        console.log(file.name);
     }
 
 
