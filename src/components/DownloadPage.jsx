@@ -4,6 +4,7 @@ import React from 'react';
 let DownloadPage = (props) => {
 
 
+    let newFileElement = React.createRef();
 
 
     // Колбэк отправки файла
@@ -13,6 +14,8 @@ let DownloadPage = (props) => {
     // Получение изменений
     let onFileChange = () => {
         //let file = newFile.curent.value;
+        let file = newFileElement.current.files[0];
+        
 
     }
 
@@ -23,7 +26,7 @@ let DownloadPage = (props) => {
             <div className='input-file'>
                 <div>
                     <form name="sendFile">
-                        <input type="file" name="torrent" onChange={onFileChange}/>
+                        <input type="file" name="torrent" ref={newFileElement} onChange={onFileChange}/>
                         <input type="text" name="magnet"/>
                         <button type='submit'>Send</button>
                     </form>
