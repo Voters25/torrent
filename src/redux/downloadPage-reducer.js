@@ -10,9 +10,9 @@ const downloadPageReducer = (state = null, action) => {
     console.log("action is", action);
     switch(action.which) {
         case ADD_NEW_FILE:
-            let newFile = {
-
-            };
+//            let newFile = {
+//
+//            };
             return {
                 ...state,
                 newFile: action.file
