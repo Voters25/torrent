@@ -7,12 +7,14 @@ import DownloadPage from './DownloadPage.jsx';
 
 
 
-
+// Тут данные из state
 const mapStateToProps = (state) => {
     return {
 
     }
 }
+
+// Тут колбэки
 const mapDispatchToProps = (dispatch) => {
     return {
 
