@@ -5,7 +5,7 @@ import downloadPageReducer from "./downloadPage-reducer";
 
 
 let reducers = combineReducers({
-    downloadPageReducer: downloadPageReducer
+    downloadPager: downloadPageReducer
 });
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DownloadPage from './DownloadPage.jsx';
-
+import {addNewFileAC} from '../redux/downloadPage-reducer';
 
 
 
@@ -17,9 +17,13 @@ const mapStateToProps = (state) => {
 // Тут колбэки
 const mapDispatchToProps = (dispatch) => {
     return {
-
+        addNewFileValue: (file) => {
+            let action = addNewFileAC(file);
+            dispatch(action);
+        }
     }
 }
+
 
 
 const DownloadPageContainer = connect(mapStateToProps, mapDispatchToProps)(DownloadPage);
