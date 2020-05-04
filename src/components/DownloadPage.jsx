@@ -20,15 +20,29 @@ let DownloadPage = (props) => {
     }
 
 
+    /*======================================================================*/
+
+    let input = document.querySelector('input[type="file"]')
+
+    //let formData = new FormData(sendFile);
+
+    // test fetch
+    fetch('/torrent',
+        
+    )
+
+    /*======================================================================*/
+
+
 
     return (
         <div className=''>
             <div className='input-file'>
                 <div>
-                    <form name="sendFile">
+                    <form id="sendFile">
                         <input type="file" name="torrent" ref={newFileElement} onChange={onFileChange}/>
                         <input type="text" name="magnet"/>
-                        <button type='submit'>Send</button>
+                        <input type='submit' value="Send" />
                     </form>
                 </div>
             </div>
