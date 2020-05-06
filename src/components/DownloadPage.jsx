@@ -1,4 +1,5 @@
 import React from 'react';
+import Axios from 'axios';
 
 
 let DownloadPage = (props) => {
@@ -19,20 +20,13 @@ let DownloadPage = (props) => {
         console.log(file.name); // Тест, имя объекта
     }
 
+    /*======================================================================*/
 
     /*======================================================================*/
 
-    let input = document.querySelector('input[type="file"]')
-
-    //let formData = new FormData(sendFile);
-
-    // test fetch
-    fetch('/torrent',
+    let onFileSend = () => {
         
-    )
-
-    /*======================================================================*/
-
+        }
 
 
     return (
@@ -42,7 +36,7 @@ let DownloadPage = (props) => {
                     <form id="sendFile">
                         <input type="file" name="torrent" ref={newFileElement} onChange={onFileChange}/>
                         <input type="text" name="magnet"/>
-                        <input type='submit' value="Send" />
+                        <input type='submit' value="Send" onClick={onFileSend}/>
                     </form>
                 </div>
             </div>
