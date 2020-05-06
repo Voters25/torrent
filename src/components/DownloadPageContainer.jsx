@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DownloadPage from './DownloadPage.jsx';
+import DownloadPageC from './DownloadPageС.jsx';
 import {addNewFileAC} from '../redux/downloadPage-reducer';
 
 
@@ -26,6 +27,6 @@ const mapDispatchToProps = (dispatch) => {
 
 
 
-const DownloadPageContainer = connect(mapStateToProps, mapDispatchToProps)(DownloadPage);
+const DownloadPageContainer = connect(mapStateToProps, mapDispatchToProps)(DownloadPageC);
 
 export default DownloadPageContainer;

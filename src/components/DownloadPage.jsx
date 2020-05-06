@@ -1,5 +1,5 @@
 import React from 'react';
-import Axios from 'axios';
+
 
 
 let DownloadPage = (props) => {
@@ -17,7 +17,7 @@ let DownloadPage = (props) => {
         //let file = newFile.curent.value;
         let file = newFileElement.current.files[0];
         props.addNewFileValue(file); // Забирает обновлённый state
-        console.log(file.name); // Тест, имя объекта
+        console.log(file); // file - пришедший объект из state
     }
 
     /*======================================================================*/
@@ -25,7 +25,7 @@ let DownloadPage = (props) => {
     /*======================================================================*/
 
     let onFileSend = () => {
-        
+        // Запрос???
         }
 
 
