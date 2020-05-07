@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DownloadPage from './DownloadPage.jsx';
 import DownloadPageC from './DownloadPageС.jsx';
-import {addNewFileAC} from '../redux/downloadPage-reducer';
+import {addNewFileAC, addNewMagnetAC} from '../redux/downloadPage-reducer';
 
 
 
@@ -11,7 +11,8 @@ import {addNewFileAC} from '../redux/downloadPage-reducer';
 // Тут данные из state
 const mapStateToProps = (state) => {
     return {
-        propsFile: state.downloadPage // downloadPage - в combineReducers название state для downloadPage
+        propsMagnet: state.downloadPage.newMagnetUrl,
+        propsFile: state.downloadPage.newTorrentFile // downloadPage - в combineReducers название state для downloadPage
     }
 }
 
@@ -20,6 +21,10 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addNewFileValue: (file) => {
             let action = addNewFileAC(file);
+            dispatch(action);
+        },
+        addNewMagnetValue: (magnet) => {
+            let action = addNewMagnetAC(magnet);
             dispatch(action);
         }
     }

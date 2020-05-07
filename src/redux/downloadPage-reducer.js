@@ -1,9 +1,13 @@
+let ADD_NEW_MAGNET = 'ADD-NEW-MAGNET';
 let ADD_NEW_FILE = 'ADD-NEW-FILE';
 
 
+
 let initialState = {
-    //fileData: [],
-    //newTorrentFile: {}
+    newTorrentFile: [
+        {}
+    ],
+    newMagnetUrl: ""
 }
 
 
@@ -27,6 +31,11 @@ const downloadPageReducer = (state = initialState, action) => {
                 ...state,
                 newTorrentFile: action.newFile
             }
+        case ADD_NEW_MAGNET:
+            return {
+                ...state,
+                newMagnetUrl: action.newMagnet
+            }
         default:
             return state;
     }
@@ -34,12 +43,21 @@ const downloadPageReducer = (state = initialState, action) => {
 }
 
 
+
+export let addNewMagnetAC = (magnet) => {
+    return {
+        type: 'ADD-NEW-MAGNET',
+        newMagnet: magnet
+    }
+}
+
 export let addNewFileAC = (file) => {
     return {
         type: 'ADD-NEW-FILE',
         newFile: file
     }
 }
+
 
 
 export default downloadPageReducer;
