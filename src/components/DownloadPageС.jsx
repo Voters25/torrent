@@ -6,10 +6,11 @@ class DownloadPageC extends React.Component {
     constructor(props) {
         super(props);
     }
-componentDidMount() {
+/*
+    componentDidMount() {
     
 }
-
+*/
 
 //    onSendMagnet = () => {
 //    }
@@ -29,9 +30,9 @@ componentDidMount() {
         let file = this.newFileElement.current.files[0];
         this.props.addNewFileValue(file); // Забирает обновлённый state
         console.log(file.name); // Тест, имя объекта
+        console.log(this.props.newTorrentFile);
     }
 
-    
     
 
     render() {
@@ -40,7 +41,7 @@ componentDidMount() {
             <div className='input-file'>
                 <div>
                     <form id="sendFile">
-                        <input type="file" name="torrent" ref={this.newFileElement} onChange={this.onFileChange}/>
+                        <input type="file" name="torrent" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.newTorrentFile.newTorrentFile}/>
                         <input type="text" name="magnet"/>
                         <input type='submit' value="Send" onClick={this.onFileSend}/>
                     </form>

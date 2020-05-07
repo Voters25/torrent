@@ -5,7 +5,7 @@ import downloadPageReducer from "./downloadPage-reducer";
 
 
 let reducers = combineReducers({
-    downloadPager: downloadPageReducer
+    downloadPage: downloadPageReducer  // downloadPage передавай в props. Это *state* редьюсера (state.downloadPage)
 });
 
 

@@ -1,21 +1,31 @@
 let ADD_NEW_FILE = 'ADD-NEW-FILE';
 
 
+let initialState = {
+    //fileData: [],
+    //newTorrentFile: {}
+}
 
 
-
-const downloadPageReducer = (state = null, action) => {
+const downloadPageReducer = (state = initialState, action) => {
 
     // Заглушка
-    console.log("action is", action);
+    
+    /* let stateCopy = {
+        ...state
+    }; */
+
     switch(action.which) {
         case ADD_NEW_FILE:
-//            let newFile = {
-//
-//            };
+            /* return {
+                //...state,
+                //newTorrentFile: [...state, file];
+                stateCopy.newTorrentFile.
+                //newTorrentFile: action.newFile
+            } */
             return {
                 ...state,
-                newFile: action.file
+                newTorrentFile: action.newFile
             }
         default:
             return state;

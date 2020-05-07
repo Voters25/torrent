@@ -11,7 +11,7 @@ import {addNewFileAC} from '../redux/downloadPage-reducer';
 // Тут данные из state
 const mapStateToProps = (state) => {
     return {
-
+        newTorrentFile: state.downloadPage // downloadPage - в combineReducers название state для downloadPage
     }
 }
 
