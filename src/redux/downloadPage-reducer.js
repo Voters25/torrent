@@ -1,5 +1,5 @@
-let ADD_NEW_MAGNET = 'ADD-NEW-MAGNET';
-let ADD_NEW_FILE = 'ADD-NEW-FILE';
+let UPDATE_NEW_MAGNET = 'UPDATE-NEW-MAGNET';
+let UPDATE_NEW_FILE = 'UPDATE-NEW-FILE';
 
 
 
@@ -7,35 +7,44 @@ let initialState = {
     newTorrentFile: [
         {}
     ],
-    newMagnetUrl: ""
+    newMagnetUrl: "",
+    test: [
+        {test: '1'},
+        {test: '2'}
+    ]
 }
 
 
 const downloadPageReducer = (state = initialState, action) => {
 
-    // Заглушка
     
     /* let stateCopy = {
         ...state
     }; */
 
     switch(action.which) {
-        case ADD_NEW_FILE:
-            /* return {
-                //...state,
-                //newTorrentFile: [...state, file];
-                stateCopy.newTorrentFile.
-                //newTorrentFile: action.newFile
-            } */
+        case UPDATE_NEW_FILE:
             return {
-                ...state,
+                // Отрисовка, **************объекта в state ещё нету**************
+                ...state,   // Срабатывает только для отрисовки value?
                 newTorrentFile: action.newFile
-            }
-        case ADD_NEW_MAGNET:
+
+                // Допиши Пуш:  для закидывания файла в state и псоледующим взаимодействием.
+                // Ведь то, что сейчас есть, это копирование стэйта для отрисовки value.
+                // Поэтому в state ещё нету данных. Ты не запушил их туда!
+                //........
+            };
+        case UPDATE_NEW_MAGNET:
             return {
-                ...state,
+                // Отрисовка, **************объекта в state ещё нету**************
+                ...state,   // Срабатывает только для отрисовки value?
                 newMagnetUrl: action.newMagnet
-            }
+
+                // Допиши Пуш:  для закидывания файла в state и псоледующим взаимодействием.
+                // Ведь то, что сейчас есть, это копирование стэйта для отрисовки value.
+                // Поэтому в state ещё нету данных. Ты не запушил их туда!
+                //........
+            };
         default:
             return state;
     }
@@ -44,16 +53,16 @@ const downloadPageReducer = (state = initialState, action) => {
 
 
 
-export let addNewMagnetAC = (magnet) => {
+export let updateNewMagnetAC = (magnet) => {
     return {
-        type: 'ADD-NEW-MAGNET',
+        type: 'UPDATE-NEW-MAGNET',
         newMagnet: magnet
     }
 }
 
-export let addNewFileAC = (file) => {
+export let updateNewFileAC = (file) => {
     return {
-        type: 'ADD-NEW-FILE',
+        type: 'UPDATE-NEW-FILE',
         newFile: file
     }
 }
