@@ -16,6 +16,8 @@ class DownloadPageC extends React.Component {
 render() {  // render сверху!
 
 
+
+
     // Magnet 
     this.newMagnetElement = React.createRef();
     
@@ -23,11 +25,6 @@ render() {  // render сверху!
         let magnet = this.newMagnetElement.current.value;
         this.props.updateNewMagnetValue(magnet);
     }
-
-
-
-
-
 
     // Ссылка на 'file'
     this.newFileElement = React.createRef();
@@ -42,13 +39,18 @@ render() {  // render сверху!
     }
 
 
-//*******
-    this.sendMagnet = this.props.propsMagnet;
 
+//*************************************************
+    this.sendMagnet = this.props.propsMagnet;
     this.onSendForm = () => {
-        this.props.sendForm(this.sendMagnet);
+        this.props.sendFormMagnet(this.sendMagnet);
     }
-//*******
+
+    this.sendFile = this.props.propsFile;
+    this.onSendFile = () => {
+        this.props.sendFormFile(this.sendFile);
+    }
+//*************************************************
 
 
 // РАБОЧАЯ ПРОВЕРКА СОСТОЯНИЯ   
@@ -67,7 +69,8 @@ this.onTest = (sendMagnet) => {
                     <form id="sendFile" onSubmit={this.onFileSend}>
                         <input type="file" name="torrent" id="TestId" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile}/>
                         <input type="text" name="magnet" ref={this.newMagnetElement} onChange={this.onMagnetChange} value={this.props.propsMagnet} />
-                        <input type="submit" value="Send" onClick={this.onSendForm} ></input>
+                        <input type="submit" value="SendMagnet" onClick={this.onSendForm} ></input>
+                        <input type="submit" value="SendFile" onClick={this.onSendFile} ></input>
                     </form>
                     <input value="test" type="submit" onClick={this.onTest}/>
                 </div>

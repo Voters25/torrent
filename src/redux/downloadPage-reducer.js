@@ -37,7 +37,8 @@ const downloadPageReducer = (state = initialState, action) => {
             
             return {
                 // Отрисовка, **************объекта в state ещё нету**************
-                ...state,   // Срабатывает только для отрисовки value?
+                ...state,
+                //newTorrentFile: [...state.newTorrentFile, action.newFile]
                 newTorrentFile: action.newFile
             };
         /* case ADD_NEW_FILE:
@@ -73,34 +74,34 @@ const downloadPageReducer = (state = initialState, action) => {
 
 export const postMagnet = (sendMagnet) => {
     return dispatch => {
-        dispatch(postStarted());
+        dispatch(postMagnetStarted());
 
         Axios
-            .post('/magnet', {
+            .post('https://github.com/Voters25/React_Study', {
                 sendMagnet,                
             })
             .then(res => {
-                dispatch(postSuccess(res.data));
+                dispatch(postMagnetSuccess(res.data));
             })
             .catch(err => {
-                dispatch(postFailure(err.message));
+                dispatch(postMagnetFailure(err.message));
             });
     };
 };
 
 
-const postStarted = () => ({
+const postMagnetStarted = () => ({
     type: POST_STARTED,
 });
 
-const postSuccess = (sendMagnet) => ({
+const postMagnetSuccess = (sendMagnet) => ({
     type: POST_SUCCESS,
     payload: {
         ...sendMagnet
     }
 });
 
-const postFailure = error => ({
+const postMagnetFailure = error => ({
     type: POST_FAILURE,
     payload: {
         error
@@ -109,6 +110,47 @@ const postFailure = error => ({
 
 /*===================================================================================*/
 
+
+/*===================================================================================*/
+                // callback -> Отправка на сервер file
+
+export const postFile = (sendFile) => {
+    return dispatch => {
+        dispatch(postFileStarted());
+                        
+        Axios
+            .post('https://github.com/Voters25/React_Study', {
+                sendFile,                
+            })
+            .then(res => {
+                dispatch(postFileSuccess(res.data));
+            })
+            .catch(err => {
+                dispatch(postFileFailure(err.message));
+            });
+    };
+};
+
+
+const postFileStarted = () => ({
+    type: POST_STARTED,
+});
+
+const postFileSuccess = (sendFile) => ({
+    type: POST_SUCCESS,
+    payload: {
+        ...sendFile
+    }
+});
+
+const postFileFailure = error => ({
+    type: POST_FAILURE,
+    payload: {
+        error
+    }
+}); 
+
+/*===================================================================================*/
 
 
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DownloadPage from './DownloadPage.jsx';
 import DownloadPageC from './DownloadPageС.jsx';
-import {updateNewFileAC, updateNewMagnetAC, postMagnet} from '../redux/downloadPage-reducer';
+import {updateNewFileAC, updateNewMagnetAC, postMagnet, postFile} from '../redux/downloadPage-reducer';
 
 
 
@@ -30,9 +30,15 @@ const mapDispatchToProps = (dispatch) => {
             //dispatch(updateNewMagnetAC(magnet));  короткая запись?
         },
 
-        sendForm: (sendMagnet) => { // Send
+        
+        // applyMiddleware(thunk) ?
+        sendFormMagnet: (sendMagnet) => { // Send magnet
             dispatch(postMagnet(sendMagnet))
+        },
+        sendFormFile: (sendFile) => { // Send file
+            dispatch(postFile(sendFile))
         }
+
 
         }
     }
