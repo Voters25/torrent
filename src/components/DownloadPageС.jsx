@@ -13,13 +13,13 @@ class DownloadPageC extends React.Component {
 }
 */
 
-
+render() {
 
 
     // Magnet 
-    newMagnetElement = React.createRef();
+    this.newMagnetElement = React.createRef();
     
-    onMagnetChange = () => {
+    this.onMagnetChange = () => {
         let magnet = this.newMagnetElement.current.value;
         this.props.updateNewMagnetValue(magnet);
     }
@@ -30,9 +30,9 @@ class DownloadPageC extends React.Component {
 
 
     // Ссылка на 'file'
-    newFileElement = React.createRef();
+    this.newFileElement = React.createRef();
 
-    onFileChange = () => {
+    this.onFileChange = () => {
         let file = this.newFileElement.current.files[0];
         this.props.updateNewFileValue(file); // КОлбэк (передаёт file)
         /*--------------------------------------------------------------*/
@@ -43,22 +43,23 @@ class DownloadPageC extends React.Component {
 
 
 //*******
-    sendMagnet = this.props.propsMagnet;
+    this.sendMagnet = this.props.propsMagnet;
 
-    onSendForm = (sendMagnet) => {
+    this.onSendForm = (sendMagnet) => {
         this.props.sendForm(sendMagnet);
     }
 //*******
 
 
 // РАБОЧАЯ ПРОВЕРКА СОСТОЯНИЯ   
-onTest = (sendMagnet) => {
+this.onTest = (sendMagnet) => {
     console.log(this.props.sendMagnet);
     alert(this.sendMagnet);
+    console.log(this.props.propsFile); // Файл приходит!
 }
 
 
-    render() {
+    //render() {
         return (
         <div className=''>
             <div className='input-file'>

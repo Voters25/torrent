@@ -45,6 +45,6 @@ addNewMagnetValue: (magnet) => {
     }
 */
 
-const DownloadPageContainer = connect(mapStateToProps, mapDispatchToProps)(DownloadPage);
+const DownloadPageContainer = connect(mapStateToProps, mapDispatchToProps)(DownloadPageC);
 
 export default DownloadPageContainer;
