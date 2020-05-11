@@ -69,14 +69,14 @@ const downloadPageReducer = (state = initialState, action) => {
 
 
 /*===================================================================================*/
-                        // callback -> Отправка на сервер
-/* 
-export const postMagnet = ({sendMagnet}) => {
+                        // callback -> Отправка на сервер magnetUrl
+
+export const postMagnet = (sendMagnet) => {
     return dispatch => {
         dispatch(postStarted());
 
         Axios
-            .post('/torrent', {
+            .post('/magnet', {
                 sendMagnet,                
             })
             .then(res => {
@@ -89,7 +89,7 @@ export const postMagnet = ({sendMagnet}) => {
 };
 
 
-const postStarted = magnet => ({
+const postStarted = () => ({
     type: POST_STARTED,
 });
 
@@ -106,7 +106,7 @@ const postFailure = error => ({
         error
     }
 }); 
-*/
+
 /*===================================================================================*/
 
 

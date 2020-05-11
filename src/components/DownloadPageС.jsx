@@ -13,7 +13,7 @@ class DownloadPageC extends React.Component {
 }
 */
 
-render() {
+render() {  // render сверху!
 
 
     // Magnet 
@@ -45,8 +45,8 @@ render() {
 //*******
     this.sendMagnet = this.props.propsMagnet;
 
-    this.onSendForm = (sendMagnet) => {
-        this.props.sendForm(sendMagnet);
+    this.onSendForm = () => {
+        this.props.sendForm(this.sendMagnet);
     }
 //*******
 
@@ -59,7 +59,7 @@ this.onTest = (sendMagnet) => {
 }
 
 
-    //render() {
+
         return (
         <div className=''>
             <div className='input-file'>

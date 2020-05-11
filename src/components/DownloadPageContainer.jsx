@@ -30,9 +30,9 @@ const mapDispatchToProps = (dispatch) => {
             //dispatch(updateNewMagnetAC(magnet));  короткая запись?
         },
 
-        /* sendForm: (sendMagnet) => { // Send
+        sendForm: (sendMagnet) => { // Send
             dispatch(postMagnet(sendMagnet))
-        } */
+        }
 
         }
     }
