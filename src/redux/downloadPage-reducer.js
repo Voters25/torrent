@@ -16,7 +16,7 @@ let initialState = {
     newTorrentFile: [
         //{ newTorrentFile } Обратиться к объекту и перез. его данные
     ],
-    newMagnetUrl: "65656"
+    newMagnetUrl: ""
     /* test: [
         {test: '1'},
         {test: '2'}

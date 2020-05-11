@@ -1,6 +1,6 @@
-import React from 'react';
+//import React from 'react';
+//import DownloadPage from './DownloadPage.jsx';
 import { connect } from 'react-redux';
-import DownloadPage from './DownloadPage.jsx';
 import DownloadPageC from './DownloadPageС.jsx';
 import {updateNewFileAC, updateNewMagnetAC, postMagnet, postFile} from '../redux/downloadPage-reducer';
 
@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch) => {
             //dispatch(updateNewMagnetAC(magnet));  короткая запись?
         },
 
-        
+
         // applyMiddleware(thunk) ?
         sendFormMagnet: (sendMagnet) => { // Send magnet
             dispatch(postMagnet(sendMagnet))
