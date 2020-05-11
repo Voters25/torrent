@@ -2,11 +2,12 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import DownloadPageContainer from './components/DownloadPageContainer';
+import { Route } from 'react-router-dom';
 
-function App() {
+const App = (props) => {
   return (
     <div className="App-wripper">
-      <DownloadPageContainer />
+      <Route path='/' render={ () => <DownloadPageContainer /> } />
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DownloadPage from './DownloadPage.jsx';
 import DownloadPageC from './DownloadPageС.jsx';
-import {updateNewFileAC, updateNewMagnetAC} from '../redux/downloadPage-reducer';
+import {updateNewFileAC, updateNewMagnetAC, postMagnet} from '../redux/downloadPage-reducer';
 
 
 
@@ -13,7 +13,6 @@ const mapStateToProps = (state) => {
     return {
         propsMagnet: state.downloadPage.newMagnetUrl,
         propsFile: state.downloadPage.newTorrentFile, // downloadPage - в combineReducers название state для downloadPage
-        propsFiles: state.downloadPage.newTorrentFile[0],// Тест (приходящего value____update)
         //test: state.downloadPage.test
     }
 }
@@ -25,10 +24,18 @@ const mapDispatchToProps = (dispatch) => {
             let action = updateNewFileAC(file);
             dispatch(action);
         },
-        updateNewMagnetValue: (magnet) => {dispatch(updateNewMagnetAC(magnet));}
+        updateNewMagnetValue: (magnet) => {
+            let action = updateNewMagnetAC(magnet);
+            dispatch(action);
+            //dispatch(updateNewMagnetAC(magnet));  короткая запись?
+        },
+
+        /* sendForm: (sendMagnet) => { // Send
+            dispatch(postMagnet(sendMagnet))
+        } */
+
         }
     }
-
 
 /*
 addNewMagnetValue: (magnet) => {
@@ -38,6 +45,6 @@ addNewMagnetValue: (magnet) => {
     }
 */
 
-const DownloadPageContainer = connect(mapStateToProps, mapDispatchToProps)(DownloadPageC);
+const DownloadPageContainer = connect(mapStateToProps, mapDispatchToProps)(DownloadPage);
 
 export default DownloadPageContainer;

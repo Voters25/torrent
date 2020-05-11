@@ -16,33 +16,17 @@ class DownloadPageC extends React.Component {
 
 
 
-    onFileSend = (e) => {
-        e.preventDefault()
-        /* console.log(this.props.propsFile)
-        console.log(this.props.propsFiles)
-        console.log(this.props.propsMagnet.newMagnetUrl) */
-        console.log(this.props)
-        console.log(this.props.test)
-        // Запрос???
-    }
-
-
-
-
-    // Ссылка на 'magnet'
-    //newMagnetUrlElement = React.createRef();
-
-    // Бывшая "ссылка"
-    //newMagnetUrlElement = this.props.propsMagnet;
-
-    onMagnetChange = (event) => {
-        let magnet = event.target.value;
+    // Magnet 
+    newMagnetElement = React.createRef();
+    
+    onMagnetChange = () => {
+        let magnet = this.newMagnetElement.current.value;
         this.props.updateNewMagnetValue(magnet);
-        /*--------------------------------------------------------------*/
-        console.log(this.props.propsMagnet);
-        //console.log(this.newMagnetUrlElement);
     }
-    //let magnet = this.newMagnetUrlElement.current.value;
+
+
+
+
 
 
     // Ссылка на 'file'
@@ -52,12 +36,27 @@ class DownloadPageC extends React.Component {
         let file = this.newFileElement.current.files[0];
         this.props.updateNewFileValue(file); // КОлбэк (передаёт file)
         /*--------------------------------------------------------------*/
-        console.log(file.name); // Тест, имя объекта
+        //console.log(file.name); // Тест, имя объекта
         console.log('Массив:' + this.props.propsFile); // Чек данных для value (Только отрисовка)
         console.log('Файл:' + this.props.propsFiles); // Чек данных для value (Только отрисовка)
     }
 
-    
+
+//*******
+    sendMagnet = this.props.propsMagnet;
+
+    onSendForm = (sendMagnet) => {
+        this.props.sendForm(sendMagnet);
+    }
+//*******
+
+
+// РАБОЧАЯ ПРОВЕРКА СОСТОЯНИЯ   
+onTest = (sendMagnet) => {
+    console.log(this.props.sendMagnet);
+    alert(this.sendMagnet);
+}
+
 
     render() {
         return (
@@ -65,10 +64,11 @@ class DownloadPageC extends React.Component {
             <div className='input-file'>
                 <div>
                     <form id="sendFile" onSubmit={this.onFileSend}>
-                        <input type="file" name="torrent" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile}/>
-                        <input type="text" name="magnet"  onChange={this.onMagnetChange} value={this.props.propsMagnet.newMagnetUrl} />
-                        <input type='submit' value="Send" />
+                        <input type="file" name="torrent" id="TestId" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile}/>
+                        <input type="text" name="magnet" ref={this.newMagnetElement} onChange={this.onMagnetChange} value={this.props.propsMagnet} />
+                        <input type="submit" value="Send" onClick={this.onSendForm} ></input>
                     </form>
+                    <input value="test" type="submit" onClick={this.onTest}/>
                 </div>
             </div>
         </div>
@@ -76,7 +76,5 @@ class DownloadPageC extends React.Component {
     }
 }
 
-//onClick={this.onFileSend}
-/*ref={this.newMagnetUrlElement}*/
 
 export default DownloadPageC;

@@ -1,54 +1,72 @@
 import React from 'react';
-
-
-
-
-//  МЁРТВАЯ КОМПОНЕНТА
+import Axios from 'axios';
 
 
 
 let DownloadPage = (props) => {
 
 
+
+
+
+    // Magnet 
+    let newMagnetElement = React.createRef();
+    
+    let onMagnetChange = () => {
+        let magnet = newMagnetElement.current.value;
+        props.updateNewMagnetValue(magnet);
+    }
+
+
+
+
+
+
+    // Ссылка на 'file'
     let newFileElement = React.createRef();
 
-
-    // Колбэк отправки файла
-    let onSendMagnet = () => {
-    }
-
-    // Получение изменений
     let onFileChange = () => {
-        //let file = newFile.curent.value;
         let file = newFileElement.current.files[0];
-        props.addNewFileValue(file); // Забирает обновлённый state
-        console.log(file); // file - пришедший объект из state
+        props.updateNewFileValue(file); // КОлбэк (передаёт file)
+        /*--------------------------------------------------------------*/
+        //console.log(file.name); // Тест, имя объекта
+        console.log('Массив:' + props.propsFile); // Чек данных для value (Только отрисовка)
+        console.log('Файл:' + props.propsFiles); // Чек данных для value (Только отрисовка)
     }
 
-    /*======================================================================*/
 
-    /*======================================================================*/
+//*******
+    let sendMagnet = props.propsMagnet;
 
-    let onFileSend = () => {
-        // Запрос???
-        }
+    let onSendForm = (sendMagnet) => {
+        props.sendForm(sendMagnet);
+    }
+//*******
 
 
-    return (
+// РАБОЧАЯ ПРОВЕРКА СОСТОЯНИЯ   
+let onTest = (sendMagnet) => {
+    console.log(props.propsMagnet);
+    alert(sendMagnet);
+    console.log(props.propsFile); // Файл приходит!
+}
+
+        return (
         <div className=''>
             <div className='input-file'>
                 <div>
-                    <form id="sendFile">
-                        <input type="file" name="torrent" ref={newFileElement} onChange={onFileChange}/>
-                        <input type="text" name="magnet"/>
-                        <input type='submit' value="Send" onClick={onFileSend}/>
+                    <form id="sendFile" >
+                        <input type="file" name="torrent" id="TestId" ref={newFileElement} onChange={onFileChange} value={props.propsFile.newTorrentFile}/>
+                        <input type="text" name="magnet" ref={newMagnetElement} onChange={onMagnetChange} value={props.propsMagnet} />
+                        <input type="submit" value="Send" onClick={onSendForm} ></input>
                     </form>
+                    <input value="test" type="submit" onClick={onTest}/>
                 </div>
             </div>
         </div>
-    )
-}
+        )
+    }
 
-
+/*<form id="sendFile" onSubmit={this.onFileSend}>*/
 
 export default DownloadPage;

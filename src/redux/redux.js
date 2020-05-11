@@ -1,5 +1,6 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 import downloadPageReducer from "./downloadPage-reducer";
+import thunk from "redux-thunk";
 
 
 
@@ -9,7 +10,7 @@ let reducers = combineReducers({
 });
 
 
-let store = createStore(reducers);
+let store = createStore(reducers, applyMiddleware(thunk));
 
 
 
@@ -17,7 +18,6 @@ let store = createStore(reducers);
 
 
 
-
-window.store = window;
+window.store = store;
 
 export default store;
