@@ -43,13 +43,6 @@ const mapDispatchToProps = (dispatch) => {
         }
     }
 
-/*
-addNewMagnetValue: (magnet) => {
-    //    let action = addNewMagnetAC(magnet);
-        (magnet) => {dispatch(addNewMagnetAC(magnet));}
-        //dispatch(action);
-    }
-*/
 
 const DownloadPageContainer = connect(mapStateToProps, mapDispatchToProps)(DownloadPageC);
 

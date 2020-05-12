@@ -14,7 +14,6 @@ const POST_FAILURE = 'POST-FAILURE';
 
 let initialState = {
     newTorrentFile: [
-        //{ newTorrentFile } Обратиться к объекту и перез. его данные
     ],
     newMagnetUrl: ""
     /* test: [
@@ -26,38 +25,18 @@ let initialState = {
 
 const downloadPageReducer = (state = initialState, action) => {
 
-    console.log('newTorrentFile:' + state.newTorrentFile[0]);
-
-    /* let stateCopy = {
-        ...state
-    }; */
 
     switch(action.type) {
         case UPDATE_NEW_FILE:
             
             return {
-                // Отрисовка, **************объекта в state ещё нету**************
                 ...state,
-                //newTorrentFile: [...state.newTorrentFile, action.newFile]
                 newTorrentFile: action.newFile
             };
-        /* case ADD_NEW_FILE:
-            return {
-                ...state,
-                {
-                    newTorrentFile: [...state.newTorrentFile, action.newFile]
-                }
-            }; */
         case UPDATE_NEW_MAGNET:
             return {
-                // Отрисовка, **************объекта в state ещё нету**************
-                ...state,   // Срабатывает только для отрисовки value?
-                newMagnetUrl: action.newMagnet // ЭТО РАБОТАЕТ!
-
-                // Допиши Пуш:  для закидывания файла в state и псоледующим взаимодействием.
-                // Ведь то, что сейчас есть, это копирование стэйта для отрисовки value.
-                // Поэтому в state ещё нету данных. Ты не запушил их туда!
-                //........
+                ...state,
+                newMagnetUrl: action.newMagnet
             };
        
 
@@ -72,13 +51,13 @@ const downloadPageReducer = (state = initialState, action) => {
 /*===================================================================================*/
                         // callback -> Отправка на сервер magnetUrl
 
-export const postMagnet = (sendMagnet) => {
+export const postMagnet = (magnet) => {
     return dispatch => {
         dispatch(postMagnetStarted());
 
         Axios
-            .post('/magnet', {
-                sendMagnet,                
+            .post('http://localhost:3000/magnet', {
+                magnet: magnet,                
             })
             .then(res => {
                 dispatch(postMagnetSuccess(res.data));
@@ -118,9 +97,13 @@ export const postFile = (sendFile) => {
     return dispatch => {
         dispatch(postFileStarted());
                         
+
+        let formData = new FormData()
+        formData.append('torrent', sendFile);
+
         Axios
-            .post('/torrent', {
-                sendFile,                
+            .post('http://localhost:3000/torrent', {
+                formData,                
             })
             .then(res => {
                 dispatch(postFileSuccess(res.data));

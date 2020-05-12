@@ -53,12 +53,13 @@ render() {  // render сверху!
 
 
 // РАБОЧАЯ ПРОВЕРКА СОСТОЯНИЯ   
-this.onTest = (sendMagnet) => {
-    console.log(this.props.sendMagnet);
-    //alert(this.sendMagnet);
+/* this.onTest = (sendMagnet) => {
+    console.log(this.props.sendMagnet)
+    alert(this.sendMagnet);
     console.log(this.props.propsFile); // Файл приходит!
-}
+} */
 
+//<input value="test" type="submit" onClick={this.onTest}/>
 
 
         return (
@@ -67,11 +68,11 @@ this.onTest = (sendMagnet) => {
                 <div>
                     <form id="sendFile" onSubmit={this.onFileSend}>
                         <input type="file" name="torrent" id="TestId" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile}/>
+                        <button type="button" onClick={this.onSendFile} >SendFile</button>
+                        <br/>
                         <input type="text" name="magnet" ref={this.newMagnetElement} onChange={this.onMagnetChange} value={this.props.propsMagnet} />
-                        <input type="submit" value="SendMagnet" onClick={this.onSendForm} ></input>
-                        <input type="submit" value="SendFile" onClick={this.onSendFile} ></input>
+                        <button type="button" onClick={this.onSendForm} >SendMagnet</button>
                     </form>
-                    <input value="test" type="submit" onClick={this.onTest}/>
                 </div>
             </div>
         </div>
