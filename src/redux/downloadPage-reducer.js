@@ -77,7 +77,7 @@ export const postMagnet = (sendMagnet) => {
         dispatch(postMagnetStarted());
 
         Axios
-            .post('https://github.com/Voters25/React_Study', {
+            .post('/magnet', {
                 sendMagnet,                
             })
             .then(res => {
@@ -119,7 +119,7 @@ export const postFile = (sendFile) => {
         dispatch(postFileStarted());
                         
         Axios
-            .post('https://github.com/Voters25/React_Study', {
+            .post('/torrent', {
                 sendFile,                
             })
             .then(res => {
