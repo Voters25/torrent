@@ -55,7 +55,7 @@ render() {  // render сверху!
 // РАБОЧАЯ ПРОВЕРКА СОСТОЯНИЯ   
 this.onTest = (sendMagnet) => {
     console.log(this.props.sendMagnet);
-    alert(this.sendMagnet);
+    //alert(this.sendMagnet);
     console.log(this.props.propsFile); // Файл приходит!
 }
 
