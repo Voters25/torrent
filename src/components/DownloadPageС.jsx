@@ -1,5 +1,5 @@
 import React from 'react';
-
+import classes from './DownloadPageC.module.css';
 
 
 class DownloadPageC extends React.Component {
@@ -68,10 +68,10 @@ render() {  // render сверху!
                 <div>
                     <form id="sendFile" onSubmit={this.onFileSend}>
                         <input type="file" name="torrent" id="TestId" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile}/>
-                        <button type="button" onClick={this.onSendFile} >SendFile</button>
+                        <button className={classes.sendFileButton} type="button" onClick={this.onSendFile} >SendFile</button>
                         <br/>
                         <input type="text" name="magnet" ref={this.newMagnetElement} onChange={this.onMagnetChange} value={this.props.propsMagnet} />
-                        <button type="button" onClick={this.onSendForm} >SendMagnet</button>
+                        <button className={classes.sendMagnetButton} type="button" onClick={this.onSendForm} >SendMagnet</button>
                     </form>
                 </div>
             </div>

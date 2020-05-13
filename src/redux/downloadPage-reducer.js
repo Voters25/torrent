@@ -107,9 +107,11 @@ export const postFile = (sendFile) => {
             })
             .then(res => {
                 dispatch(postFileSuccess(res.data));
+                console.log(res);
             })
             .catch(err => {
                 dispatch(postFileFailure(err.message));
+                console.log(err);
             });
     };
 };
