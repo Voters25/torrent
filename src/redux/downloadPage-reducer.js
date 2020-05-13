@@ -4,6 +4,8 @@ import Axios from "axios";
 const UPDATE_NEW_MAGNET = 'UPDATE-NEW-MAGNET';
 const UPDATE_NEW_FILE = 'UPDATE-NEW-FILE';
 
+const CHECK_NEW_FILE = 'CHECK-NEW-FILE';
+
 const POST_STARTED = 'POST-STARTED';
 const POST_SUCCESS = 'POST-SUCCESS';
 const POST_FAILURE = 'POST-FAILURE';
@@ -60,9 +62,11 @@ export const postMagnet = (magnet) => {
             })
             .then(res => {
                 dispatch(postMagnetSuccess(res.data));
+                console.log(res);
             })
             .catch(err => {
                 dispatch(postMagnetFailure(err.message));
+                console.log(err);
             });
     };
 };
@@ -134,6 +138,7 @@ const postFileFailure = error => ({
     }
 }); 
 
+
 /*===================================================================================*/
 
 
@@ -156,6 +161,13 @@ export let updateNewFileAC = (file) => {
     }
 }
 
+
+export let checkNewFileAC = () => {
+    return {
+        type: 'CHECK-NEW-FILE',
+        //newFile: file
+    }
+}
 
 
 

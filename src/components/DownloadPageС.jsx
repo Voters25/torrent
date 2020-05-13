@@ -60,12 +60,11 @@ render() {  // render сверху!
 
 
 // РАБОЧАЯ ПРОВЕРКА СОСТОЯНИЯ   
-this.onTest = () => {
+/* this.onTest = () => {
     console.log('Magnet URL:' + this.props.propsMagnet)
     //alert(this.sendMagnet);
     console.log(this.props.propsFile); // Файл приходит!
-}
-
+} */
 //<input value="test" type="submit" onClick={this.onTest}/>
 
 
