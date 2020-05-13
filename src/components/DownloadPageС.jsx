@@ -11,9 +11,16 @@ class DownloadPageC extends React.Component {
     
 }
 */
-
 render() {  // render сверху!
 
+
+    /* this.checkFileMIME = () => {
+        if (file.type == 'application/x-bittorrent') {
+            alert('correct');
+        } else {
+            alert('incorrect');
+        }
+    } */
 
 
 
@@ -34,7 +41,7 @@ render() {  // render сверху!
         /*--------------------------------------------------------------*/
         //console.log(file.name); // Тест, имя объекта
         console.log('Массив:' + this.props.propsFile); // Чек данных для value (Только отрисовка)
-        console.log('Файл:' + this.props.propsFiles); // Чек данных для value (Только отрисовка)
+        console.log('props' + this.props);
     }
 
 
@@ -53,11 +60,11 @@ render() {  // render сверху!
 
 
 // РАБОЧАЯ ПРОВЕРКА СОСТОЯНИЯ   
-/* this.onTest = (sendMagnet) => {
-    console.log(this.props.sendMagnet)
-    alert(this.sendMagnet);
+this.onTest = () => {
+    console.log('Magnet URL:' + this.props.propsMagnet)
+    //alert(this.sendMagnet);
     console.log(this.props.propsFile); // Файл приходит!
-} */
+}
 
 //<input value="test" type="submit" onClick={this.onTest}/>
 
@@ -67,12 +74,13 @@ render() {  // render сверху!
             <div className='input-file'>
                 <div>
                     <form id="sendFile" onSubmit={this.onFileSend}>
-                        <input type="file" name="torrent" id="TestId" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile}/>
+                        <input type="file" name="torrent" id="TestId" accept="application/x-bittorrent" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile}/>
                         <button className={classes.sendFileButton} type="button" onClick={this.onSendFile} >SendFile</button>
                         <br/>
                         <input type="text" name="magnet" ref={this.newMagnetElement} onChange={this.onMagnetChange} value={this.props.propsMagnet} />
                         <button className={classes.sendMagnetButton} type="button" onClick={this.onSendForm} >SendMagnet</button>
                     </form>
+                    <input value="test" type="submit" onClick={this.onTest}/>
                 </div>
             </div>
         </div>

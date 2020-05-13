@@ -28,7 +28,6 @@ const downloadPageReducer = (state = initialState, action) => {
 
     switch(action.type) {
         case UPDATE_NEW_FILE:
-            
             return {
                 ...state,
                 newTorrentFile: action.newFile
