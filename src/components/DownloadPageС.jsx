@@ -35,13 +35,21 @@ render() {  // render сверху!
     // Ссылка на 'file'
     this.newFileElement = React.createRef();
 
-    this.onFileChange = () => {
+    /* this.onFileChange = () => {
         let file = this.newFileElement.current.files[0];
         this.props.updateNewFileValue(file); // КОлбэк (передаёт file)
-        /*--------------------------------------------------------------*/
-        //console.log(file.name); // Тест, имя объекта
-        console.log('Массив:' + this.props.propsFile); // Чек данных для value (Только отрисовка)
-        console.log('props' + this.props);
+    } */
+
+    this.onFileChange = () => {
+        let file = this.newFileElement.current.files[0];
+
+        if (file.type === 'application/x-bittorrent') {
+            alert('correct');
+            this.props.updateNewFileValue(file);
+        } else {
+            alert('incorrect');
+            // Вызови зануление в newTorrentFile в reducer
+        }
     }
 
 
@@ -60,11 +68,11 @@ render() {  // render сверху!
 
 
 // РАБОЧАЯ ПРОВЕРКА СОСТОЯНИЯ   
-/* this.onTest = () => {
+this.onTest = () => {
     console.log('Magnet URL:' + this.props.propsMagnet)
     //alert(this.sendMagnet);
     console.log(this.props.propsFile); // Файл приходит!
-} */
+}
 //<input value="test" type="submit" onClick={this.onTest}/>
 
 
