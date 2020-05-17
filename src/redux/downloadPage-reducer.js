@@ -3,6 +3,7 @@ import Axios from "axios";
 
 const UPDATE_NEW_MAGNET = 'UPDATE-NEW-MAGNET';
 const UPDATE_NEW_FILE = 'UPDATE-NEW-FILE';
+const INCORRECT_FILE = 'INCORRECT-FILE';
 
 const POST_STARTED = 'POST-STARTED';
 const POST_SUCCESS = 'POST-SUCCESS';
@@ -15,11 +16,12 @@ const POST_FAILURE = 'POST-FAILURE';
 let initialState = {
     newTorrentFile: [
     ],
-    newMagnetUrl: ""
+    newMagnetUrl: "",
     /* test: [
         {test: '1'},
         {test: '2'}
     ] */
+    buttonActive: false
 }
 
 
@@ -27,17 +29,24 @@ const downloadPageReducer = (state = initialState, action) => {
 
 
     switch(action.type) {
+        case INCORRECT_FILE:
+            return {
+                ...state,
+                newTorrentFile: action.incFile,
+                buttonActive: action.button
+            };
         case UPDATE_NEW_FILE:
             return {
                 ...state,
-                newTorrentFile: action.newFile
+                newTorrentFile: action.newFile,
+                buttonActive: action.button
             };
         case UPDATE_NEW_MAGNET:
             return {
                 ...state,
                 newMagnetUrl: action.newMagnet
             };
-       
+        
 
         default:
             return state;
@@ -155,7 +164,16 @@ export let updateNewMagnetAC = (magnet) => {
 export let updateNewFileAC = (file) => {
     return {
         type: 'UPDATE-NEW-FILE',
-        newFile: file
+        newFile: file,
+        button: true
+    }
+}
+
+export let incorrectFileAC = (button) => {
+    return {
+        type: 'INCORRECT-FILE',
+        incFile: {},
+        button: button
     }
 }
 

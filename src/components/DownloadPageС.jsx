@@ -49,9 +49,10 @@ render() {  // render сверху!
         } else {
             alert('incorrect');
             // Вызови зануление в newTorrentFile в reducer
+            let button = false;
+            this.props.incorrectFileValue(button);
         }
     }
-
 
 
 //*************************************************
@@ -81,8 +82,10 @@ this.onTest = () => {
             <div className='input-file'>
                 <div>
                     <form id="sendFile" onSubmit={this.onFileSend}>
-                        <input type="file" name="torrent" id="TestId" accept="application/x-bittorrent" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile}/>
+                        <input type="file" name="torrent" id="TestId" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile}/>
+                        {this.props.buttonActive &&
                         <button className={classes.sendFileButton} type="button" onClick={this.onSendFile} >SendFile</button>
+                        }
                         <br/>
                         <input type="text" name="magnet" ref={this.newMagnetElement} onChange={this.onMagnetChange} value={this.props.propsMagnet} />
                         <button className={classes.sendMagnetButton} type="button" onClick={this.onSendForm} >SendMagnet</button>
@@ -95,5 +98,7 @@ this.onTest = () => {
     }
 }
 
+/* accept="application/x-bittorrent" */
+/* <button className={classes.sendFileButton} type="button" onClick={this.onSendFile} accept="application/x-bittorrent" >SendFile</button> */
 
 export default DownloadPageC;
