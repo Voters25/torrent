@@ -14,16 +14,6 @@ class DownloadPageC extends React.Component {
 render() {  // render сверху!
 
 
-    /* this.checkFileMIME = () => {
-        if (file.type == 'application/x-bittorrent') {
-            alert('correct');
-        } else {
-            alert('incorrect');
-        }
-    } */
-
-
-
     // Magnet 
     this.newMagnetElement = React.createRef();
     
@@ -35,10 +25,6 @@ render() {  // render сверху!
     // Ссылка на 'file'
     this.newFileElement = React.createRef();
 
-    /* this.onFileChange = () => {
-        let file = this.newFileElement.current.files[0];
-        this.props.updateNewFileValue(file); // КОлбэк (передаёт file)
-    } */
 
     this.onFileChange = () => {
         let file = this.newFileElement.current.files[0];
@@ -74,8 +60,6 @@ this.onTest = () => {
     //alert(this.sendMagnet);
     console.log(this.props.propsFile); // Файл приходит!
 }
-//<input value="test" type="submit" onClick={this.onTest}/>
-
 
         return (
         <div className=''>
@@ -84,7 +68,7 @@ this.onTest = () => {
                     <form id="sendFile" onSubmit={this.onFileSend}>
                         <input type="file" name="torrent" id="TestId" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile}/>
                         {this.props.buttonActive &&
-                        <button className={classes.sendFileButton} type="button" onClick={this.onSendFile} >SendFile</button>
+                        <button className={classes.sendFileButton} type="button" onClick={this.onSendFile} accept="application/x-bittorrent" >SendFile</button>
                         }
                         <br/>
                         <input type="text" name="magnet" ref={this.newMagnetElement} onChange={this.onMagnetChange} value={this.props.propsMagnet} />
