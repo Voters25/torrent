@@ -12,3 +12,16 @@ button {
 .sendMagnetButton {
     
 }
+
+
+.listContainer {
+  margin-top: 10px;
+}
+.torrentList {
+  width: 100%;
+  background: #13283b;
+  background: linear-gradient(to right,#244c5e, #1a2f36, #0e1d24);
+  border: 3px solid black;
+  border-radius: 10px;
+  color: white;
+}

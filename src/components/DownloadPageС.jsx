@@ -24,7 +24,16 @@ render() {  // render сверху!
     // Вывод листа
     this.torrentElements = this.props.torrentList
         .map((torrentElements) => {
-        return <p key={torrentElements.id}>{torrentElements.name}</p>
+        return (
+            <div className={classes.listContainer}>
+                <div className={classes.torrentList} key={torrentElements.id}>
+                    <p>{torrentElements.name}</p>
+                    <p>{torrentElements.id}</p>
+                    <p>{torrentElements.size}</p>
+                    <p>{torrentElements.date}</p>
+                </div>
+            </div>
+        )
         });
 
 
