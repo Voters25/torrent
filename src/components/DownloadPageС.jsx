@@ -1,17 +1,32 @@
 import React from 'react';
 import classes from './DownloadPageC.module.css';
+import TorrentList from './TorrentList/TorrentList';
 
 
 class DownloadPageC extends React.Component {
     constructor(props) {
         super(props);
     }
-/*
+
     componentDidMount() {
+        this.props.getTorrentsList();
+    }
+    /* 
+    componentDidUpdate() {
+    } */
+
     
-}
-*/
+
+
+
 render() {  // render сверху!
+
+    // Вывод листа
+    this.torrentElements = this.props.torrentList
+        .map((torrentElements) => {
+        return <p key={torrentElements.id}>{torrentElements.name}</p>
+        });
+
 
 
     // Magnet 
@@ -59,6 +74,7 @@ this.onTest = () => {
     console.log('Magnet URL:' + this.props.propsMagnet)
     //alert(this.sendMagnet);
     console.log(this.props.propsFile); // Файл приходит!
+    console.log(this.props.torrentList)
 }
 
         return (
@@ -75,6 +91,9 @@ this.onTest = () => {
                         <button className={classes.sendMagnetButton} type="button" onClick={this.onSendForm} >SendMagnet</button>
                     </form>
                     <input value="test" type="submit" onClick={this.onTest}/>
+                </div>
+                <div>
+                    {this.torrentElements}
                 </div>
             </div>
         </div>

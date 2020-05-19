@@ -2,7 +2,7 @@
 //import DownloadPage from './DownloadPage.jsx';
 import { connect } from 'react-redux';
 import DownloadPageC from './DownloadPageС.jsx';
-import {updateNewFileAC, updateNewMagnetAC, postMagnet, postFile, checkNewFileAC, incorrectFileAC} from '../redux/downloadPage-reducer';
+import {updateNewFileAC, updateNewMagnetAC, postMagnet, postFile, checkNewFileAC, incorrectFileAC, getList} from '../redux/downloadPage-reducer';
 
 
 
@@ -13,7 +13,9 @@ const mapStateToProps = (state) => {
     return {
         propsMagnet: state.downloadPage.newMagnetUrl,
         propsFile: state.downloadPage.newTorrentFile, // downloadPage - в combineReducers название state для downloadPage
-        buttonActive: state.downloadPage.buttonActive
+        buttonActive: state.downloadPage.buttonActive,
+
+        torrentList: state.downloadPage.torrentsList
         //test: state.downloadPage.test
     }
 }
@@ -21,6 +23,10 @@ const mapStateToProps = (state) => {
 // Тут колбэки
 const mapDispatchToProps = (dispatch) => {
     return {
+        getTorrentsList: () => {
+            dispatch(getList());
+        },
+
         incorrectFileValue: (button) => {
             let action = incorrectFileAC(button);
             dispatch(action);
