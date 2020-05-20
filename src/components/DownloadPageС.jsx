@@ -21,6 +21,23 @@ class DownloadPageC extends React.Component {
 
 render() {  // render сверху!
 
+    
+    function formatBytes(bytes, decimals = 2) {
+
+        if (bytes === 0) return '0 Bytes';
+    
+        const k = 1024;
+        const dm = decimals < 0 ? 0 : decimals;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+    
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    }
+    
+
+
+
     // Вывод листа
     this.torrentElements = this.props.torrentList
         .map((torrentElements) => {
@@ -29,8 +46,8 @@ render() {  // render сверху!
                 <div className={classes.torrentList} key={torrentElements.id}>
                     <p>{torrentElements.name}</p>
                     <p>{torrentElements.id}</p>
-                    <p>{torrentElements.size}</p>
-                    <p>{torrentElements.date}</p>
+                    <p>{formatBytes(torrentElements.size)}</p>
+                    <p>{new Date(torrentElements.date).toLocaleString()}</p>
                 </div>
             </div>
         )
