@@ -7,22 +7,16 @@ import classes from './Header.module.css';
 let Header = (props) => {
 
         return (
-        <div className={classes.wripper}>
-            <header>
-                <div>
-
-                <NavLink to="/" className={classes.logo} >LOGO</NavLink>
-
-                    <NavLink to="downloadPage" className={classes.navLink} >Download File</NavLink>
-                
-                
-                    <NavLink to="downloadPage" className={classes.navLink} >Download File</NavLink>
-                
-                
-                    <NavLink to="downloadPage" className={classes.navLink} >Download File</NavLink>
-                </div>
+            <header className={classes.wripper}>
+                <nav>
+                    <ul className={classes.styleUl}>
+                        <li className={classes.logo} ><NavLink to="/" className={classes.logo} >LOGO</NavLink></li>
+                        <li><NavLink to="downloadPage" className={classes.navLink} >Download File</NavLink></li>
+                        <li><NavLink to="downloadPage" className={classes.navLink} >Download File</NavLink></li>
+                        <li><NavLink to="downloadPage" className={classes.navLink} >Download File</NavLink></li>
+                    </ul>
+                </nav>
             </header>
-        </div>
         )
     }
 
