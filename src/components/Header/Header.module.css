@@ -1,0 +1,34 @@
+.wripper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+
+    /* margin: 0 auto; */
+}
+
+.logo {
+    width: 100px;
+    text-decoration: none;
+    color: #394040;
+    margin-left: 5em;
+    margin-right: 30em;
+}
+
+.navLink {
+    text-decoration: none;
+    color: #394040;
+    font-size: 120%;
+    font-weight: 700;
+    margin-left: 4em;
+}
+
+.wripper {
+    height: 66px;
+    width: 100%;
+    background: #fff;
+    /* background: linear-gradient(to top,#fff, rgb(240, 236, 236), rgb(212, 207, 207)); */
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+}

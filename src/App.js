@@ -3,11 +3,16 @@ import React from 'react';
 import './App.css';
 import DownloadPageContainer from './components/DownloadPageContainer';
 import { Route } from 'react-router-dom';
+import Header from './components/Header/Header';
 
 const App = (props) => {
   return (
     <div className="App-wripper">
-      <Route path='/' render={ () => <DownloadPageContainer /> } />
+      <div>
+        <Header />
+      </div>
+
+      <Route path='/downloadPage' render={ () => <DownloadPageContainer /> } />
     </div>
   );
 }

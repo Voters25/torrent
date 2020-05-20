@@ -38,10 +38,9 @@
 }
 
 
-.App-wripper {
-  /*background-color: #012839;*/
-  /*background: #2f2f31;*/
+.App-wripper {/* 
   background: #0f2027;
-  background: linear-gradient(to right,#2c5364, #203a43, #0f2027);
+  background: linear-gradient(to right,#2c5364, #203a43, #0f2027); */
+  background: #2a3749;
   height: 1000px;
 }

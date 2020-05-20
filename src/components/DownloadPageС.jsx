@@ -11,33 +11,21 @@ class DownloadPageC extends React.Component {
     componentDidMount() {
         this.props.getTorrentsList();
     }
-    /* 
-    componentDidUpdate() {
-    } */
 
     
-
-
-
 render() {  // render сверху!
 
-    
-    function formatBytes(bytes, decimals = 2) {
 
+    // bytes -> mb
+    function formatBytes(bytes, decimals = 2) {
         if (bytes === 0) return '0 Bytes';
-    
         const k = 1024;
         const dm = decimals < 0 ? 0 : decimals;
         const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-    
         const i = Math.floor(Math.log(bytes) / Math.log(k));
-    
         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
     }
     
-
-
-
     // Вывод листа
     this.torrentElements = this.props.torrentList
         .map((torrentElements) => {
@@ -63,9 +51,9 @@ render() {  // render сверху!
         this.props.updateNewMagnetValue(magnet);
     }
 
+
     // Ссылка на 'file'
     this.newFileElement = React.createRef();
-
 
     this.onFileChange = () => {
         let file = this.newFileElement.current.files[0];
@@ -98,8 +86,7 @@ render() {  // render сверху!
 // РАБОЧАЯ ПРОВЕРКА СОСТОЯНИЯ   
 this.onTest = () => {
     console.log('Magnet URL:' + this.props.propsMagnet)
-    //alert(this.sendMagnet);
-    console.log(this.props.propsFile); // Файл приходит!
+    console.log(this.props.propsFile);
     console.log(this.props.torrentList)
 }
 
