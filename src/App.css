@@ -42,6 +42,23 @@
   background: #0f2027;
   background: linear-gradient(to right,#2c5364, #203a43, #0f2027); */
   background: #2a3749;
-  height: 1000px;
+  height: 1200px;
   width: 100%;
+  margin: 0px auto;
+}
+
+@media (max-width:1200px){
+  .Container{
+    max-width: 970px;
+  }
+}
+@media (max-width:992px){
+  .Container{
+    max-width: 750px;
+  }
+}
+@media (max-width:768px){
+  .Container{
+    max-width: none;
+  }
 }

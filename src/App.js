@@ -11,8 +11,11 @@ const App = (props) => {
       <div>
         <Header />
       </div>
+      <div className="Container">
+        
 
-      <Route path='/downloadPage' render={ () => <DownloadPageContainer /> } />
+        <Route path='/downloadPage' render={ () => <DownloadPageContainer /> } />
+      </div>
     </div>
   );
 }
