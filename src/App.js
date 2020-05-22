@@ -8,13 +8,13 @@ import Header from './components/Header/Header';
 const App = (props) => {
   return (
     <div className="App-wripper">
-      <div>
+      <div className="Header">
         <Header />
       </div>
       <div className="Container">
-        
-
-        <Route path='/downloadPage' render={ () => <DownloadPageContainer /> } />
+        <div className="Content">
+          <Route path='/downloadPage' render={ () => <DownloadPageContainer /> } />
+        </div>
       </div>
     </div>
   );

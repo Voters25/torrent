@@ -47,18 +47,33 @@
   margin: 0px auto;
 }
 
+.Header {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.Container {  
+  display: flex;
+  justify-content: center;
+  max-width: 1920px;
+}
+
+.Content {
+  width: 100%;
+}
+
 @media (max-width:1200px){
-  .Container{
+  .Content{
     max-width: 970px;
   }
 }
 @media (max-width:992px){
-  .Container{
+  .Content{
     max-width: 750px;
   }
 }
-@media (max-width:768px){
-  .Container{
+@media (max-width:768px){     /* тут лучше уже всё по вертикали или бургер меню */
+  .Content{
     max-width: none;
   }
 }

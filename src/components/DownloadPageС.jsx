@@ -91,9 +91,9 @@ this.onTest = () => {
 }
 
         return (
-        <div className=''>
-            <div className='input-file'>
-                <div>
+        <div className={classes.DownloadPageContainer}>
+            <div className={classes.filePage}>
+                <div className={classes.form}>
                     <form id="sendFile" onSubmit={this.onFileSend}>
                         <input type="file" name="torrent" id="TestId" accept="application/x-bittorrent" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile}/>
                         {this.props.buttonActive &&
