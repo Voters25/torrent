@@ -17,21 +17,21 @@ render() {  // render сверху!
 
 
     // bytes -> mb
-    function formatBytes(bytes, decimals = 2) {
+    /* function formatBytes(bytes, decimals = 2) {
         if (bytes === 0) return '0 Bytes';
         const k = 1024;
         const dm = decimals < 0 ? 0 : decimals;
         const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
         const i = Math.floor(Math.log(bytes) / Math.log(k));
         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
-    }
+    } */
     
     // Вывод листа
-    this.torrentElements = this.props.torrentList
+    /* this.torrentElements = this.props.torrentList
         .map((torrentElements) => {
         return (
-            <div className={classes.listContainer}>
-                <div className={classes.torrentList} key={torrentElements.id}>
+            <div className={classes.listContainer} key={torrentElements.id}>
+                <div className={classes.torrentList} >
                     <p>{torrentElements.name}</p>
                     <p>{torrentElements.id}</p>
                     <p>{formatBytes(torrentElements.size)}</p>
@@ -39,7 +39,12 @@ render() {  // render сверху!
                 </div>
             </div>
         )
-        });
+        }); */
+
+        // Вывод листа
+    this.torrentElements = this.props.torrentList
+    .map((elements => <TorrentList key={elements.id} name={elements.name} id={elements.id} size={elements.size} date={elements.date} /> ));
+
 
 
 
