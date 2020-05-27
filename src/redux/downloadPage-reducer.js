@@ -27,7 +27,8 @@ let initialState = {
         {test: '1'},
         {test: '2'}
     ] */
-    buttonActive: false
+    buttonActive: false,
+    redirectToDownloadProgress: false
 }
 
 
@@ -74,7 +75,7 @@ export const postMagnet = (magnet) => {
             .then(res => {
                 dispatch(postMagnetSuccess(res.data));
                 console.log(res);
-                // Передать true
+                // Переадресация (менять состояние redirectToDownloadProgress на true)
             })
             .catch(err => {
                 dispatch(postMagnetFailure(err.message));
@@ -123,7 +124,7 @@ export const postFile = (sendFile) => {
             .then(res => {
                 dispatch(postFileSuccess(res.data));
                 console.log(res);
-                // Передать true
+                // Переадресация (менять состояние redirectToDownloadProgress на true)
             })
             .catch(err => {
                 dispatch(postFileFailure(err.message));

@@ -6,7 +6,7 @@ import { Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import ListContainer from './components/List/ListContainer';
 import DownloadPogress from './components/DownloadProgress/DownloadPogress';
-import { initialStatus } from './redux/downloadPage-reducer';
+
 
 const App = (props) => {
 

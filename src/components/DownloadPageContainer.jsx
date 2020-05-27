@@ -15,6 +15,7 @@ const mapStateToProps = (state) => {
         propsFile: state.downloadPage.newTorrentFile, // downloadPage - в combineReducers название state для downloadPage
         buttonActive: state.downloadPage.buttonActive,
 
+        redirectToDownloadProgress: state.downloadPage.redirectToDownloadProgress
         //test: state.downloadPage.test
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './DownloadPageC.module.css';
-import TorrentList from './TorrentList/TorrentList';
+import { Redirect } from 'react-router-dom';
 
 
 class DownloadPageC extends React.Component {
@@ -60,8 +60,50 @@ render() {
 this.onTest = () => {
     console.log('Magnet URL:' + this.props.propsMagnet)
     console.log(this.props.propsFile);
-    console.log(this.props.torrentList)
 }
+
+
+
+this.postForm = () => {
+    return (
+        <div className={classes.filePage}>
+            <div className={classes.form}>
+                <form id="sendFile" onSubmit={this.onFileSend}>
+                    <input type="file" name="torrent" id="TestId" accept="application/x-bittorrent" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile} />
+                    {this.props.buttonActive &&
+                        <button className={classes.sendFileButton} type="button" onClick={this.onSendFile} >SendFile</button>
+                    }
+                    <br />
+                    <input type="text" name="magnet" ref={this.newMagnetElement} onChange={this.onMagnetChange} value={this.props.propsMagnet} />
+                    <button className={classes.sendMagnetButton} type="button" onClick={this.onSendForm} >SendMagnet</button>
+                </form>
+                <input value="test" type="submit" onClick={this.onTest} />
+            </div>
+        </div>
+    )
+}
+
+
+
+
+
+    return (
+        <div className={classes.DownloadPageContainer}>
+            {this.props.redirectToDownloadProgress == false ?
+                this.postForm()
+                :
+                <Redirect to='/downloadProgress' />
+            }
+        </div>
+
+    )
+    }
+}
+
+export default DownloadPageC;
+
+
+
 
 
 
@@ -71,29 +113,3 @@ this.onTest = () => {
     window.location.href = res;
     
 } */
-
-
-        return (
-        <div className={classes.DownloadPageContainer}>
-            <div className={classes.filePage}>
-                <div className={classes.form}>
-                    <form id="sendFile" onSubmit={this.onFileSend}>
-                        <input type="file" name="torrent" id="TestId" accept="application/x-bittorrent" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile}/>
-                        {this.props.buttonActive &&
-                        <button className={classes.sendFileButton} type="button" onClick={this.onSendFile} >SendFile</button>
-                        }
-                        <br/>
-                        <input type="text" name="magnet" ref={this.newMagnetElement} onChange={this.onMagnetChange} value={this.props.propsMagnet} />
-                        <button className={classes.sendMagnetButton} type="button" onClick={this.onSendForm} >SendMagnet</button>
-                    </form>
-                    <input value="test" type="submit" onClick={this.onTest}/>
-                </div>
-            </div>
-        </div>
-        
-        )
-    }
-}
-
-
-export default DownloadPageC;
