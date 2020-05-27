@@ -5,8 +5,12 @@ import DownloadPageContainer from './components/DownloadPageContainer';
 import { Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import ListContainer from './components/List/ListContainer';
+import DownloadPogress from './components/DownloadProgress/DownloadPogress';
+import { initialStatus } from './redux/downloadPage-reducer';
 
 const App = (props) => {
+
+
   return (
     <div className="App-wripper">
       <div className="Header">
@@ -14,8 +18,9 @@ const App = (props) => {
       </div>
       <div className="Container">
         <div className="Content">
-          <Route path='/downloadPage' render={ () => <DownloadPageContainer /> } />
-          <Route path='/list' render={ () => <ListContainer /> } />
+          <Route path='/downloadPage' component={DownloadPageContainer} />
+          <Route path='/list' component={ListContainer} />
+          <Route path='/downloadProgress' component={DownloadPogress} />
         </div>
       </div>
     </div>

@@ -17,6 +17,7 @@ const POST_FAILURE = 'POST-FAILURE';
 
 
 
+
 let initialState = {
     torrentsList: [],
     newTorrentFile: [
@@ -73,6 +74,7 @@ export const postMagnet = (magnet) => {
             .then(res => {
                 dispatch(postMagnetSuccess(res.data));
                 console.log(res);
+                // Передать true
             })
             .catch(err => {
                 dispatch(postMagnetFailure(err.message));
@@ -121,6 +123,7 @@ export const postFile = (sendFile) => {
             .then(res => {
                 dispatch(postFileSuccess(res.data));
                 console.log(res);
+                // Передать true
             })
             .catch(err => {
                 dispatch(postFileFailure(err.message));
@@ -153,16 +156,6 @@ const postFileFailure = error => ({
 
 
 
-
-let pushListInState = (res) => {
-    return {
-        type: 'PUSH-LIST-INSTATE',
-        newList: res.data
-    }
-}
-
-
-
 export let updateNewMagnetAC = (magnet) => {
     return {
         type: 'UPDATE-NEW-MAGNET',
@@ -185,6 +178,8 @@ export let incorrectFileAC = (button) => {
         button: button
     }
 }
+
+
 
 
 export default downloadPageReducer;

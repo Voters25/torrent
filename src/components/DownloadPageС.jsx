@@ -63,6 +63,16 @@ this.onTest = () => {
     console.log(this.props.torrentList)
 }
 
+
+
+/* this.urlTest = () => {
+    let oldHREF = window.location.href;
+    const res = oldHREF.replace('downloadPage', 'downloadProgress');
+    window.location.href = res;
+    
+} */
+
+
         return (
         <div className={classes.DownloadPageContainer}>
             <div className={classes.filePage}>
@@ -80,6 +90,7 @@ this.onTest = () => {
                 </div>
             </div>
         </div>
+        
         )
     }
 }
