@@ -9,8 +9,6 @@ const INCORRECT_FILE = 'INCORRECT-FILE';
 const GET_STARTED = 'GET-STARTED';
 const GET_SUCCESS = 'GET-SUCCESS';
 const GET_FAILURE = 'GET-FAILURE';
-const PUSH_LIST_INSTATE = 'PUSH-LIST-INSTATE';
-
 const POST_STARTED = 'POST-STARTED';
 const POST_SUCCESS = 'POST-SUCCESS';
 const POST_FAILURE = 'POST-FAILURE';
@@ -36,17 +34,6 @@ const downloadPageReducer = (state = initialState, action) => {
 
 
     switch(action.type) {
-        case PUSH_LIST_INSTATE:
-            /* let torrentList = {
-                id: this.newList.id,
-                name: this.newList.name,
-                size: this.newList.size,
-                date: this.newList.date
-            }; */
-            return {
-                ...state,
-                torrentsList: action.newList
-            };
         case INCORRECT_FILE:
             return {
                 ...state,
@@ -71,53 +58,6 @@ const downloadPageReducer = (state = initialState, action) => {
     }
     
 }
-
-
-
-/*===================================================================================*/
-                        // Get list
-
-export const getList = () => {
-    return dispatch => {
-        dispatch(getListStarted());
-
-        Axios
-            .get('https://my-json-server.typicode.com/Voters25/TorrentsTestList/torrents')
-            .then(res => {
-                dispatch(getSuccess(res.data))
-                console.log(res);
-                dispatch(pushListInState(res))
-            })
-            .catch(err => {
-                dispatch(getFailure(err.message))
-                console.log(err);
-            })
-
-    }
-}
-
-const getListStarted = () => ({
-    type: GET_STARTED
-});
-
-const getSuccess = () => ({
-    type: GET_SUCCESS,
-    /* payload: {
-
-    } */
-});
-
-const getFailure = error => ({
-    type: GET_FAILURE,
-    payload: {
-        error
-    }
-});
-
-
-/*===================================================================================*/
-
-
 
 /*===================================================================================*/
                         // callback -> Отправка на сервер magnetUrl

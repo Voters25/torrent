@@ -8,20 +8,12 @@ class DownloadPageC extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
-        this.props.getTorrentsList();
-    }
+    /* componentDidMount() {
+        
+    } */
 
     
-render() {  // render сверху!
-
-
-
-    // Вывод листа
-    this.torrentElements = this.props.torrentList
-    .map((elements => <TorrentList key={elements.id} name={elements.name} id={elements.id} size={elements.size} date={elements.date} /> ));
-
-
+render() {
 
 
     // Magnet 
@@ -85,9 +77,6 @@ this.onTest = () => {
                         <button className={classes.sendMagnetButton} type="button" onClick={this.onSendForm} >SendMagnet</button>
                     </form>
                     <input value="test" type="submit" onClick={this.onTest}/>
-                </div>
-                <div>
-                    {this.torrentElements}
                 </div>
             </div>
         </div>
