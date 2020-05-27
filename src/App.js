@@ -4,6 +4,7 @@ import './App.css';
 import DownloadPageContainer from './components/DownloadPageContainer';
 import { Route } from 'react-router-dom';
 import Header from './components/Header/Header';
+import ListContainer from './components/List/ListContainer';
 
 const App = (props) => {
   return (
@@ -14,12 +15,12 @@ const App = (props) => {
       <div className="Container">
         <div className="Content">
           <Route path='/downloadPage' render={ () => <DownloadPageContainer /> } />
+          <Route path='/list' render={ () => <ListContainer /> } />
         </div>
       </div>
     </div>
   );
 }
-
 
 
 

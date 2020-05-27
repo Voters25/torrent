@@ -1,0 +1,39 @@
+/* .filePage {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+} */
+.form {
+  width: 100%;
+}
+
+
+.sendFileButton {
+    background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+button { 
+
+}
+.sendMagnetButton {
+    
+}
+
+
+.listContainer {
+  margin-top: 10px;
+  max-width: 99%;
+}
+.torrentList {
+  width: 100%;
+
+  background: #13283b;
+  background: linear-gradient(to right,#244c5e, #1a2f36, #0e1d24);
+  border: 3px solid black;
+  border-radius: 10px;
+  color: white;
+}
