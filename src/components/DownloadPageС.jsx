@@ -1,11 +1,12 @@
 import React from 'react';
 import classes from './DownloadPageC.module.css';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 
 
 class DownloadPageC extends React.Component {
     constructor(props) {
         super(props);
+        //this.localState = {redirectToDownloadProgress: false}
     }
 
     /* componentDidMount() {
@@ -84,21 +85,50 @@ this.postForm = () => {
 }
 
 
-
-
-
     return (
         <div className={classes.DownloadPageContainer}>
             {this.props.redirectToDownloadProgress == false ?
                 this.postForm()
                 :
                 <Redirect to='/downloadProgress' />
+                //console.log('sry')
+                //this.redirect()
+                //this.props.history.push('/downloadProgress')
             }
         </div>
 
     )
     }
 }
+
+
+
+
+/*
+<div className={classes.DownloadPageContainer}>
+            {this.localState.redirectToDownloadProgress == false ?
+                this.postForm()
+                :
+                <Redirect to='/downloadProgress' />
+                //this.redirect()
+                //this.props.history.push('/downloadProgress')
+            }
+        </div>
+*/
+
+
+/* <div className={classes.DownloadPageContainer}>
+            {this.props.redirectToDownloadProgress == false ?
+                this.postForm()
+                :
+                <Redirect to='/downloadProgress' />
+                //this.redirect()
+                //this.props.history.push('/downloadProgress')
+            }
+        </div>
+ */
+
+
 
 export default DownloadPageC;
 

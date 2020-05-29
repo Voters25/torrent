@@ -2,7 +2,7 @@
 //import DownloadPage from './DownloadPage.jsx';
 import { connect } from 'react-redux';
 import DownloadPageC from './DownloadPageС.jsx';
-import {updateNewFileAC, updateNewMagnetAC, postMagnet, postFile, checkNewFileAC, incorrectFileAC, getList} from '../redux/downloadPage-reducer';
+import {updateNewFileAC, updateNewMagnetAC, postMagnet, postFile, incorrectFileAC,} from '../redux/downloadPage-reducer';
 
 
 
@@ -44,7 +44,6 @@ const mapDispatchToProps = (dispatch) => {
         sendFormFile: (sendFile) => { // Send file
             dispatch(postFile(sendFile))
         }
-
 
         }
     }

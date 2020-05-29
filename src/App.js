@@ -2,14 +2,14 @@ import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import DownloadPageContainer from './components/DownloadPageContainer';
-import { Route } from 'react-router-dom';
+import { Route, StaticRouter, Link } from 'react-router-dom';
 import Header from './components/Header/Header';
 import ListContainer from './components/List/ListContainer';
 import DownloadPogress from './components/DownloadProgress/DownloadPogress';
 
 
-const App = (props) => {
 
+const App = (store) => {
 
   return (
     <div className="App-wripper">
@@ -26,7 +26,6 @@ const App = (props) => {
     </div>
   );
 }
-
 
 
 export default App;

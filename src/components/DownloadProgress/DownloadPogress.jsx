@@ -7,7 +7,7 @@ const DownloadPogress = (props) => {
 
     return (
         <div>
-             
+            <p>downloadProgress</p>
         </div>
     )
 }

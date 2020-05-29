@@ -16,9 +16,6 @@ const POST_FAILURE = 'POST-FAILURE';
 const CALL_FORWARDING = 'CALL-FORWARDING';
 
 
-
-
-
 let initialState = {
     torrentsList: [],
     newTorrentFile: [
@@ -57,7 +54,7 @@ const downloadPageReducer = (state = initialState, action) => {
         case CALL_FORWARDING:
             return {
                 ...state,
-                redirectToDownloadProgress: action.redirectToDownloadProgress
+                redirectToDownloadProgress: action.redirect
             };
 
         default:
@@ -86,6 +83,8 @@ export const postMagnet = (magnet) => {
             .catch(err => {
                 dispatch(postMagnetFailure(err.message));
                 console.log(err);
+                //dispatch(callForwardingAC()); // тестовая, пока серва нету *****************************
+                
             });
     };
 };
@@ -187,12 +186,13 @@ export let incorrectFileAC = (button) => {
     }
 }
 
-export let callForwardingAC = () => {
+const callForwardingAC = () => {
     return {
         type: 'CALL-FORWARDING',
-        redirectToDownloadProgress: true
+        redirect: true
     }
 }
+
 
 
 
