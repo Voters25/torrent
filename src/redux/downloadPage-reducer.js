@@ -13,6 +13,7 @@ const POST_STARTED = 'POST-STARTED';
 const POST_SUCCESS = 'POST-SUCCESS';
 const POST_FAILURE = 'POST-FAILURE';
 
+const CALL_FORWARDING = 'CALL-FORWARDING';
 
 
 
@@ -53,7 +54,11 @@ const downloadPageReducer = (state = initialState, action) => {
                 ...state,
                 newMagnetUrl: action.newMagnet
             };
-        
+        case CALL_FORWARDING:
+            return {
+                ...state,
+                redirectToDownloadProgress: action.redirectToDownloadProgress
+            };
 
         default:
             return state;
@@ -76,6 +81,7 @@ export const postMagnet = (magnet) => {
                 dispatch(postMagnetSuccess(res.data));
                 console.log(res);
                 // Переадресация (менять состояние redirectToDownloadProgress на true)
+                dispatch(callForwardingAC());
             })
             .catch(err => {
                 dispatch(postMagnetFailure(err.message));
@@ -125,6 +131,7 @@ export const postFile = (sendFile) => {
                 dispatch(postFileSuccess(res.data));
                 console.log(res);
                 // Переадресация (менять состояние redirectToDownloadProgress на true)
+                dispatch(callForwardingAC());
             })
             .catch(err => {
                 dispatch(postFileFailure(err.message));
@@ -177,6 +184,13 @@ export let incorrectFileAC = (button) => {
         type: 'INCORRECT-FILE',
         incFile: {},
         button: button
+    }
+}
+
+export let callForwardingAC = () => {
+    return {
+        type: 'CALL-FORWARDING',
+        redirectToDownloadProgress: true
     }
 }
 
