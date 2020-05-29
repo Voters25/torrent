@@ -65,7 +65,8 @@ this.onTest = () => {
 
 
 
-this.postForm = () => {
+
+
     return (
         <div className={classes.filePage}>
             <div className={classes.form}>
@@ -82,51 +83,9 @@ this.postForm = () => {
             </div>
         </div>
     )
-}
-
-
-    return (
-        <div className={classes.DownloadPageContainer}>
-            {this.props.redirectToDownloadProgress == false ?
-                this.postForm()
-                :
-                <Redirect to='/downloadProgress' />
-                //console.log('sry')
-                //this.redirect()
-                //this.props.history.push('/downloadProgress')
-            }
-        </div>
-
-    )
     }
 }
 
-
-
-
-/*
-<div className={classes.DownloadPageContainer}>
-            {this.localState.redirectToDownloadProgress == false ?
-                this.postForm()
-                :
-                <Redirect to='/downloadProgress' />
-                //this.redirect()
-                //this.props.history.push('/downloadProgress')
-            }
-        </div>
-*/
-
-
-/* <div className={classes.DownloadPageContainer}>
-            {this.props.redirectToDownloadProgress == false ?
-                this.postForm()
-                :
-                <Redirect to='/downloadProgress' />
-                //this.redirect()
-                //this.props.history.push('/downloadProgress')
-            }
-        </div>
- */
 
 
 

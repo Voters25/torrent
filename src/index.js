@@ -8,17 +8,25 @@ import { Provider } from 'react-redux';
 import store from './redux/redux.js';
 
 
-/* import history from 'history';
-<BrowserRouter history={history}> */
+import history from './history';
 
 
 ReactDOM.render(
+    <Provider store={store}>
+      <Router history={history}>
+        <App />
+      </Router>
+    </Provider>, document.getElementById('root')
+);
+
+
+/* ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
       <App />
     </Provider>
   </BrowserRouter>, document.getElementById('root')
-);
+); */
 
 //
 //

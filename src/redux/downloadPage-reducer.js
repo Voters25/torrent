@@ -1,6 +1,6 @@
 import Axios from "axios";
+import history from "../history";
 //import * as axios from 'axios';
-
 
 const UPDATE_NEW_MAGNET = 'UPDATE-NEW-MAGNET';
 const UPDATE_NEW_FILE = 'UPDATE-NEW-FILE';
@@ -13,7 +13,6 @@ const POST_STARTED = 'POST-STARTED';
 const POST_SUCCESS = 'POST-SUCCESS';
 const POST_FAILURE = 'POST-FAILURE';
 
-const CALL_FORWARDING = 'CALL-FORWARDING';
 
 
 let initialState = {
@@ -51,11 +50,6 @@ const downloadPageReducer = (state = initialState, action) => {
                 ...state,
                 newMagnetUrl: action.newMagnet
             };
-        case CALL_FORWARDING:
-            return {
-                ...state,
-                redirectToDownloadProgress: action.redirect
-            };
 
         default:
             return state;
@@ -77,14 +71,14 @@ export const postMagnet = (magnet) => {
             .then(res => {
                 dispatch(postMagnetSuccess(res.data));
                 console.log(res);
-                // Переадресация (менять состояние redirectToDownloadProgress на true)
-                dispatch(callForwardingAC());
+                // Переадресация
+                history.push('/downloadProgress')
             })
             .catch(err => {
                 dispatch(postMagnetFailure(err.message));
                 console.log(err);
-                //dispatch(callForwardingAC()); // тестовая, пока серва нету *****************************
-                
+                // тестовая, пока серва нету *****************************
+                history.push('/downloadProgress') //******************************************
             });
     };
 };
@@ -129,8 +123,8 @@ export const postFile = (sendFile) => {
             .then(res => {
                 dispatch(postFileSuccess(res.data));
                 console.log(res);
-                // Переадресация (менять состояние redirectToDownloadProgress на true)
-                dispatch(callForwardingAC());
+                // Переадресация
+                history.push('/downloadProgress')
             })
             .catch(err => {
                 dispatch(postFileFailure(err.message));
@@ -186,12 +180,6 @@ export let incorrectFileAC = (button) => {
     }
 }
 
-const callForwardingAC = () => {
-    return {
-        type: 'CALL-FORWARDING',
-        redirect: true
-    }
-}
 
 
 
