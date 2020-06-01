@@ -1,9 +1,19 @@
 import React from 'react';
 
-const DownloadPogress = (props) => {
 
-    
+class DownloadPogress extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
+    componentDidMount() {
+        
+    }
+
+render() {
+
+    this.progress = this.props.progress;
+    console.log(this.progress);
 
     return (
         <div>
@@ -11,6 +21,8 @@ const DownloadPogress = (props) => {
         </div>
     )
 }
+}
+
 
 
 export default DownloadPogress;

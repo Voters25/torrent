@@ -6,6 +6,7 @@ import { Route, StaticRouter, Link } from 'react-router-dom';
 import Header from './components/Header/Header';
 import ListContainer from './components/List/ListContainer';
 import DownloadPogress from './components/DownloadProgress/DownloadPogress';
+import DownloadProgressContainer from './components/DownloadProgress/DownloadProgressContainer';
 
 
 
@@ -20,7 +21,7 @@ const App = (store) => {
         <div className="Content">
           <Route path='/downloadPage' component={DownloadPageContainer} />
           <Route path='/list' component={ListContainer} />
-          <Route path='/downloadProgress' component={DownloadPogress} />
+          <Route path='/downloadProgress' component={DownloadProgressContainer} />
         </div>
       </div>
     </div>

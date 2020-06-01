@@ -1,8 +1,9 @@
 //import React from 'react';
 //import DownloadPage from './DownloadPage.jsx';
 import { connect } from 'react-redux';
-import DownloadPageC from './List.jsx';
-import {updateNewFileAC, updateNewMagnetAC, postMagnet, postFile, checkNewFileAC, incorrectFileAC, getList} from '../../redux/list-reducer';
+import List from './List.jsx';
+import { getList } from '../../redux/list-reducer';
+
 
 
 
@@ -24,6 +25,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-const ListContainer = connect(mapStateToProps, mapDispatchToProps)(DownloadPageC);
+const ListContainer = connect(mapStateToProps, mapDispatchToProps)(List);
 
 export default ListContainer;

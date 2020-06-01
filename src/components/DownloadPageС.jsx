@@ -33,10 +33,10 @@ render() {
         let file = this.newFileElement.current.files[0];
 
         if (file.type === 'application/x-bittorrent') {
-            alert('correct');
+            //alert('correct');
             this.props.updateNewFileValue(file);
         } else {
-            alert('incorrect');
+            //alert('incorrect');
             // Вызови зануление в newTorrentFile в reducer
             let button = false;
             this.props.incorrectFileValue(button);
