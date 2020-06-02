@@ -65,7 +65,7 @@ export const postMagnet = (magnet) => {
         dispatch(postMagnetStarted());
 
         Axios
-            .post('http://localhost:3000/magnet', {
+            .post('http://localhost:80/magnet', {
                 magnet: magnet,                
             })
             .then(res => {
@@ -78,7 +78,7 @@ export const postMagnet = (magnet) => {
                 dispatch(postMagnetFailure(err.message));
                 console.log(err);
                 // тестовая, пока серва нету *****************************
-                history.push('/downloadProgress') //******************************************
+                //history.push('/downloadProgress') //******************************************
             });
     };
 };
@@ -117,7 +117,7 @@ export const postFile = (sendFile) => {
         formData.append('torrent', sendFile);
 
         Axios
-            .post('http://localhost:3000/torrent', {
+            .post('http://localhost:80/torrent', {
                 formData,                
             })
             .then(res => {

@@ -6,12 +6,18 @@ const GET_SUCCESS = 'GET-SUCCESS';
 const GET_FAILURE = 'GET-FAILURE';
 const PUSH_LIST_INSTATE = 'PUSH-LIST-INSTATE';
 
+const ADD_HASH = 'ADD-HASH';
 
-// ТУТ ВСЁ ПЕРЕЛОПАТИТЬ
+const GET_TORRENT_STATUS = 'GET-TORRENT-STATUS';
+
 
 let initialState = {
-    downloadFile: []    
+    downloadFile: [],
+    magnetInfoHash: '',
+    torrentStatus: 0
 }
+
+// В пост запросе parseTorrent(магнет) -> infoHash  перекинуть его сюда.
 
 
 const downloadProgressReducer = (state = initialState, action) => {
@@ -29,6 +35,16 @@ const downloadProgressReducer = (state = initialState, action) => {
                 ...state,
                 torrentsList: action.newList
             };
+        case ADD_HASH:
+            return {
+                ...state,
+                magnetInfoHash: action.Hash
+            };
+        case GET_TORRENT_STATUS:
+            return {
+                ...state,
+                torrentStatus: action.newStatus
+            }
         default:
             return state;
     }
@@ -39,15 +55,37 @@ const downloadProgressReducer = (state = initialState, action) => {
 /*===================================================================================*/
                             // WebSocket
 
-export const getProgress = () => {
+/* let initialSocket = () => {
+    let socket = new WebSocket(`ws://localhost?id=${this.magnetInfoHash}`);
+} */
 
-    let socket = new WebSocket("ws://localhost:3000");
+export let getProgress = () => {
+    return dispatch => {
 
-    socket.onopen = () => {
-        console.log("Socket пашет");
+        let socket = new WebSocket(`ws://localhost?id=${this.magnetInfoHash}`); // динамически подставлять айди торрента
+
+        /* socket.onopen = () => {
+            console.log("Socket пашет");
+        } */
+        socket.onmessage = (event) => {
+            //this.data = event.data;
+            dispatch(getTorrentStatus(event.data))
+        }
     }
-    socket.onmessage = (event) => {
-        //this.data = event.data;
+}
+
+
+export let addHash = (addHash) => {
+    return {
+        type: 'ADD-HASH',
+        Hash: addHash
+    }
+}
+
+let getTorrentStatus = (data) => {
+    return {
+        type: 'GET-TORRENT-STATUS',
+        newStatus: data
     }
 }
 
