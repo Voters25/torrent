@@ -1,5 +1,7 @@
 import React from 'react';
 import ParseTorrent from 'parse-torrent';
+import { formatBytes } from '../../Scripts/formatBytes';
+import { formatSpeed } from '../../Scripts/FormatSpeed';
 
 
 class DownloadPogress extends React.Component {
@@ -20,13 +22,28 @@ class DownloadPogress extends React.Component {
 
 render() {
 
-    console.log(this.props.progressBar);
+    // Шкала
+    let downloadProgress = this.props.downloadProgress;
+    let downloadProgressToFixed = parseFloat(downloadProgress).toFixed(2);
+
+    // Скорость
+    let downloadSpeed = this.props.downloadSpeed;
+    downloadSpeed = formatSpeed(downloadSpeed);
+    console.log(downloadSpeed);
+
+    // Загружено
+    let downloaded = this.props.downloaded;
+    downloaded = formatBytes(downloaded);
+    console.log(downloaded);
+
 
     return (
         <div>
             <p>downloadProgress</p>
             {/*<div>{this.props.progressBar}</div>*/}
-            <p><progress value={this.props.progressBar} max='1.00'></progress></p>
+            <p><progress value={downloadProgressToFixed} max='1.00'></progress></p>
+            <p>{downloadSpeed}</p>
+            <p>{downloaded}</p>
         </div>
     )
 }
