@@ -42,8 +42,12 @@ render() {
             <p>downloadProgress</p>
             {/*<div>{this.props.progressBar}</div>*/}
             <p><progress value={downloadProgressToFixed} max='1.00'></progress></p>
-            <p>{downloadSpeed}</p>
-            <p>{downloaded}</p>
+            <p>{
+                downloadSpeed == 'NaN kbps' ? 0 : downloadSpeed
+            }</p>
+            <p>{
+                downloaded == 'NaN undefined' ? 0 : downloaded
+            }</p>
         </div>
     )
 }

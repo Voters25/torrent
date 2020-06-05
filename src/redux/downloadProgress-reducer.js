@@ -48,16 +48,11 @@ const downloadProgressReducer = (state = initialState, action) => {
 /*===================================================================================*/
                             // WebSocket
 
-/* let initialSocket = () => {
-    let socket = new WebSocket(`ws://localhost?id=${this.magnetInfoHash}`);
-} */
 
 export let getProgress = (infoHash) => {
     return dispatch => {
-
-        //let socket = new WebSocket(`ws://localhost?id=${magnetInfoHash}`); // динамически подставлять айди торрента
         
-        let socket = new WebSocket(`ws://localhost?id=${infoHash}`);
+        let socket = new WebSocket(`ws://localhost?id=${infoHash}`); // динамически подставлять айди торрента
 
         
         socket.onopen = () => {
@@ -68,6 +63,9 @@ export let getProgress = (infoHash) => {
             //JSON.parse(event.data);
             console.log(JSON.parse(event.data));
             dispatch(getTorrentStatus(JSON.parse(event.data)));
+        }
+        socket.onclose = () => {
+            console.log("Лавка сокетов прикрылась");
         }
     }
 }
@@ -80,48 +78,6 @@ let getTorrentStatus = (data) => {
         newStatus: data
     }
 }
-
-
-
-/*===================================================================================*/
-
-/* export const getProgress = () => {
-    return dispatch => {
-        dispatch(getListStarted());
-
-        Axios
-            .get('https://my-json-server.typicode.com/Voters25/TorrentsTestList/torrents')
-            .then(res => {
-                dispatch(getSuccess(res.data))
-                console.log(res);
-                dispatch(pushListInState(res))
-            })
-            .catch(err => {
-                dispatch(getFailure(err.message))
-                console.log(err);
-            })
-
-    }
-}
-
-const getListStarted = () => ({
-    type: GET_STARTED
-});
-
-const getSuccess = () => ({
-    type: GET_SUCCESS,
-});
-
-const getFailure = error => ({
-    type: GET_FAILURE,
-    payload: {
-        error
-    }
-});
- */
-
-/*===================================================================================*/
-
 
 
 let pushListInState = (res) => {

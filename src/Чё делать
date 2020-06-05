@@ -11,10 +11,12 @@
 )
 
 
-
-
 В прогресс приходит:
 id
 downloaded
 downloadSpeed
 progress
+
+
+NaN kbps
+NaN undefined
