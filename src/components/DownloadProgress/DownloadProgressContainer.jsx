@@ -11,12 +11,13 @@ import { getProgress, addHash } from '../../redux/downloadProgress-reducer.js';
 const mapStateToProps = (state) => {
     return {
         progress: state.progressPage.downloadFile,
+        //progressBar: state.progressPage.torrentStatus.progress,
         progressBar: state.progressPage.torrentStatus,
 
         // Краду у downloadPage newMagnetUrl для парсинга
         magnetURL: state.downloadPage.newMagnetUrl,
 
-        test: state.progressPage.magnetInfoHash
+        magnetInfoHash: state.progressPage.magnetInfoHash
     }
 }
 
@@ -24,12 +25,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
 
-        addInfoHash: (infoHash) => {
-            dispatch(addHash(infoHash))
-        },
-
-        getProgressAC: () => {
-            dispatch(getProgress())
+        getProgressAC: (magnetInfoHash) => {
+            dispatch(getProgress(magnetInfoHash))
         }
 
     }

@@ -13,20 +13,19 @@ class DownloadPogress extends React.Component {
         this.parse = ParseTorrent(this.magnetURL);
         this.infoHash = this.parse.infoHash;        // Отправь его дальше в стэйт
 
-        this.props.addInfoHash(this.infoHash);
+
+        this.props.getProgressAC(this.infoHash);
 
     }
 
 render() {
 
-    console.log('hash: ' + this.props.test);
-
-    this.progress = this.props.progress;
-    console.log(this.progress);
+    console.log(this.props.progressBar);
 
     return (
         <div>
             <p>downloadProgress</p>
+            {/*<div>{this.props.progressBar}</div>*/}
             <p><progress value={this.props.progressBar} max='1.00'></progress></p>
         </div>
     )

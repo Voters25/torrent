@@ -6,15 +6,13 @@ const GET_SUCCESS = 'GET-SUCCESS';
 const GET_FAILURE = 'GET-FAILURE';
 const PUSH_LIST_INSTATE = 'PUSH-LIST-INSTATE';
 
-const ADD_HASH = 'ADD-HASH';
 
 const GET_TORRENT_STATUS = 'GET-TORRENT-STATUS';
 
 
 let initialState = {
     downloadFile: [],
-    magnetInfoHash: '',
-    torrentStatus: 0
+    torrentStatus: []
 }
 
 // В пост запросе parseTorrent(магнет) -> infoHash  перекинуть его сюда.
@@ -35,11 +33,6 @@ const downloadProgressReducer = (state = initialState, action) => {
                 ...state,
                 torrentsList: action.newList
             };
-        case ADD_HASH:
-            return {
-                ...state,
-                magnetInfoHash: action.Hash
-            };
         case GET_TORRENT_STATUS:
             return {
                 ...state,
@@ -59,28 +52,27 @@ const downloadProgressReducer = (state = initialState, action) => {
     let socket = new WebSocket(`ws://localhost?id=${this.magnetInfoHash}`);
 } */
 
-export let getProgress = () => {
+export let getProgress = (infoHash) => {
     return dispatch => {
 
-        let socket = new WebSocket(`ws://localhost?id=${this.magnetInfoHash}`); // динамически подставлять айди торрента
+        //let socket = new WebSocket(`ws://localhost?id=${magnetInfoHash}`); // динамически подставлять айди торрента
+        
+        let socket = new WebSocket(`ws://localhost?id=${infoHash}`);
 
-        /* socket.onopen = () => {
+        
+        socket.onopen = () => {
             console.log("Socket пашет");
-        } */
+        }
         socket.onmessage = (event) => {
-            //this.data = event.data;
-            dispatch(getTorrentStatus(event.data))
+            
+            //JSON.parse(event.data);
+            console.log(JSON.parse(event.data));
+            dispatch(getTorrentStatus(JSON.parse(event.data)));
         }
     }
 }
 
 
-export let addHash = (addHash) => {
-    return {
-        type: 'ADD-HASH',
-        Hash: addHash
-    }
-}
 
 let getTorrentStatus = (data) => {
     return {

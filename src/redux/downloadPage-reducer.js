@@ -72,7 +72,7 @@ export const postMagnet = (magnet) => {
                 dispatch(postMagnetSuccess(res.data));
                 console.log(res);
                 // Переадресация
-                history.push('/downloadProgress')
+                history.push('/downloadProgress');
             })
             .catch(err => {
                 dispatch(postMagnetFailure(err.message));
