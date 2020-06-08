@@ -16,6 +16,7 @@ let Header = (props) => {
                         <li><NavLink to="downloadPage" className={classes.navLink} >Download File</NavLink></li>
                         <li><NavLink to="list" className={classes.navLink} >List</NavLink></li>
                         <li><NavLink to="downloadProgress" className={classes.navLink} >Download Progress</NavLink></li>
+                        <li><NavLink to="logPage"  className={classes.navLink} >log Page</NavLink></li>
                     </ul>
                 </nav>
             </header>

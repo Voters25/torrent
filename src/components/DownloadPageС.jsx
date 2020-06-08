@@ -26,6 +26,7 @@ render() {
     }
 
 
+    
     // Ссылка на 'file'
     this.newFileElement = React.createRef();
 
@@ -62,6 +63,7 @@ this.onTest = () => {
     console.log('Magnet URL:' + this.props.propsMagnet)
     console.log(this.props.propsFile);
 }
+
 
 
 
