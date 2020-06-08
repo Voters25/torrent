@@ -70,9 +70,7 @@ export const postMagnet = (magnet) => {
             })
             .then(res => {
                 dispatch(postMagnetSuccess(res.data));
-                console.log(res);
-                // Переадресация
-                history.push('/downloadProgress');
+                dispatch(callForwarding())
             })
             .catch(err => {
                 dispatch(postMagnetFailure(err.message));
@@ -94,6 +92,10 @@ const postMagnetSuccess = (sendMagnet) => ({
         ...sendMagnet
     }
 });
+
+const callForwarding = () => {
+    history.push('/downloadProgress');
+}
 
 const postMagnetFailure = error => ({
     type: POST_FAILURE,

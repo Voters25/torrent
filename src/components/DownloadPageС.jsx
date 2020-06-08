@@ -70,7 +70,7 @@ this.onTest = () => {
     return (
         <div className={classes.filePage}>
             <div className={classes.form}>
-                <form id="sendFile" onSubmit={this.onFileSend}>
+                <form id="sendFile" onSubmit={this.onFileSend} enctype="multipart/form-data">
                     <input type="file" name="torrent" id="TestId" accept="application/x-bittorrent" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile} />
                     {this.props.buttonActive &&
                         <button className={classes.sendFileButton} type="button" onClick={this.onSendFile} >SendFile</button>

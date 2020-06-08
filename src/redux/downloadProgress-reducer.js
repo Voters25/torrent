@@ -4,15 +4,15 @@ import Axios from "axios";
 const GET_STARTED = 'GET-STARTED';
 const GET_SUCCESS = 'GET-SUCCESS';
 const GET_FAILURE = 'GET-FAILURE';
-const PUSH_LIST_INSTATE = 'PUSH-LIST-INSTATE';
 
+const CHANGE_FILES_INFO_BUTTON_STATUS = 'CHANGE-FILES-INFO-BUTTON-STATUS';
 
 const GET_TORRENT_STATUS = 'GET-TORRENT-STATUS';
 
 
 let initialState = {
-    downloadFile: [],
-    torrentStatus: []
+    torrentStatus: [],
+    FilesInfoButton: true
 }
 
 // В пост запросе parseTorrent(магнет) -> infoHash  перекинуть его сюда.
@@ -22,21 +22,15 @@ const downloadProgressReducer = (state = initialState, action) => {
 
 
     switch(action.type) {
-        case PUSH_LIST_INSTATE:
-            /* let torrentList = {
-                id: this.newList.id,
-                name: this.newList.name,
-                size: this.newList.size,
-                date: this.newList.date
-            }; */
-            return {
-                ...state,
-                torrentsList: action.newList
-            };
         case GET_TORRENT_STATUS:
             return {
                 ...state,
                 torrentStatus: action.newStatus
+            };
+        case CHANGE_FILES_INFO_BUTTON_STATUS:
+            return {
+                ...state,
+                FilesInfoButton: action.newButtonStatus
             }
         default:
             return state;
@@ -61,7 +55,7 @@ export let getProgress = (infoHash) => {
         socket.onmessage = (event) => {
             
             //JSON.parse(event.data);
-            console.log(JSON.parse(event.data));
+            //console.log(JSON.parse(event.data));
             dispatch(getTorrentStatus(JSON.parse(event.data)));
         }
         socket.onclose = () => {
@@ -75,15 +69,14 @@ export let getProgress = (infoHash) => {
 let getTorrentStatus = (data) => {
     return {
         type: 'GET-TORRENT-STATUS',
-        newStatus: data
+        newStatus: data         // data.files
     }
 }
 
-
-let pushListInState = (res) => {
+export let ChangeFilesInfoButton = () => {
     return {
-        type: 'PUSH-LIST-INSTATE',
-        newList: res.data
+        type: 'CHANGE-FILES-INFO-BUTTON-STATUS',
+        newButtonStatus: true
     }
 }
 
