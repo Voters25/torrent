@@ -50,9 +50,9 @@ const RegistrationPageReducer = (state = initialState, action) => {
             };
         case ADD_FORM_DATA:
             let newFormData = {
-                gmail: state.gmailValue,
+                email: state.gmailValue,
                 password: state.passwordValue,
-                passwordTwo: state.passwordTwoValue
+                password2: state.passwordTwoValue
             }
             return {
                 ...state,
@@ -105,13 +105,13 @@ export const postRegFormData = (form) => {
     return dispatch => {
         dispatch(postFormDataStarted());
 
-        let formData = new FormData();
-        formData.append('registration', form);
+        //let formData = new FormData(form);
+        //formData.append('registration', form);
 
         Axios
-            .post('http://localhost:80/register', {
-                formData
-            })
+            .post('http://localhost:80/register',
+                form
+                )
             .then(res => {
                 dispatch(postFormDataSuccess(res.data));
                 //  dispatch(callForwarding())

@@ -43,7 +43,7 @@ const LogPageReducer = (state = initialState, action) => {
             };
         case ADD_FORM_DATA:
             let newFormData = {
-                gmail: state.gmailValue,
+                email: state.gmailValue,
                 password: state.passwordValue
             }
             return {
@@ -87,12 +87,12 @@ export const postFormData = (form) => {
     return dispatch => {
         dispatch(postFormDataStarted());
 
-        let formData = new FormData();
-        formData.append('registration', form);
+        /* let formData = new FormData();
+        formData.append('registration', form); */
 
         Axios
             .post('http://localhost:80/login', {
-                formData
+                body: form
             })
             .then(res => {
                 dispatch(postFormDataSuccess(res.data));
