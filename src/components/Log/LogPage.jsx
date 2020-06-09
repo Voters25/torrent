@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 
 class LogPage extends React.Component {
@@ -42,6 +43,7 @@ render() {
                     <input type="password" name="Password" ref={this.newPasswordElement} onChange={this.onPasswordChange} value={this.props.propsPassword} />
                     <button onClick={this.onSendLogInForm} type="button" >Log In</button>
                </form>
+               <NavLink to='registration' >Registration</NavLink>
            </div>
         </div>
     )

@@ -4,12 +4,14 @@ import listReducer from "./list-reducer";
 import thunk from "redux-thunk";
 import downloadProgressReducer from "./downloadProgress-reducer";
 import LogPageReducer from "./LogPage-reducer";
+import RegistrationPageReducer from "./RegistrationPage-reducer";
 
 
 
 
 let reducers = combineReducers({
     LogPage: LogPageReducer,
+    RegistrationPage: RegistrationPageReducer,
     downloadPage: downloadPageReducer,  // downloadPage передавай в props. Это *state* редьюсера (state.downloadPage)
     list: listReducer,
     progressPage: downloadProgressReducer

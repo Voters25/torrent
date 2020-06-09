@@ -8,6 +8,7 @@ import ListContainer from './components/List/ListContainer';
 import DownloadPogress from './components/DownloadProgress/DownloadPogress';
 import DownloadProgressContainer from './components/DownloadProgress/DownloadProgressContainer';
 import LogPageContainer from './components/Log/LogPageContainer';
+import RegistrationPageContainer from './components/Log/Registration/RegistrationPageContainer';
 
 
 
@@ -24,6 +25,7 @@ const App = (store) => {
           <Route path='/list' component={ListContainer} />
           <Route path='/downloadProgress' component={DownloadProgressContainer} />
           <Route path='/logPage' component={LogPageContainer} />
+          <Route path='/registration' component={RegistrationPageContainer} />
         </div>
       </div>
     </div>
