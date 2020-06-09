@@ -20,7 +20,7 @@ let initialState = {
         {gmailValue = '',
         passwordValue = ''}
     ], */
-    formData: [],
+    formData: {},
     gmailValue: '',
     passwordValue: ''
     
@@ -48,7 +48,7 @@ const LogPageReducer = (state = initialState, action) => {
             }
             return {
                 ...state,
-                formData: [...state.formData, newFormData],
+                formData: newFormData,
                 gmailValue: '',
                 passwordValue: '',
             };
