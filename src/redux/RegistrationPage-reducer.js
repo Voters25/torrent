@@ -101,13 +101,16 @@ export let addNewRegFormDataAC = () => {
 /*===================================================================================*/
                     // callback -> Отправка на сервер formData
 
-export const postRegFormData = (formData) => {
+export const postRegFormData = (form) => {
     return dispatch => {
         dispatch(postFormDataStarted());
 
+        let formData = new FormData();
+        formData.append('registration', form);
+
         Axios
-            .post('http://localhost:80/registration', {
-                formData: formData,
+            .post('http://localhost:80/register', {
+                formData
             })
             .then(res => {
                 dispatch(postFormDataSuccess(res.data));
@@ -125,10 +128,10 @@ const postFormDataStarted = () => ({
     type: POST_STARTED,
 });
 
-const postFormDataSuccess = (formData) => ({
+const postFormDataSuccess = (form) => ({
     type: POST_SUCCESS,
     payload: {
-        ...formData
+        ...form
     }
 });
 
