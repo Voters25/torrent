@@ -120,3 +120,16 @@ button:hover {
 .reg:hover {
     color: rgba(29, 211, 89, 0.5);
 }
+
+
+
+
+
+@media (max-width:768px){     /* тут лучше уже всё по вертикали или бургер меню */
+    .logInWripper {
+        height: 100%;
+    }
+    .logInForm {
+        height: 640px;
+    }
+}
