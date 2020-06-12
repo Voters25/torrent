@@ -109,7 +109,7 @@ export const postRegFormData = (form) => {
         //formData.append('registration', form);
 
         Axios
-            .post('http://localhost:80/register',
+            .post('http://localhost:80/users/register',
                 form
                 )
             .then(res => {
