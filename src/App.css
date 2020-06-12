@@ -41,7 +41,8 @@
 .App-wripper {/* 
   background: #0f2027;
   background: linear-gradient(to right,#2c5364, #203a43, #0f2027); */
-  background: #2a3749;
+  /* background: rgb(67, 88, 121); */
+  background: rgb(42, 53, 73);
   height: 1200px;
   width: 100%;
   margin: 0px auto;

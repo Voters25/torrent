@@ -1,4 +1,18 @@
 
+
+
+/*
+
+                ПАЛИТРА:
+       
+#1a202a
+#2a3549
+#3f5374
+#95acca
+#f5f8fd
+
+*/
+
 .logInWripper {
     display: flex;
     justify-content: center;
@@ -7,16 +21,12 @@
     height: 400px;
 
 
-    background: blueviolet;
+    background:  rgb(149, 172, 202);
     
 }
-    /* display: flex;
-    justify-content: center;
-    flex-basis: 100%; */
-
 
 .logInForm {
-    background: rgb(137, 97, 173);
+    background: rgb(245, 248, 253);
     display: flex;
     flex-direction: column;
     justify-content: center;/* Контент - Главная ось */
@@ -30,25 +40,54 @@
     
 }
 
-
+p {
+    margin: 0;
+    color: #000000;
+    font-size: 120%;
+    font-weight: 700;
+}
 .gmail {
-    /* flex-basis: 40px; */
-    display: flex;
-    justify-content: center;
-    /* align-items: ; */
+    flex-basis: 30px;/* Главная ось */
+    width: 80%;/* Второстепенная ось */
+
+    background: none;
+    border-bottom: 1px solid #7e7e7e;
+
+    border-top: none;
+    border-right: none;
+    border-left: none;
+
+
 }
 .password {
-    
+    flex-basis: 30px;/* Главная ось */
+    width: 80%;/* Второстепенная ось */
+
+    background: none;
+    border-bottom: 1px solid #7e7e7e;
+
+    border-top: none;
+    border-right: none;
+    border-left: none;
 }
-.send {
-    
+button {
+    flex-basis: 25px;
+    width: 200px;
+
+    background: rgba(29, 211, 89, 0.6);
+
+    border-bottom: 1px solid #7e7e7e;
+    border-top: 1px solid #7e7e7e;
+    border-right: 1px solid #7e7e7e;
+    border-left: 1px solid #7e7e7e;
+    border-radius: 3px;
 }
 .reg {
     display: flex;
     justify-content: center;
 
     text-decoration: none;
-    color: #c8cfcf;
+    color: #000000;
     font-size: 120%;
     font-weight: 700;
 }
