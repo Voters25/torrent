@@ -39,9 +39,9 @@ render() {
             <form id="LogIn" className={classes.logInForm}>
                 <p>Log In</p>
                 <br />
-                <input className={classes.gmail} type="text" name="Gmail" ref={this.newGmailElement} onChange={this.onGmailChange} value={this.props.propsGmail} />
+                <input className={classes.gmail} type="text" name="Gmail" placeholder="Email" ref={this.newGmailElement} onChange={this.onGmailChange} value={this.props.propsGmail} />
                 <br />
-                <input className={classes.password} type="password" name="Password" ref={this.newPasswordElement} onChange={this.onPasswordChange} value={this.props.propsPassword} />
+                <input className={classes.password} type="password" name="Password" placeholder="Password" ref={this.newPasswordElement} onChange={this.onPasswordChange} value={this.props.propsPassword} />
                 <br />
                 <button onClick={this.onSendLogInForm} type="button" >Log In</button>
                 <br />

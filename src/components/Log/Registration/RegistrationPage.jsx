@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from './RegistrationPage.module.css';
 
 
 class RegistrationPage extends React.Component {
@@ -49,18 +50,18 @@ render() {
 
 
     return (
-        <div>
-           <p></p>
-           <div>
-               <form id="LogIn">
-                    <input type="text" name="Gmail" ref={this.newGmailElement} onChange={this.onGmailChange} value={this.props.propsGmail} />
-                    <br />
-                    <input type="password" name="Password" ref={this.newPasswordElement} onChange={this.onPasswordChange} value={this.props.propsPassword} />
-                    <br />
-                    <input type="password" name="PasswordTwo" ref={this.newPasswordTwoElement} onChange={this.onPasswordTwoChange} value={this.props.propsPasswordTwo} />
-                    <button onClick={this.onSendRegForm} type="button" >Registration</button>
-               </form>
-           </div>
+        <div className={classes.regWripper}>
+            <form id="Reg" className={classes.regForm}>
+                <p>Registration</p>
+                <br />
+                <input type="text" name="Gmail" placeholder="Email" className={classes.gmail} ref={this.newGmailElement} onChange={this.onGmailChange} value={this.props.propsGmail} />
+                <br />
+                <input type="password" name="Password" placeholder="Password" className={classes.password} ref={this.newPasswordElement} onChange={this.onPasswordChange} value={this.props.propsPassword} />
+                <br />
+                <input type="password" name="PasswordTwo" placeholder="Check password" className={classes.password} ref={this.newPasswordTwoElement} onChange={this.onPasswordTwoChange} value={this.props.propsPasswordTwo} />
+                <br />
+                <button onClick={this.onSendRegForm} type="button" >Registration</button>
+            </form>
         </div>
     )
     }
