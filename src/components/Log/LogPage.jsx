@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from './LogPage.module.css';
 import { NavLink } from 'react-router-dom';
 
 
@@ -34,17 +35,16 @@ render() {
 
 
     return (
-        <div>
-           <p></p>
-           <div>
-               <form id="LogIn">
-                    <input type="text" name="Gmail" ref={this.newGmailElement} onChange={this.onGmailChange} value={this.props.propsGmail} />
+        <div className={classes.logInWripper}>
+               <form id="LogIn" className={classes.logInForm}>
+                    <input className={classes.gmail} type="text" name="Gmail" ref={this.newGmailElement} onChange={this.onGmailChange} value={this.props.propsGmail} />
                     <br />
-                    <input type="password" name="Password" ref={this.newPasswordElement} onChange={this.onPasswordChange} value={this.props.propsPassword} />
-                    <button onClick={this.onSendLogInForm} type="button" >Log In</button>
+                    <input className={classes.password} type="password" name="Password" ref={this.newPasswordElement} onChange={this.onPasswordChange} value={this.props.propsPassword} />
+                    <br />
+                    <button className={classes.send} onClick={this.onSendLogInForm} type="button" >Log In</button>
+                    <br/>
+                    <NavLink to='registration' className={classes.reg} >Registration</NavLink>
                </form>
-               <NavLink to='registration' >Registration</NavLink>
-           </div>
         </div>
     )
     }
