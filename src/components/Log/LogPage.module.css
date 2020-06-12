@@ -42,7 +42,7 @@
 
 p {
     margin: 0;
-    color: #000000;
+    color: #414141;;
     font-size: 120%;
     font-weight: 700;
 }
@@ -50,25 +50,30 @@ p {
     flex-basis: 30px;/* Главная ось */
     width: 80%;/* Второстепенная ось */
 
-    background: none;
+    background: rgba(149, 172, 202, 0.1);
     border-bottom: 1px solid #7e7e7e;
 
     border-top: none;
     border-right: none;
     border-left: none;
 
+    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.0), 0 6px 20px 0 rgba(0,0,0,0.10); */
 
 }
 .password {
     flex-basis: 30px;/* Главная ось */
     width: 80%;/* Второстепенная ось */
 
-    background: none;
+    /* background: none; */
+    background: rgba(149, 172, 202, 0.1);
     border-bottom: 1px solid #7e7e7e;
 
     border-top: none;
     border-right: none;
     border-left: none;
+
+    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.0), 0 6px 20px 0 rgba(0,0,0,0.19); */
+
 }
 button {
     flex-basis: 25px;
@@ -81,13 +86,22 @@ button {
     border-right: 1px solid #7e7e7e;
     border-left: 1px solid #7e7e7e;
     border-radius: 3px;
+
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+    transition: 0.3s;
+    cursor: pointer;
+}
+button:hover {
+    background: rgba(29, 211, 89, 0.8);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .reg {
     display: flex;
     justify-content: center;
 
     text-decoration: none;
-    color: #000000;
+    color: #414141;
     font-size: 120%;
     font-weight: 700;
 }
