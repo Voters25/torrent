@@ -28,10 +28,13 @@ render() {
 
     //this.send
 
-    this.onSendLogInForm = () => {
-        this.props.addLogInForm();
+    this.onSendLogInForm = async () => {
+        await this.props.addLogInForm();
         this.props.sendLogInForm(this.props.formData)
     }
+
+
+    console.log(this.props.propsUser);
 
 
     return (

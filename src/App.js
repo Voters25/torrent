@@ -3,12 +3,11 @@ import React from 'react';
 import './App.css';
 import DownloadPageContainer from './components/DownloadPageContainer';
 import { Route, StaticRouter, Link } from 'react-router-dom';
-import Header from './components/Header/Header';
 import ListContainer from './components/List/ListContainer';
-import DownloadPogress from './components/DownloadProgress/DownloadPogress';
 import DownloadProgressContainer from './components/DownloadProgress/DownloadProgressContainer';
 import LogPageContainer from './components/Log/LogPageContainer';
 import RegistrationPageContainer from './components/Log/Registration/RegistrationPageContainer';
+import HeaderContainer from './components/Header/HeaderContainer';
 
 
 
@@ -17,7 +16,7 @@ const App = (store) => {
   return (
     <div className="App-wripper">
       <div className="Header">
-        <Header />
+        <HeaderContainer />
       </div>
       <div className="Container">
         <div className="Content">

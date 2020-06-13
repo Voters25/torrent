@@ -11,6 +11,8 @@ const UPDATE_NEW_PASSWORD_VALUE = 'UPDATE-NEW-PASSWORD-VALUE';
 
 const ADD_FORM_DATA = 'ADD-FORM-DATA';
 
+const PUSH_LOG_IN_INSTATE = 'PUSH-LOG-IN-INSTATE';
+
 
 
 
@@ -22,7 +24,9 @@ let initialState = {
     ], */
     formData: {},
     gmailValue: '',
-    passwordValue: ''
+    passwordValue: '',
+
+    user: ''
     
 }
 
@@ -51,6 +55,11 @@ const LogPageReducer = (state = initialState, action) => {
                 formData: newFormData,
                 gmailValue: '',
                 passwordValue: '',
+            };
+        case PUSH_LOG_IN_INSTATE:
+            return {
+                ...state,
+                user: action.newUser
             };
         default:
             return state;
@@ -91,12 +100,14 @@ export const postFormData = (form) => {
         formData.append('registration', form); */
 
         Axios
-            .post('http://localhost:80/users/login', {
-                body: form
-            })
+            .post('http://localhost:80/users/login',
+                form
+            )
             .then(res => {
                 dispatch(postFormDataSuccess(res.data));
                 //  dispatch(callForwarding())
+                console.log(res.data);
+                dispatch(pushLogInState(res.data));
             })
             .catch(err => {
                 dispatch(postFormDataFailure(err.message));
@@ -130,6 +141,14 @@ const postFormDataFailure = error => ({
 
 /*===================================================================================*/
                         
+
+let pushLogInState = (user) => {
+    return {
+        type: 'PUSH-LOG-IN-INSTATE',
+        newUser: user
+    }
+}
+
 
 
 

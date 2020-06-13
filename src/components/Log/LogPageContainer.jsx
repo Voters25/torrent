@@ -13,8 +13,9 @@ const mapStateToProps = (state) => {
         propsGmail: state.LogPage.gmailValue,
         propsPassword: state.LogPage.passwordValue,
 
+        formData: state.LogPage.formData,
 
-        formData: state.LogPage.formData
+        propsUser: state.LogPage.user
     }
 }
 

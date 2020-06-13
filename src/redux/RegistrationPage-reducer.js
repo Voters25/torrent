@@ -1,4 +1,5 @@
 import Axios from "axios";
+import history from "../history";
 //import * as axios from 'axios';
 
 const POST_STARTED = 'GET-STARTED';
@@ -114,7 +115,8 @@ export const postRegFormData = (form) => {
                 )
             .then(res => {
                 dispatch(postFormDataSuccess(res.data));
-                //  dispatch(callForwarding())
+                dispatch(callForwarding())
+                console.log(res)
             })
             .catch(err => {
                 dispatch(postFormDataFailure(err.message));
@@ -135,9 +137,9 @@ const postFormDataSuccess = (form) => ({
     }
 });
 
-/* const callForwarding = () => {
-    history.push('/downloadProgress');
-} */
+const callForwarding = () => {
+    history.push('/LogPage');
+}
 
 const postFormDataFailure = error => ({
     type: POST_FAILURE,
