@@ -8,6 +8,7 @@ import DownloadProgressContainer from './components/DownloadProgress/DownloadPro
 import LogPageContainer from './components/Log/LogPageContainer';
 import RegistrationPageContainer from './components/Log/Registration/RegistrationPageContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import NavBarContainer from './components/NavBar/NavBarContainer';
 
 
 
@@ -19,6 +20,7 @@ const App = (store) => {
         <HeaderContainer />
       </div>
       <div className="Container">
+        <div className="NavBar"><NavBarContainer /></div>
         <div className="Content">
           <Route path='/downloadPage' component={DownloadPageContainer} />
           <Route path='/list' component={ListContainer} />

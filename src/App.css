@@ -60,11 +60,18 @@
   margin: 0 auto;
 }
 
+.NavBar {
+  background: #aaaaaa;
+  width: 250px;
+}
+
 .Content {
   width: 100%;
   display: flex;
   justify-content: center; /* <------------------------------- */
 }
+
+
 
 @media (max-width:1200px){
   .Content{

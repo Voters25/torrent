@@ -1,0 +1,125 @@
+
+.wripper {
+    
+}
+
+.navNavBAr {
+    
+    /* align-items: center;
+    padding: 33px 10%; */
+
+   /*  height: 33px;
+    width: 100%;
+    padding: 3px 0 3px 0;
+
+    max-width: 1920px;
+    background: #fff;
+    /* margin-bottom: 20px; */
+    /* border-bottom: 1px solid black; */
+
+
+    /* display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center; */
+}
+
+.styleUl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul {
+    /* margin-left: 0;
+    padding-left: 0;
+    display: flex;
+    margin: 0 auto; */
+    /* justify-content: flex-start; */
+}
+.styleLi {
+    margin-top: 20px;
+    /* list-style-type: none;
+    flex: 1 0 auto; */ /* grow , shrink, basis */
+    /* margin: 0 0; */
+}
+li .navLink {    
+    /* margin: 0 0 0 0; */
+}
+
+
+.logo {
+   /*  text-decoration: none;
+    color: #394040;
+    margin: 5px 55% 0px 5%; */
+
+    /* margin-right: auto; */
+
+    /* margin-left: 5em;
+    margin-right: 30em; */
+}
+
+.navLink {
+    text-decoration: none;
+    color: #394040;
+    font-size: 120%;
+    font-weight: 700;
+
+    
+
+    /* display: inline-block;
+    padding: 0px 20px; */
+
+    /* margin-left: 4em; */
+}
+
+.userName {
+    color: #394040;
+    font-size: 100%;
+    font-weight: 700;
+}
+
+
+
+@media (max-width:1260px){
+    .logo {
+        margin: 5px 40% 0px 5%;
+    }
+    li .navLink {    
+        margin: 0 10px 0 0;
+    }
+  }
+@media (max-width:1200px){
+    .logo {
+        margin: 5px 30% 0px 5%;
+    }
+    li .navLink {    
+        margin: 0 10px 0 0;
+    }
+
+  }
+  @media (max-width:992px){
+    .logo {
+        margin: 5px 20% 0px 5%;
+    }
+    li .navLink {    
+        margin: 0 5px 0 0;
+    }
+  }
+  @media (max-width:768px){     /* тут лучше уже всё по вертикали или бургер меню */
+    .logo {
+        /* margin: 5px 10% 0px 5%; */
+        margin: 5px 0 0 8%;
+        height: 0;
+        width: 0;
+    }
+    li .navLink {
+        overflow: hidden;
+        display: none;
+    }
+    ul {
+        /* height: 0;
+        width: 0; */
+    }
+  }
