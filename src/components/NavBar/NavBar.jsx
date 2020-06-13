@@ -12,13 +12,12 @@ let NavBar = (props) => {
 
     return (
         <nav className={classes.wripper}>
-            <nav className={classes.navNavBAr}>
+            <nav className={classes.navNavBar}>
                 <ul className={classes.styleUl}>
                     <li className={classes.userName}>{userName}</li>
                     <li className={classes.styleLi}><NavLink to="downloadPage" className={classes.navLink} >Download File</NavLink></li>
-                    <li className={classes.styleLi}><NavLink to="list" className={classes.navLink} >List</NavLink></li>
                     <li className={classes.styleLi}><NavLink to="downloadProgress" className={classes.navLink} >Download Progress</NavLink></li>
-                    <li className={classes.styleLi}><NavLink to="logPage" className={classes.navLink} >log Page</NavLink></li>
+                    <li className={classes.styleLi}><NavLink to="list" className={classes.navLink} >List</NavLink></li>
                 </ul>
             </nav>
         </nav>

@@ -54,12 +54,15 @@ li .navLink {
     font-size: 120%;
     font-weight: 700;
 
-    
+    transition: 0.1s;
 
     /* display: inline-block;
     padding: 0px 20px; */
 
     /* margin-left: 4em; */
+}
+.navLink:hover {
+    color: rgba(29, 211, 89, 0.7);
 }
 
 .userName {
