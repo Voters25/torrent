@@ -34,7 +34,7 @@
 }
 
 .styleLi {
-    margin-top: 20px;
+    margin-top: 30px;
     /* list-style-type: none; */
     /*flex: 1 0 auto; */ /* grow , shrink, basis */
     /* margin: 0 0; */
@@ -54,17 +54,11 @@
     /* color: rgb(149, 172, 202); */
     color: white;
     font-size: 120%;
-    font-weight: 700;
+    font-weight: 600;
     transition: 0.1s;
 }
 .navLink:hover {
     color: rgba(29, 211, 89, 0.9);
-}
-
-.userName {
-    color: #394040;
-    font-size: 100%;
-    font-weight: 700;
 }
 
 

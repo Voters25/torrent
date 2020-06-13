@@ -40,13 +40,13 @@ render() {
     return (
         <div className={classes.logInWripper}>
             <form id="LogIn" className={classes.logInForm}>
-                <p>Log In</p>
+                <p className={classes.LogIn}>Log In</p>
                 <br />
                 <input className={classes.gmail} type="text" name="Gmail" placeholder="Email" ref={this.newGmailElement} onChange={this.onGmailChange} value={this.props.propsGmail} />
                 <br />
                 <input className={classes.password} type="password" name="Password" placeholder="Password" ref={this.newPasswordElement} onChange={this.onPasswordChange} value={this.props.propsPassword} />
                 <br />
-                <button onClick={this.onSendLogInForm} type="button" >Log In</button>
+                <button className={classes.buttonLogIn} onClick={this.onSendLogInForm} type="button" >Log In</button>
                 <br />
                 <NavLink to='registration' className={classes.reg} >Registration</NavLink>
             </form>

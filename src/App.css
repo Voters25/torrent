@@ -41,7 +41,7 @@
 .App-wripper {
   /* background: rgb(42, 53, 73); */
   background: #3B4A66;
-  height: 1200px;
+  height: 840px;
   width: 100%;
   margin: 0px auto;
 }
@@ -70,6 +70,11 @@
   justify-content: center; /* <------------------------------- */
 }
 
+.footerApp {
+  height: 150px;
+  background: rgba(44, 52, 53, 0.9);
+}
+
 
 
 @media (max-width:1200px){
@@ -85,5 +90,19 @@
 @media (max-width:768px){     /* тут лучше уже всё по вертикали или бургер меню */
   .Content{
     max-width: none;
+  }
+  .NavBar {
+    width: 0px;
+  }
+}
+@media (max-width:580px){ /*Придуманная точка*/
+  .Content{
+    max-width: none;
+  }
+  .NavBar {
+    width: 0px;
+  }
+  .footerApp {
+    height: 100px;
   }
 }

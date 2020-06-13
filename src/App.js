@@ -9,6 +9,7 @@ import LogPageContainer from './components/Log/LogPageContainer';
 import RegistrationPageContainer from './components/Log/Registration/RegistrationPageContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import NavBarContainer from './components/NavBar/NavBarContainer';
+import FooterContainer from './components/Footer/FooterContainer';
 
 
 
@@ -28,6 +29,9 @@ const App = (store) => {
           <Route path='/logPage' component={LogPageContainer} />
           <Route path='/registration' component={RegistrationPageContainer} />
         </div>
+      </div>
+      <div className="footerApp">
+        <FooterContainer />
       </div>
     </div>
   );
