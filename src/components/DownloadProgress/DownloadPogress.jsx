@@ -2,6 +2,7 @@ import React from 'react';
 import ParseTorrent from 'parse-torrent';
 import { formatBytes } from '../../Scripts/formatBytes';
 import { formatSpeed } from '../../Scripts/FormatSpeed';
+import classes from './DownloadPogress.module.css';
 import FilesInfo from './FilesInfo/FilesInfo';
 
 
@@ -63,18 +64,15 @@ render() {
 
 
     return (
-        <div>
-            <div>
-                <p>downloadProgress</p>
-                <p><progress value={downloadProgressToFixed} max='1.00'></progress></p>
-                <p>{
-                    downloadSpeed == 'NaN kbps' ? 0 : downloadSpeed
-                }</p>
-                <p>{
-                    downloaded == 'NaN undefined' ? 0 : downloaded
-                }</p>
-            </div>
-            
+        <div className={classes.wripper}>
+            <p className={classes.DownloadPogress}>downloadProgress</p>
+            <div className={classes.paragraphProgress}><progress className={classes.progress} value={downloadProgressToFixed} max='1.00'></progress></div>
+            <div className={classes.downloadSpeed}>{
+                downloadSpeed == 'NaN kbps' ? 0 : downloadSpeed
+            }</div>
+            <div className={classes.downloaded}>{
+                downloaded == 'NaN undefined' ? 0 : downloaded
+            }</div>
         </div>
     )
 }

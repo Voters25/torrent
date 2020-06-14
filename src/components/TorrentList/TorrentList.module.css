@@ -5,14 +5,15 @@
   background: linear-gradient(to right,#244c5e, #1a2f36, #0e1d24); */
 
   border: 1px solid black;
-  color: #414141;
+  /* color: #414141; */
+  color: white;
 
   display: flex;
 }
 
 .name {
   flex-basis: 20%;
-  margin-left: 30px;
+  padding-left: 30px;
   background: #48627a;
   text-align: center;
 }

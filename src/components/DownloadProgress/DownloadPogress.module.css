@@ -1,0 +1,31 @@
+.wripper {
+    
+}
+
+
+.DownloadPogress {
+    margin: 0;
+    color: #414141;;
+    font-size: 120%;
+    font-weight: 700;
+}
+
+
+.progress {
+    border-radius: 0;
+    color: rgba(29, 211, 89, 0.6);
+}
+
+
+.downloadSpeed {
+    color: #414141;;
+    font-size: 100%;
+    font-weight: 700;
+}
+
+
+.downloaded {
+    color: #414141;;
+    font-size: 100%;
+    font-weight: 700;
+}
