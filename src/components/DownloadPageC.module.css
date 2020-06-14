@@ -3,7 +3,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  
+  align-items: center;
 }
 .form {
   display: flex;
@@ -12,7 +12,9 @@
   align-items: center;
 
   background: rgb(245, 248, 253);
-  width: 50%;
+
+  flex-basis: 550px;/* Главная ось */
+  height: 400px;/* Недост. ось */
 }
 
 
@@ -20,9 +22,10 @@
 /*      Paragraph       */
 .Download {
     margin: 0;
-    color: #414141;;
+    color: #414141;
     font-size: 120%;
     font-weight: 700;
+    margin-bottom: 40px;
 }
 
 
@@ -30,12 +33,15 @@
 /*      Magnet input       */
 .magnetInput {
     width: 80%;/* Второстепенная ось */
+    flex-basis: 30px;
     border: 0;
     background: rgba(83, 136, 206, 0.15);
     border-bottom: 1px solid #7e7e7e;
     outline: none;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.05), 0 6px 15px 0 rgba(0,0,0,0.20);
     transition: 0.2s;
+
+    margin-bottom: 20px;
 }
 
 /*      File input       */
@@ -49,11 +55,12 @@
 }
 .fileLabel {
   width: 200px;
-  height: 50px;
-  border-radius: 4px;
+  height: 35px;
+  border-radius: 3px;
   cursor: pointer;
-  border: 1px solid #333;
-  color: #333;
+  border: 1px solid #7e7e7e;
+  color: #414141;
+  padding-top: 10px;
   text-align: center;
 }
 .fileLabel:hover {
@@ -76,6 +83,8 @@
   box-shadow: 0 11px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   transition: 0.3s;/* Время анимации */
   cursor: pointer;
+
+  margin-bottom: 40px;
 }
 .sendMagnetButton:hover {
   background: rgba(29, 211, 89, 0.7);
@@ -134,4 +143,19 @@
   border-left: 1px solid #7e7e7e;
 
   display: none;
+}
+
+
+
+
+
+
+
+@media (max-width:768px){     /* тут лучше уже всё по вертикали или бургер меню */
+  .form {
+      height: 100%;
+  }
+  .logInForm {
+      height: 640px;
+  }
 }

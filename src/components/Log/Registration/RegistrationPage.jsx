@@ -54,11 +54,11 @@ render() {
             <form id="Reg" className={classes.regForm}>
                 <p className={classes.Registration}>Registration</p>
                 <br />
-                <input type="text" name="Gmail" placeholder="Email" className={classes.gmail} ref={this.newGmailElement} onChange={this.onGmailChange} value={this.props.propsGmail} />
+                <input type="text" name="Gmail" placeholder="  Email" className={classes.gmail} ref={this.newGmailElement} onChange={this.onGmailChange} value={this.props.propsGmail} />
                 <br />
-                <input type="password" name="Password" placeholder="Password" className={classes.password} ref={this.newPasswordElement} onChange={this.onPasswordChange} value={this.props.propsPassword} />
+                <input type="password" name="Password" placeholder="  Password" className={classes.password} ref={this.newPasswordElement} onChange={this.onPasswordChange} value={this.props.propsPassword} />
                 <br />
-                <input type="password" name="PasswordTwo" placeholder="Check password" className={classes.password} ref={this.newPasswordTwoElement} onChange={this.onPasswordTwoChange} value={this.props.propsPasswordTwo} />
+                <input type="password" name="PasswordTwo" placeholder="  Check password" className={classes.password} ref={this.newPasswordTwoElement} onChange={this.onPasswordTwoChange} value={this.props.propsPasswordTwo} />
                 <br />
                 <button className={classes.buttonReg} onClick={this.onSendRegForm} type="button" >Registration</button>
             </form>
