@@ -71,24 +71,42 @@ this.onTest = () => {
 
     return (
         <div className={classes.filePage}>
-            <div className={classes.form}>
-                <form id="sendFile" onSubmit={this.onFileSend} enctype="multipart/form-data">
-                    <input type="file" name="torrent" id="TestId" accept="application/x-bittorrent" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile} />
-                    {this.props.buttonActive &&
-                        <button className={classes.sendFileButton} type="button" onClick={this.onSendFile} >SendFile</button>
-                    }
-                    <br />
-                    <input type="text" name="magnet" ref={this.newMagnetElement} onChange={this.onMagnetChange} value={this.props.propsMagnet} />
-                    <button className={classes.sendMagnetButton} type="button" onClick={this.onSendForm} >SendMagnet</button>
-                </form>
-                <input value="test" type="submit" onClick={this.onTest} />
-            </div>
+
+            <form className={classes.form} id="sendFile" onSubmit={this.onFileSend} enctype="multipart/form-data">
+                
+                <p className={classes.Download}>Download</p>
+
+                <input className={classes.magnetInput} type="text" name="magnet" ref={this.newMagnetElement} onChange={this.onMagnetChange} value={this.props.propsMagnet} />
+                <button className={classes.sendMagnetButton} type="button" onClick={this.onSendForm} >SendMagnet</button>
+                
+                <br />
+
+                <label className={classes.fileLabel} htmlFor="FileInput">Choise a file</label>
+                <input className={classes.fileInput} type="file" name="torrent" id="FileInput" accept="application/x-bittorrent" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile} />
+                
+                {this.props.buttonActive ?
+                    <button className={classes.sendFileButtonActive} type="button" onClick={this.onSendFile} >SendFile</button>
+                    :
+                    <button className={classes.sendFileButtonPassive} disabled="disabled" type="button" onClick={this.onSendFile} >SendFile</button>
+                }
+                
+            </form>
+            <input className={classes.testButton} value="test" type="submit" onClick={this.onTest} />
+
         </div>
     )
     }
 }
 
 
+
+/*
+
+{this.props.buttonActive &&
+                    <button className={classes.sendFileButton} type="button" onClick={this.onSendFile} >SendFile</button>
+                }
+
+*/
 
 
 export default DownloadPageC;

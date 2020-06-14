@@ -1,39 +1,137 @@
-/* .filePage {
+.filePage {
+  background:  rgb(149, 172, 202);
+  width: 100%;
   display: flex;
-  margin: 0 auto;
-  flex-direction: column;
-} */
+  justify-content: center;
+  
+}
 .form {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: rgb(245, 248, 253);
+  width: 50%;
 }
 
 
-.sendFileButton {
-    background: none;
-  border: 2px solid;
-  font: inherit;
-  line-height: 1;
-  margin: 0.5em;
-  padding: 1em 2em;
-}
-button { 
 
-}
-.sendMagnetButton {
-    
+/*      Paragraph       */
+.Download {
+    margin: 0;
+    color: #414141;;
+    font-size: 120%;
+    font-weight: 700;
 }
 
 
-.listContainer {
-  margin-top: 10px;
-  max-width: 99%;
-}
-.torrentList {
-  width: 100%;
 
-  background: #13283b;
-  background: linear-gradient(to right,#244c5e, #1a2f36, #0e1d24);
-  border: 3px solid black;
-  border-radius: 10px;
+/*      Magnet input       */
+.magnetInput {
+    width: 80%;/* Второстепенная ось */
+    border: 0;
+    background: rgba(83, 136, 206, 0.15);
+    border-bottom: 1px solid #7e7e7e;
+    outline: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.05), 0 6px 15px 0 rgba(0,0,0,0.20);
+    transition: 0.2s;
+}
+
+/*      File input       */
+.fileInput {
+  /* opacity: 0;
+  overflow: hidden; */
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+}
+.fileLabel {
+  width: 180px;
+  height: 50px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #333;
+  color: #333;
+  text-align: center;
+}
+.fileLabel:hover {
   color: white;
+  background: #333;
+}
+
+
+
+.sendMagnetButton { 
+  flex-basis: 25px;
+  width: 200px;
+  background: rgba(29, 211, 89, 0.6);
+  border-bottom: 1px solid #7e7e7e;
+  border-top: 1px solid #7e7e7e;
+  border-right: 1px solid #7e7e7e;
+  border-left: 1px solid #7e7e7e;
+  border-radius: 3px;
+  outline: none;
+  box-shadow: 0 11px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition: 0.3s;/* Время анимации */
+  cursor: pointer;
+}
+.sendMagnetButton:hover {
+  background: rgba(29, 211, 89, 0.7);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 15px 40px 0 rgba(0,0,0,0.17);
+}
+
+
+
+
+.sendFileButtonActive {
+  flex-basis: 25px;
+  width: 200px;
+  background: rgba(29, 211, 89, 0.6);
+
+  border-bottom: 1px solid #7e7e7e;
+  border-top: 1px solid #7e7e7e;
+  border-right: 1px solid #7e7e7e;
+  border-left: 1px solid #7e7e7e;
+  border-radius: 3px;
+
+  outline: none;
+  box-shadow: 0 11px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition: 0.3s;/* Время анимации */
+  cursor: pointer;
+}
+.sendFileButtonActive:hover {
+  background: rgba(29, 211, 89, 0.7);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 15px 40px 0 rgba(0,0,0,0.17);
+}
+
+.sendFileButtonPassive {
+  flex-basis: 25px;
+  width: 200px;
+  background: rgba(173, 173, 173, 0.6);
+
+  border-bottom: 1px solid #7e7e7e;
+  border-top: 1px solid #7e7e7e;
+  border-right: 1px solid #7e7e7e;
+  border-left: 1px solid #7e7e7e;
+  border-radius: 3px;
+
+  outline: none;
+  box-shadow: 0 11px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition: 0.3s;/* Время анимации */
+}
+
+
+
+
+.testButton {
+  background: rgba(211, 29, 29, 0.7);
+  outline: none;
+  border-bottom: 1px solid #7e7e7e;
+  border-top: 1px solid #7e7e7e;
+  border-right: 1px solid #7e7e7e;
+  border-left: 1px solid #7e7e7e;
+
+  display: none;
 }
