@@ -77,7 +77,7 @@ this.onTest = () => {
                 <p className={classes.Download}>Download</p>
 
                 <input className={classes.magnetInput} type="text" name="magnet" ref={this.newMagnetElement} onChange={this.onMagnetChange} value={this.props.propsMagnet} />
-                <button className={classes.sendMagnetButton} type="button" onClick={this.onSendForm} >SendMagnet</button>
+                <button className={classes.sendMagnetButton} type="button" onClick={this.onSendForm} >Send magnet</button>
                 
                 <br />
 
@@ -85,7 +85,7 @@ this.onTest = () => {
                 <input className={classes.fileInput} type="file" name="torrent" id="FileInput" accept="application/x-bittorrent" ref={this.newFileElement} onChange={this.onFileChange} value={this.props.propsFile.newTorrentFile} />
                 
                 {this.props.buttonActive ?
-                    <button className={classes.sendFileButtonActive} type="button" onClick={this.onSendFile} >SendFile</button>
+                    <button className={classes.sendFileButtonActive} type="button" onClick={this.onSendFile} >Send file</button>
                     :
                     <button className={classes.sendFileButtonPassive} disabled="disabled" type="button" onClick={this.onSendFile} >SendFile</button>
                 }
