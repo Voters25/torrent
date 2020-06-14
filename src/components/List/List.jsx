@@ -12,20 +12,29 @@ class List extends React.Component {
         this.props.getTorrentsList();
     }
 
-    
-render() {
 
-    
-    console.log(this.props.torrentList);
+    render() {
 
-    // Вывод листа
-    this.torrentElements = this.props.torrentList
-    .map((elements => <TorrentList key={elements.id} name={elements.name} id={elements.id} size={elements.size} date={elements.date} /> ));
+
+        console.log(this.props.torrentList);
+
+        // Вывод листа
+        this.torrentElements = this.props.torrentList
+            .map((elements => <TorrentList key={elements.id} name={elements.name} id={elements.id} size={elements.size} date={elements.date} />));
 
 
         return (
-            <div>
-                {this.torrentElements}
+            <div className={classes.wripper}>
+                <p className={classes.UploadedFiles}>Uploaded files</p>
+                <div className={classes.list}>
+                    <div className={classes.listInfo}>
+                        <p className={classes.name}>Name:</p>
+                        <p className={classes.id}>Id:</p>
+                        <p className={classes.size}>Size:</p>
+                        <p className={classes.date}>Date:</p>
+                    </div>
+                    {this.torrentElements}
+                </div>
             </div>
         )
     }

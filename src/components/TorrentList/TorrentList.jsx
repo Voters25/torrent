@@ -7,13 +7,14 @@ const TorrentList = (props) => {
 
     return (
         <div className={classes.torrentList} >
-            <p>{props.name}</p>
-            <p>{props.id}</p>
-            <p>{formatBytes(props.size)}</p>
-            <p>{new Date(props.date).toLocaleString()}</p>
+            <p className={classes.name}>{props.name}</p>
+            <p className={classes.id}>{props.id}</p>
+            <p className={classes.size}>{formatBytes(props.size)}</p>
+            <p className={classes.date}>{new Date(props.date).toLocaleString()}</p>
         </div>
     )
 }
+
 
 
 export default TorrentList;

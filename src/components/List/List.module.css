@@ -1,39 +1,47 @@
-/* .filePage {
+.wripper {
+  background:  rgb(149, 172, 202);
+  width: 100%;
   display: flex;
-  margin: 0 auto;
   flex-direction: column;
-} */
-.form {
-  width: 100%;
+  /* justify-content: center; */
+  align-items: center;
 }
 
-
-.sendFileButton {
-    background: none;
-  border: 2px solid;
-  font: inherit;
-  line-height: 1;
-  margin: 0.5em;
-  padding: 1em 2em;
-}
-button { 
-
-}
-.sendMagnetButton {
-    
+.UploadedFiles {
+  margin: 0;
+  color: #414141;
+  font-size: 120%;
+  font-weight: 700;
 }
 
-
-.listContainer {
-  margin-top: 10px;
-  max-width: 99%;
+.listInfo {
+  display: flex;
+  border: 1px solid black;
 }
-.torrentList {
-  width: 100%;
+.name {
+  flex-basis: 20%;
+  margin-left: 30px;
+  background: #48627a;
+  text-align: center;
+}
+.id {
+  flex-basis: 5%;
+  background: #8bc7ff;
+  text-align: center;
+}
+.size {
+  flex-basis: 20%;
+  background: #48627a;
+  text-align: center;
+}
+.date {
+  flex-basis: 55%;
+  background: #8bc7ff;
+  text-align: center;
+}
 
-  background: #13283b;
-  background: linear-gradient(to right,#244c5e, #1a2f36, #0e1d24);
-  border: 3px solid black;
-  border-radius: 10px;
-  color: white;
+.list {
+  background: rgb(245, 248, 253);
+  width: 95%;
+  height: 100%;
 }
