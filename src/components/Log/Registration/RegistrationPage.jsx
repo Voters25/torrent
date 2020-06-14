@@ -52,7 +52,7 @@ render() {
     return (
         <div className={classes.regWripper}>
             <form id="Reg" className={classes.regForm}>
-                <p>Registration</p>
+                <p className={classes.Registration}>Registration</p>
                 <br />
                 <input type="text" name="Gmail" placeholder="Email" className={classes.gmail} ref={this.newGmailElement} onChange={this.onGmailChange} value={this.props.propsGmail} />
                 <br />
@@ -60,7 +60,7 @@ render() {
                 <br />
                 <input type="password" name="PasswordTwo" placeholder="Check password" className={classes.password} ref={this.newPasswordTwoElement} onChange={this.onPasswordTwoChange} value={this.props.propsPasswordTwo} />
                 <br />
-                <button onClick={this.onSendRegForm} type="button" >Registration</button>
+                <button className={classes.buttonReg} onClick={this.onSendRegForm} type="button" >Registration</button>
             </form>
         </div>
     )

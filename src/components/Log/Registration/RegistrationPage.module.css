@@ -41,7 +41,7 @@
 }
 
 
-p {
+.Registration {
     margin: 0;
     color: #414141;;
     font-size: 130%;
@@ -81,7 +81,7 @@ p {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.15), 0 17px 50px 0 rgba(0,0,0,0.15);
 }
 
-button {
+.buttonReg {
     margin-top: 30px;
     flex-basis: 25px;
     width: 200px;
@@ -99,11 +99,10 @@ button {
     transition: 0.3s;/* Время анимации */
     cursor: pointer;
 }
-button:hover {
+.buttonReg:hover {
     background: rgba(29, 211, 89, 0.7);
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 15px 40px 0 rgba(0,0,0,0.17);
 }
-
 
 
 
@@ -119,3 +118,30 @@ button:hover {
       height: 640px;
   }
 }
+@media (max-width:580px){ /* Придуманная точка */
+    .regForm {
+        flex-basis: 100%;/* Главная ось */
+        height: 100%;/* Недост. ось */
+    }
+    .Registration {
+        font-size: 30px;
+        font-weight: 800;
+    }
+    .gmail {
+        flex-basis: 50px;/* Главная ось */
+        width: 80%;/* Второстепенная ось */
+        margin-top: 30px;
+    }
+    .password {
+        flex-basis: 50px;/* Главная ось */
+        width: 80%;/* Второстепенная ось */
+        margin-top: 10px;
+    }
+    .buttonReg {
+        flex-basis:60px;
+        width: 200px;
+    }
+    .regForm {
+        box-shadow: none;
+    }
+  }
