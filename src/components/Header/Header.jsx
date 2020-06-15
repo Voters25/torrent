@@ -24,16 +24,8 @@ let Header = (props) => {
         
     } */
     
-    //console.log(storage);
-
-    //        storage.addEventListener("change", localStorageChange);
-
-
-    /* storage.forEach.call(element => {
-        element.addEventListener("change", localStorageChange)
-    }); */
     
-    
+
     //console.log(document.cookie);
     
     
@@ -51,7 +43,7 @@ let Header = (props) => {
                 <ul className={classes.styleUl}>
                     <li className={classes.logo} ><NavLink to="/" className={classes.logo} >LOGO</NavLink></li>
                     <li className={classes.userName}>{user}</li>
-                    {props.user == null ?
+                    {props.user == '' ?
                         <li><NavLink to="logPage" className={classes.navLink} >log Page</NavLink></li>
                         :
                         <li><NavLink to="logPage" onClick={logOut} className={classes.navLink} >log Out</NavLink></li>
