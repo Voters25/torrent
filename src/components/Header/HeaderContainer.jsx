@@ -1,13 +1,17 @@
 import { connect } from 'react-redux';
 import Header from './Header.jsx';
+import { logOutUsers } from '../../redux/LogPage-reducer';
+
 
 
 
 
 
 const mapStateToProps = (state) => {
+
     return {
-        propsUser: state.LogPage.user
+        //propsUser: state.LogPage.user,
+        user: state.LogPage.user
     }
 }
 
@@ -15,6 +19,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
 
+        logOutUser: () => {
+            dispatch(logOutUsers());
+        }
 
     }
 

@@ -1,5 +1,7 @@
 .wripper {
-    
+    width: 100%;
+    background: rgb(149, 172, 202);
+    display: flex;
 }
 
 

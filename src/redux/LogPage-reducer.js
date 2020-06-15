@@ -1,4 +1,5 @@
 import Axios from "axios";
+import history from "../history";
 //import * as axios from 'axios';
 
 const POST_STARTED = 'GET-STARTED';
@@ -26,6 +27,7 @@ let initialState = {
     gmailValue: '',
     passwordValue: '',
 
+    /* user: '' */
     user: ''
     
 }
@@ -105,9 +107,10 @@ export const postFormData = (form) => {
             )
             .then(res => {
                 dispatch(postFormDataSuccess(res.data));
-                //  dispatch(callForwarding())
                 console.log(res.data);
-                dispatch(pushLogInState(res.data));
+                dispatch(pushLogInToLocalStorage(res.data));
+                //dispatch(pushLogInState(res.data));
+                dispatch(callForwarding());
             })
             .catch(err => {
                 dispatch(postFormDataFailure(err.message));
@@ -128,9 +131,17 @@ const postFormDataSuccess = (form) => ({
     }
 });
 
-/* const callForwarding = () => {
-    history.push('/downloadProgress');
-} */
+let pushLogInToLocalStorage = (res) => {
+    localStorage.setItem('user', res);
+    return dispatch => {
+        dispatch(pushLogInState());
+    }
+    
+}
+
+const callForwarding = () => {
+    history.push('/downloadPage');
+}
 
 const postFormDataFailure = error => ({
     type: POST_FAILURE,
@@ -142,12 +153,97 @@ const postFormDataFailure = error => ({
 /*===================================================================================*/
                         
 
-let pushLogInState = (user) => {
+let pushLogInState = () => {
     return {
         type: 'PUSH-LOG-IN-INSTATE',
-        newUser: user
+        newUser: localStorage.getItem('user')
     }
 }
+
+
+//let userName = localStorage.getItem('user');
+
+
+
+
+
+
+
+
+
+
+/*===================================================================================*/
+//                                logOut
+
+export const logOutUsers = () => {
+    return dispatch => {
+        dispatch(logOutStarted());
+
+        Axios
+            .get('http://localhost:80/users/logout')
+            .then(res => {
+                dispatch(logOutSuccess(res.data));
+                console.log(res.data);
+                dispatch(LogOut());
+                //dispatch(callForwardinglogOut());
+            })
+            .catch(err => {
+                dispatch(postFormDataFailure(err.message));
+                console.log(err);
+            });
+    };
+};
+
+
+const logOutStarted = () => ({
+    type: POST_STARTED,
+});
+
+const logOutSuccess = (form) => ({
+    type: POST_SUCCESS,
+    payload: {
+        ...form
+    }
+});
+
+let LogOut = () => {
+    localStorage.removeItem('user');
+    return dispatch => {
+        dispatch(removeUserName());
+    }
+}
+
+let removeUserName = () => {
+    return {
+        type: 'PUSH-LOG-IN-INSTATE',
+        newUser: ""
+    }
+}
+
+/* const callForwardinglogOut = () => {
+    history.push('/logPage');
+} */
+
+const logOutFailure = error => ({
+    type: POST_FAILURE,
+    payload: {
+        error
+    }
+});
+
+/*===================================================================================*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
