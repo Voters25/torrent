@@ -66,9 +66,6 @@ this.onTest = () => {
 
 
 
-
-
-
     return (
         <div className={classes.filePage}>
 
@@ -100,12 +97,12 @@ this.onTest = () => {
     }
 }
 
-
-
 /*
 
-{this.props.buttonActive &&
-                    <button className={classes.sendFileButton} type="button" onClick={this.onSendFile} >SendFile</button>
+{this.props.buttonActive ?
+                    <button className={classes.sendFileButtonActive} type="button" onClick={this.onSendFile} >Send file</button>
+                    :
+                    <button className={classes.sendFileButtonPassive} disabled="disabled" type="button" onClick={this.onSendFile} >Send file</button>
                 }
 
 */

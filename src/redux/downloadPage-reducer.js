@@ -17,8 +17,7 @@ const POST_FAILURE = 'POST-FAILURE';
 
 let initialState = {
     torrentsList: [],
-    newTorrentFile: [
-    ],
+    newTorrentFile: {},
     newMagnetUrl: "",
     /* test: [
         {test: '1'},
@@ -113,14 +112,20 @@ const postMagnetFailure = error => ({
 export const postFile = (sendFile) => {
     return dispatch => {
         dispatch(postFileStarted());
-                        
 
-        let formData = new FormData()
+        /* let formData = new FormData()
+        formData.append('torrent', sendFile); */
+
+        let formData = new FormData();
         formData.append('torrent', sendFile);
+        console.log(formData);
 
         Axios
             .post('http://localhost:80/torrent', {
-                formData,                
+                formData
+                /* headers: {
+                    'Content-Type': 'multipart/form-data'
+                } */
             })
             .then(res => {
                 dispatch(postFileSuccess(res.data));

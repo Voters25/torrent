@@ -28,7 +28,7 @@ let initialState = {
     passwordValue: '',
 
     /* user: '' */
-    user: ''
+    user: localStorage.getItem('user')
     
 }
 
