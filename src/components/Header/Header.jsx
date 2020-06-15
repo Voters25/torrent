@@ -11,23 +11,6 @@ let Header = (props) => {
 
 
 
-    /* let localStorageChange = () => {
-        if (localStorage.getItem('user') == null) {
-            props.logOutUser();
-        }
-    }
-
-    let storage = localStorage.getItem('user');
-    if (localStorage.getItem('user') == null) {
-        console.log(storage);
-    } else {
-        
-    } */
-    
-    
-
-    //console.log(document.cookie);
-    
     
     
 
