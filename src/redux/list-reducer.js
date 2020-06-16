@@ -45,11 +45,11 @@ export const getList = () => {
         dispatch(getListStarted());
 
         Axios
-            .get('https://my-json-server.typicode.com/Voters25/TorrentsTestList/torrents')
+            .get('http://localhost:80/users/torrents')
             .then(res => {
                 dispatch(getSuccess(res.data))
-                console.log(res);
-                dispatch(pushListInState(res))
+                console.log(res.data);
+                //dispatch(pushListInState(res))
             })
             .catch(err => {
                 dispatch(getFailure(err.message))
@@ -58,6 +58,7 @@ export const getList = () => {
 
     }
 }
+//'https://my-json-server.typicode.com/Voters25/TorrentsTestList/torrents'
 
 const getListStarted = () => ({
     type: GET_STARTED

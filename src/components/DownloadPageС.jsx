@@ -30,15 +30,16 @@ render() {
     // Ссылка на 'file'
     this.newFileElement = React.createRef();
 
-    this.onFileChange = () => {
+    this.onFileChange = (event) => {
         let file = this.newFileElement.current.files[0];
+
+        /* console.log(event.target.files[0]);
+        let file = event.target.files[0]; */
 
         if (file.type === 'application/x-bittorrent') {
             //alert('correct');
             this.props.updateNewFileValue(file);
         } else {
-            //alert('incorrect');
-            // Вызови зануление в newTorrentFile в reducer
             let button = false;
             this.props.incorrectFileValue(button);
         }
@@ -63,7 +64,6 @@ this.onTest = () => {
     console.log('Magnet URL:' + this.props.propsMagnet)
     console.log(this.props.propsFile);
 }
-
 
 
     return (

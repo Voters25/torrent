@@ -4,10 +4,15 @@ import { updateNewGmailValueAC, updateNewPasswordValueAC, addNewFormDataAC, post
 
 
 
+//const mapStateToProps = (state, ownProps) => {
 
-
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return {
+
+        //cookies: ownProps.cookies,
+
+
+
         logIn: state.LogPage.logIn,
 
         propsGmail: state.LogPage.gmailValue,

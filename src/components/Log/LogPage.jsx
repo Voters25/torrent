@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './LogPage.module.css';
 import { NavLink } from 'react-router-dom';
+//import { Cookies } from 'react-cookie';
 
 
 class LogPage extends React.Component {
@@ -35,6 +36,8 @@ render() {
 
 
     console.log(this.props.propsUser);
+
+    //console.log(this.props.cookies);
 
 
     return (

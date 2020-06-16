@@ -6,19 +6,21 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/redux.js';
+//import { CookiesProvider } from 'react-cookie';
 
 
 import history from './history';
 
 
 ReactDOM.render(
+  
     <Provider store={store}>
       <Router history={history}>
         <App />
       </Router>
     </Provider>, document.getElementById('root')
 );
-
+//<CookiesProvider></CookiesProvider>
 
 /* ReactDOM.render(
   <BrowserRouter>

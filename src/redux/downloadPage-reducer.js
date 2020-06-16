@@ -109,20 +109,20 @@ const postMagnetFailure = error => ({
 /*===================================================================================*/
                 // callback -> Отправка на сервер file
 
-export const postFile = (sendFile) => {
+export const postFile = (torrentFile) => {
     return dispatch => {
         dispatch(postFileStarted());
 
-        /* let formData = new FormData()
-        formData.append('torrent', sendFile); */
+        let formData = new FormData()
+        formData.append('torrent', torrentFile);
 
-        let formData = new FormData();
-        formData.append('torrent', sendFile);
-        console.log(formData);
+        /* let data = new FormData()
+        data.append('torrent', torrentFile); */
 
         Axios
             .post('http://localhost:80/torrent', {
                 formData
+                /* torrent: data */
                 /* headers: {
                     'Content-Type': 'multipart/form-data'
                 } */
@@ -145,10 +145,10 @@ const postFileStarted = () => ({
     type: POST_STARTED,
 });
 
-const postFileSuccess = (sendFile) => ({
+const postFileSuccess = (torrentFile) => ({
     type: POST_SUCCESS,
     payload: {
-        ...sendFile
+        ...torrentFile
     }
 });
 
