@@ -69,7 +69,7 @@ this.onTest = () => {
     return (
         <div className={classes.filePage}>
 
-            <form className={classes.form} id="sendFile" onSubmit={this.onFileSend} enctype="multipart/form-data">
+            <form className={classes.form} id="sendFile" onSubmit={this.onFileSend} encType="multipart/form-data">
                 
                 <p className={classes.Download}>Download</p>
 

@@ -12,13 +12,14 @@ import store from './redux/redux.js';
 import history from './history';
 
 
+  
 ReactDOM.render(
   
-    <Provider store={store}>
-      <Router history={history}>
-        <App />
-      </Router>
-    </Provider>, document.getElementById('root')
+  <Provider store={store}>
+    <Router history={history}>
+      <App />
+    </Router>
+  </Provider>, document.getElementById('root')
 );
 //<CookiesProvider></CookiesProvider>
 
@@ -29,6 +30,21 @@ ReactDOM.render(
     </Provider>
   </BrowserRouter>, document.getElementById('root')
 ); */
+
+
+/*
+
+ReactDOM.render(
+  
+    <Provider store={store}>
+      <Router history={history}>
+        <App />
+      </Router>
+    </Provider>, document.getElementById('root')
+);
+
+*/
+
 
 //
 //

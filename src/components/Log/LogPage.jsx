@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 //import { Cookies } from 'react-cookie';
 
 
+
 class LogPage extends React.Component {
     constructor(props) {
         super(props);
@@ -32,12 +33,13 @@ render() {
     this.onSendLogInForm = async () => {
         await this.props.addLogInForm();
         this.props.sendLogInForm(this.props.formData)
+        
+        this.cook = document.cookie;
+        console.log(this.cook);
     }
 
 
     console.log(this.props.propsUser);
-
-    //console.log(this.props.cookies);
 
 
     return (
@@ -60,8 +62,22 @@ render() {
 
 
 
-
 export default LogPage;
 
 
 //<input type="password" name="Password" ref={this.newPasswordElement} onChange={this.onPasswordChange} value={this.props.propsPassword} />
+
+
+/* <div className={classes.logInWripper}>
+            <form id="LogIn" className={classes.logInForm}>
+                <p className={classes.LogIn}>Log In</p>
+                <br />  
+                <input className={classes.gmail} type="text" name="Gmail" placeholder="  Email" ref={this.newGmailElement} onChange={this.onGmailChange} value={this.props.propsGmail} />
+                <br />
+                <input className={classes.password} type="password" name="Password" placeholder="  Password" ref={this.newPasswordElement} onChange={this.onPasswordChange} value={this.props.propsPassword} />
+                <br />
+                <button className={classes.buttonLogIn} onClick={this.onSendLogInForm} type="button" >Log In</button>
+                <br />
+                <NavLink to='registration' className={classes.reg} >Registration</NavLink>
+            </form>
+        </div> */

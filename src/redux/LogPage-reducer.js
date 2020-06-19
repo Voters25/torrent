@@ -98,10 +98,38 @@ export const postFormData = (form) => {
     return dispatch => {
         dispatch(postFormDataStarted());
 
-        /* let formData = new FormData();
-        formData.append('registration', form); */
+        
+        let formData = new FormData();
+        formData.append('email', form.email);
+        formData.append('password', form.password);
 
-        Axios
+
+        fetch('http://localhost:80/users/login', {
+            method: 'POST',
+            credentials: 'same-origin',//Под вопросом
+            credentials: "include",
+            /* mode: 'no-cors', */
+            body: formData
+        }).then(response => response.json())
+            .then(result => console.log(result));
+        
+
+        /* fetch('http://localhost:80/users/login', {
+            method: 'POST',
+            body: formData
+        }).then((res) => {
+            console.log(res.json());
+            dispatch(postFormDataSuccess(res.data));
+            console.log(res.data);
+            console.log(res);
+            dispatch(pushLogInToLocalStorage(res.data));
+            dispatch(callForwarding());
+        }).catch((err) => {
+            console.log(err);
+        }) */
+    
+
+        /* Axios
             .post('http://localhost:80/users/login',
                 form
             )
@@ -115,7 +143,7 @@ export const postFormData = (form) => {
             .catch(err => {
                 dispatch(postFormDataFailure(err.message));
                 console.log(err);
-            });
+            }); */
     };
 };
 
