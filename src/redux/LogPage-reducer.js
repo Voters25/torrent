@@ -113,9 +113,8 @@ export const postFormData = (form) => {
         }).then(response => response.text())
             .then(result => {
                 console.log(result);
-                dispatch(postFormDataSuccess(result));
                 dispatch(pushLogInToLocalStorage(result));
-                //dispatch(callForwarding());
+                callForwarding();
             });
     
 
@@ -142,12 +141,12 @@ const postFormDataStarted = () => ({
     type: POST_STARTED,
 });
 
-const postFormDataSuccess = (formData) => ({
+/* const postFormDataSuccess = (form) => ({
     type: POST_SUCCESS,
     payload: {
-        ...formData
+        ...form
     }
-});
+}); */
 
 let pushLogInToLocalStorage = (result) => {
     localStorage.setItem('user', result);

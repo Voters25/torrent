@@ -45,7 +45,7 @@ export const getList = () => {
         dispatch(getListStarted());
 
         Axios
-            .get('http://localhost:80/users/torrents')
+            .get('http://localhost:3000/users/torrents')
             .then(res => {
                 dispatch(getSuccess(res.data))
                 console.log(res.data);

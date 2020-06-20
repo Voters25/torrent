@@ -109,7 +109,24 @@ export const postRegFormData = (form) => {
         //let formData = new FormData(form);
         //formData.append('registration', form);
 
-        Axios
+        let formData = new FormData();
+        formData.append('email', form.email);
+        formData.append('password', form.password);
+        formData.append('password2', form.password2);
+
+
+        fetch('http://localhost:3000/users/register', {
+            method: 'POST',
+            credentials: "include",
+            body: formData
+        }).then(response => response.text())
+        .then(result => {
+            console.log(result);
+            callForwarding();
+        });
+
+
+        /* Axios
             .post('http://localhost:80/users/register',
                 form
                 )
@@ -121,7 +138,7 @@ export const postRegFormData = (form) => {
             .catch(err => {
                 dispatch(postFormDataFailure(err.message));
                 console.log(err);
-            });
+            }); */
     };
 };
 
@@ -130,12 +147,12 @@ const postFormDataStarted = () => ({
     type: POST_STARTED,
 });
 
-const postFormDataSuccess = (form) => ({
+/* const postFormDataSuccess = (form) => ({
     type: POST_SUCCESS,
     payload: {
         ...form
     }
-});
+}); */
 
 const callForwarding = () => {
     history.push('/LogPage');
