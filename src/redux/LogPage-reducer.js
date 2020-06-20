@@ -117,21 +117,6 @@ export const postFormData = (form) => {
                 dispatch(pushLogInToLocalStorage(result));
                 //dispatch(callForwarding());
             });
-        
-
-        /* fetch('http://localhost:80/users/login', {
-            method: 'POST',
-            body: formData
-        }).then((res) => {
-            console.log(res.json());
-            dispatch(postFormDataSuccess(res.data));
-            console.log(res.data);
-            console.log(res);
-            dispatch(pushLogInToLocalStorage(res.data));
-            dispatch(callForwarding());
-        }).catch((err) => {
-            console.log(err);
-        }) */
     
 
         /* Axios
@@ -212,7 +197,17 @@ export const logOutUsers = () => {
     return dispatch => {
         dispatch(logOutStarted());
 
-        Axios
+
+        fetch('http://localhost:3000/users/logout')
+        .then(res => res.text())
+        .then(result => {
+            console.log(result);
+            dispatch(LogOut());
+        });
+
+
+
+       /*  Axios
             .get('http://localhost:3000/users/logout')
             .then(res => {
                 dispatch(logOutSuccess(res.data));
@@ -223,7 +218,7 @@ export const logOutUsers = () => {
             .catch(err => {
                 dispatch(postFormDataFailure(err.message));
                 console.log(err);
-            });
+            }); */
     };
 };
 
@@ -232,12 +227,12 @@ const logOutStarted = () => ({
     type: POST_STARTED,
 });
 
-const logOutSuccess = (form) => ({
+/* const logOutSuccess = (form) => ({
     type: POST_SUCCESS,
     payload: {
         ...form
     }
-});
+}); */
 
 let LogOut = () => {
     localStorage.removeItem('user');
