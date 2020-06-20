@@ -104,14 +104,19 @@ export const postFormData = (form) => {
         formData.append('password', form.password);
 
 
-        fetch('http://localhost:80/users/login', {
+        fetch('http://localhost:3000/users/login', {
             method: 'POST',
-            credentials: 'same-origin',//Под вопросом
+            /* credentials: 'same-origin', *///Под вопросом
             credentials: "include",
             /* mode: 'no-cors', */
             body: formData
-        }).then(response => response.json())
-            .then(result => console.log(result));
+        }).then(response => response.text())
+            .then(result => {
+                console.log(result);
+                dispatch(postFormDataSuccess(result));
+                dispatch(pushLogInToLocalStorage(result));
+                //dispatch(callForwarding());
+            });
         
 
         /* fetch('http://localhost:80/users/login', {
@@ -152,15 +157,15 @@ const postFormDataStarted = () => ({
     type: POST_STARTED,
 });
 
-const postFormDataSuccess = (form) => ({
+const postFormDataSuccess = (formData) => ({
     type: POST_SUCCESS,
     payload: {
-        ...form
+        ...formData
     }
 });
 
-let pushLogInToLocalStorage = (res) => {
-    localStorage.setItem('user', res);
+let pushLogInToLocalStorage = (result) => {
+    localStorage.setItem('user', result);
     return dispatch => {
         dispatch(pushLogInState());
     }
@@ -208,7 +213,7 @@ export const logOutUsers = () => {
         dispatch(logOutStarted());
 
         Axios
-            .get('http://localhost:80/users/logout')
+            .get('http://localhost:3000/users/logout')
             .then(res => {
                 dispatch(logOutSuccess(res.data));
                 console.log(res.data);

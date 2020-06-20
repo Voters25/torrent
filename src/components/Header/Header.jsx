@@ -18,6 +18,8 @@ let Header = (props) => {
         props.logOutUser();
     }
 
+    let locUs = localStorage.getItem('user')
+    console.log(locUs)
                     /* FIX ME   (style header) */
                     /* Сделай человеческий адпатив на флексах, как в сите торрентов */
                     /* Log Out  высвечивается при первом запуске? */
@@ -27,7 +29,7 @@ let Header = (props) => {
                 <ul className={classes.styleUl}>
                     <li className={classes.logo} ><NavLink to="/" className={classes.logo} >LOGO</NavLink></li>
                     <li className={classes.userName}>{user}</li>
-                    {props.user == '' ?
+                    {props.user == '' || localStorage.getItem('user') == null ?
                         <li><NavLink to="logPage" className={classes.navLink} >log Page</NavLink></li>
                         :
                         <li><NavLink to="logPage" onClick={logOut} className={classes.navLink} >log Out</NavLink></li>
