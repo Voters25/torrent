@@ -202,7 +202,7 @@ export const logOutUsers = () => {
         .then(result => {
             console.log(result);
             dispatch(LogOut());
-        });
+        }).catch(err => console.log(err));
 
 
 

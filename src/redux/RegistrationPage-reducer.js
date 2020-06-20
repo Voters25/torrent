@@ -123,7 +123,7 @@ export const postRegFormData = (form) => {
         .then(result => {
             console.log(result);
             callForwarding();
-        });
+        }).catch(err => console.log(err));
 
 
         /* Axios

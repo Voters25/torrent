@@ -44,7 +44,14 @@ export const getList = () => {
     return dispatch => {
         dispatch(getListStarted());
 
-        Axios
+
+        fetch('http://localhost:3000/users/torrents')
+        .then(res => res.json())
+        .then(result => {
+            console.log(result);
+        }).catch(err => console.log(err))
+
+        /* Axios
             .get('http://localhost:3000/users/torrents')
             .then(res => {
                 dispatch(getSuccess(res.data))
@@ -54,7 +61,7 @@ export const getList = () => {
             .catch(err => {
                 dispatch(getFailure(err.message))
                 console.log(err);
-            })
+            }) */
 
     }
 }
