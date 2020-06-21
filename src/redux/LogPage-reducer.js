@@ -1,6 +1,4 @@
-import Axios from "axios";
 import history from "../history";
-//import * as axios from 'axios';
 
 const POST_STARTED = 'GET-STARTED';
 const POST_SUCCESS = 'GET-SUCCESS';
@@ -106,9 +104,7 @@ export const postFormData = (form) => {
 
         fetch('http://localhost:3000/users/login', {
             method: 'POST',
-            /* credentials: 'same-origin', *///Под вопросом
             credentials: "include",
-            /* mode: 'no-cors', */
             body: formData
         }).then(response => response.text())
             .then(result => {
@@ -197,7 +193,9 @@ export const logOutUsers = () => {
         dispatch(logOutStarted());
 
 
-        fetch('http://localhost:3000/users/logout')
+        fetch('http://localhost:3000/users/logout', {
+            credentials: "include"
+        })
         .then(res => res.text())
         .then(result => {
             console.log(result);

@@ -1,5 +1,4 @@
-import Axios from "axios";
-//import * as axios from 'axios';
+
 
 const GET_STARTED = 'GET-STARTED';
 const GET_SUCCESS = 'GET-SUCCESS';
@@ -10,7 +9,8 @@ const PUSH_LIST_INSTATE = 'PUSH-LIST-INSTATE';
 
 
 let initialState = {
-    torrentsList: []    
+    torrentsList: []
+    // [{date: ..., infoHash: ..., magnet: ..., name: ..., size: ..., id: ..., v: ...}]
 }
 
 
@@ -45,10 +45,13 @@ export const getList = () => {
         dispatch(getListStarted());
 
 
-        fetch('http://localhost:3000/users/torrents')
+        fetch('http://localhost:3000/users/torrents', {
+            credentials: "include"
+        })
         .then(res => res.json())
         .then(result => {
             console.log(result);
+            dispatch(pushListInState(result))
         }).catch(err => console.log(err))
 
         /* Axios
@@ -71,12 +74,10 @@ const getListStarted = () => ({
     type: GET_STARTED
 });
 
-const getSuccess = () => ({
+/* const getSuccess = () => ({
     type: GET_SUCCESS,
-    /* payload: {
-
-    } */
-});
+    
+}); */
 
 const getFailure = error => ({
     type: GET_FAILURE,
@@ -90,10 +91,10 @@ const getFailure = error => ({
 
 
 
-let pushListInState = (res) => {
+let pushListInState = (result) => {
     return {
         type: 'PUSH-LIST-INSTATE',
-        newList: res.data
+        newList: result
     }
 }
 

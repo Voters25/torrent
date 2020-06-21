@@ -1,6 +1,4 @@
-import Axios from "axios";
 import history from "../history";
-//import * as axios from 'axios';
 
 const UPDATE_NEW_MAGNET = 'UPDATE-NEW-MAGNET';
 const UPDATE_NEW_FILE = 'UPDATE-NEW-FILE';
@@ -63,7 +61,24 @@ export const postMagnet = (magnet) => {
     return dispatch => {
         dispatch(postMagnetStarted());
 
-        Axios
+
+        let formData = new FormData();
+        formData.append('magnet', magnet);
+
+
+        fetch('http://localhost:80/magnet', {
+            method: 'POST',
+            credentials: 'include',
+            body: formData
+        }).then(res => res.text())
+        .then(result => {
+            console.log(result);
+            callForwarding();
+        }).catch(err => console.log(err));
+
+
+
+        /* Axios
             .post('http://localhost:80/magnet', {
                 magnet: magnet,                
             })
@@ -74,9 +89,7 @@ export const postMagnet = (magnet) => {
             .catch(err => {
                 dispatch(postMagnetFailure(err.message));
                 console.log(err);
-                // тестовая, пока серва нету *****************************
-                //history.push('/downloadProgress') //******************************************
-            });
+            }); */
     };
 };
 
@@ -116,16 +129,21 @@ export const postFile = (torrentFile) => {
         let formData = new FormData()
         formData.append('torrent', torrentFile);
 
-        /* let data = new FormData()
-        data.append('torrent', torrentFile); */
 
-        Axios
-            .post('http://localhost:80/torrent', {
+        fetch('http://localhost:3000/torrent', {
+            method: 'POST',
+            credentials: 'include',
+            body: formData
+        }).then(res => res.text())
+        .then(result => {
+            console.log(result);
+            callForwarding();
+        }).catch(err => console.log(err));
+
+
+        /* Axios
+            .post('http://localhost:3000/torrent', {
                 formData
-                /* torrent: data */
-                /* headers: {
-                    'Content-Type': 'multipart/form-data'
-                } */
             })
             .then(res => {
                 dispatch(postFileSuccess(res.data));
@@ -136,7 +154,7 @@ export const postFile = (torrentFile) => {
             .catch(err => {
                 dispatch(postFileFailure(err.message));
                 console.log(err);
-            });
+            }); */
     };
 };
 

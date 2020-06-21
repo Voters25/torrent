@@ -1,6 +1,4 @@
-import Axios from "axios";
 import history from "../history";
-//import * as axios from 'axios';
 
 const POST_STARTED = 'GET-STARTED';
 const POST_SUCCESS = 'GET-SUCCESS';

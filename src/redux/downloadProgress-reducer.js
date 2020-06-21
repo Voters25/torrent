@@ -1,5 +1,4 @@
-import Axios from "axios";
-//import * as axios from 'axios';
+
 
 const GET_STARTED = 'GET-STARTED';
 const GET_SUCCESS = 'GET-SUCCESS';
