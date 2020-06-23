@@ -2,6 +2,9 @@
     width: 100%;
     background: rgb(149, 172, 202);
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 
@@ -10,6 +13,10 @@
     color: #414141;;
     font-size: 120%;
     font-weight: 700;
+    width: 100%;
+    text-align: center;
+
+    background: #ff5b5b;
 }
 
 
@@ -23,6 +30,9 @@
     color: #414141;;
     font-size: 100%;
     font-weight: 700;
+
+
+    background: #f13333;
 }
 
 
@@ -30,4 +40,7 @@
     color: #414141;;
     font-size: 100%;
     font-weight: 700;
+
+
+    background: #d6ec0d;
 }

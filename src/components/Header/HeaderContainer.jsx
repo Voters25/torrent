@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
 
     return {
         //propsUser: state.LogPage.user,
-        user: state.LogPage.user
+        user: state.LogPage.user,
+        errorStatus: state.LogPage.errorStatus
     }
 }
 

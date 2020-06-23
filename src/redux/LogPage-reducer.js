@@ -1,9 +1,6 @@
 import history from "../history";
 
 const POST_STARTED = 'GET-STARTED';
-const POST_SUCCESS = 'GET-SUCCESS';
-const POST_FAILURE = 'GET-FAILURE';
-
 
 const UPDATE_NEW_GMAIL_VALUE = 'UPDATE-NEW-GMAIL-VALUE';
 const UPDATE_NEW_PASSWORD_VALUE = 'UPDATE-NEW-PASSWORD-VALUE';
@@ -11,6 +8,8 @@ const UPDATE_NEW_PASSWORD_VALUE = 'UPDATE-NEW-PASSWORD-VALUE';
 const ADD_FORM_DATA = 'ADD-FORM-DATA';
 
 const PUSH_LOG_IN_INSTATE = 'PUSH-LOG-IN-INSTATE';
+
+const PUSH_NEW_REQUEST_STATUS = 'PUSH-NEW-REQUEST-STATUS';
 
 
 
@@ -26,8 +25,8 @@ let initialState = {
     passwordValue: '',
 
     /* user: '' */
-    user: localStorage.getItem('user')
-    
+    user: localStorage.getItem('user'),
+    errorStatus: true
 }
 
 
@@ -61,6 +60,11 @@ const LogPageReducer = (state = initialState, action) => {
                 ...state,
                 user: action.newUser
             };
+        case PUSH_NEW_REQUEST_STATUS:
+            return {
+                ...state,
+                errorStatus: action.newReqStatus
+            }
         default:
             return state;
     }
@@ -109,26 +113,16 @@ export const postFormData = (form) => {
         }).then(response => response.text())
             .then(result => {
                 console.log(result);
-                dispatch(pushLogInToLocalStorage(result));
-                callForwarding();
+                if (result !== "Error.") {
+                    dispatch(pushLogInToLocalStorage(result));
+                    dispatch(succesStatus());
+                    callForwarding();
+                }
+            }).catch(err => {
+                console.log(err)
+                // Неверно введённые данные. Вывести ошибку
+                dispatch(errorStatus());
             });
-    
-
-        /* Axios
-            .post('http://localhost:80/users/login',
-                form
-            )
-            .then(res => {
-                dispatch(postFormDataSuccess(res.data));
-                console.log(res.data);
-                dispatch(pushLogInToLocalStorage(res.data));
-                //dispatch(pushLogInState(res.data));
-                dispatch(callForwarding());
-            })
-            .catch(err => {
-                dispatch(postFormDataFailure(err.message));
-                console.log(err);
-            }); */
     };
 };
 
@@ -137,12 +131,6 @@ const postFormDataStarted = () => ({
     type: POST_STARTED,
 });
 
-/* const postFormDataSuccess = (form) => ({
-    type: POST_SUCCESS,
-    payload: {
-        ...form
-    }
-}); */
 
 let pushLogInToLocalStorage = (result) => {
     localStorage.setItem('user', result);
@@ -156,12 +144,6 @@ const callForwarding = () => {
     history.push('/downloadPage');
 }
 
-const postFormDataFailure = error => ({
-    type: POST_FAILURE,
-    payload: {
-        error
-    }
-});
 
 /*===================================================================================*/
                         
@@ -196,26 +178,20 @@ export const logOutUsers = () => {
         fetch('http://localhost:3000/users/logout', {
             credentials: "include"
         })
-        .then(res => res.text())
+        .then(res => {
+            res.text()
+        })
         .then(result => {
             console.log(result);
             dispatch(LogOut());
-        }).catch(err => console.log(err));
-
-
-
-       /*  Axios
-            .get('http://localhost:3000/users/logout')
-            .then(res => {
-                dispatch(logOutSuccess(res.data));
-                console.log(res.data);
-                dispatch(LogOut());
-                //dispatch(callForwardinglogOut());
-            })
-            .catch(err => {
-                dispatch(postFormDataFailure(err.message));
-                console.log(err);
-            }); */
+            dispatch(succesStatus());
+        }).catch(err => {
+            console.log(err)
+            if (err == "TypeError: Failed to fetch") {
+                // Соединение с сервером не установлено.
+                dispatch(errorStatus());
+            }
+        });
     };
 };
 
@@ -224,12 +200,7 @@ const logOutStarted = () => ({
     type: POST_STARTED,
 });
 
-/* const logOutSuccess = (form) => ({
-    type: POST_SUCCESS,
-    payload: {
-        ...form
-    }
-}); */
+
 
 let LogOut = () => {
     localStorage.removeItem('user');
@@ -245,16 +216,24 @@ let removeUserName = () => {
     }
 }
 
+let errorStatus = () => {
+    return {
+        type: 'PUSH-NEW-REQUEST-STATUS',
+        newReqStatus: false
+    }
+}
+
+let succesStatus = () => {
+    return {
+        type: 'PUSH-NEW-REQUEST-STATUS',
+        newReqStatus: true
+    }
+}
+
 /* const callForwardinglogOut = () => {
     history.push('/logPage');
 } */
 
-const logOutFailure = error => ({
-    type: POST_FAILURE,
-    payload: {
-        error
-    }
-});
 
 /*===================================================================================*/
 

@@ -7,7 +7,7 @@ import { cancellationRedirect } from '../../redux/downloadPage-reducer';
 
 let NavBar = (props) => {
 
-    let userName = props.propsUser;
+    let userName = props.user;
 
 
     return (
@@ -17,7 +17,11 @@ let NavBar = (props) => {
                     
                     <li className={classes.styleLi}><NavLink to="downloadPage" className={classes.navLink} >Download File</NavLink></li>
                     <li className={classes.styleLi}><NavLink to="downloadProgress" className={classes.navLink} >Download Progress</NavLink></li>
-                    <li className={classes.styleLi}><NavLink to="list" className={classes.navLink} >List</NavLink></li>
+                    {userName ?
+                        <li className={classes.styleLi}><NavLink to="list" className={classes.navLink} >List</NavLink></li>
+                        :
+                        null
+                    }
                 </ul>
             </nav>
         </nav>

@@ -8,7 +8,7 @@ let Header = (props) => {
 
     //let userName = props.propsUser;
     let user = props.user;
-
+    let errorStatus = props.errorStatus;
 
 
     
@@ -25,6 +25,13 @@ let Header = (props) => {
                     /* Log Out  высвечивается при первом запуске? */
     return (
         <header className={classes.wripper}>
+            <div className={classes.errorBlock}>
+                {errorStatus ?
+                    null
+                    :
+                    <p className={classes.error}>Error</p>
+                }
+            </div>
             <div className={classes.headerNavigation}>
                 <ul className={classes.styleUl}>
                     <li className={classes.logo} ><NavLink to="/" className={classes.logo} >LOGO</NavLink></li>

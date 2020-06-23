@@ -29,6 +29,7 @@ const mapStateToProps = (state) => {
     }
 }
 
+
 // Тут колбэки
 const mapDispatchToProps = (dispatch) => {
     return {

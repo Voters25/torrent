@@ -50,7 +50,7 @@ export const getList = () => {
         })
         .then(res => res.json())
         .then(result => {
-            console.log(result);
+            //console.log(result);
             dispatch(pushListInState(result))
         }).catch(err => console.log(err))
 

@@ -57,6 +57,7 @@ render() {
     console.log(filesInfo);
 
     
+    
 
     /* this.filesInfoComponent = this.props.filesInfo
     .map((e => <FilesInfo key={e.name} name={e.name} downloaded={e.downloaded} lenght={e.lenght} progress={e.progress} /> ))

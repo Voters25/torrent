@@ -16,7 +16,8 @@ class List extends React.Component {
     render() {
 
 
-        console.log(this.props.torrentList);
+        //console.log(this.props.torrentList);
+        console.log(document.cookie);
 
         // Вывод листа
         this.torrentElements = this.props.torrentList
@@ -28,11 +29,9 @@ class List extends React.Component {
         return (
             <div className={classes.wripper}>
                 <p className={classes.UploadedFiles}>Uploaded files</p>
-                <p className={classes.UploadedFiles}>ВЫВЕДИ ОШИБКУ, ЕСЛИ НЕ ЗЛОГИНЕН</p>
                 <div className={classes.list}>
                     <div className={classes.listInfo}>
                         <p className={classes.name}>Name:</p>
-                        
                         <p className={classes.size}>Size:</p>
                         <p className={classes.date}>Date:</p>
                     </div>

@@ -7,7 +7,7 @@ import NavBar from './NavBar.jsx';
 
 const mapStateToProps = (state) => {
     return {
-        
+        user: state.LogPage.user
     }
 }
 

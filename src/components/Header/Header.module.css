@@ -16,6 +16,89 @@ header {
 }
 
 
+/*=================================*/
+.errorBlock {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    /* margin: 0px auto; */
+    margin-left: 0 auto;
+    background: red;
+    height: 0;
+    top: -30px;
+  }
+  .error {
+    display: block;
+    background: rgb(240, 152, 152);
+    z-index: 3;
+    position: relative;
+    top: 0px;
+    height: 30px;
+    width: 30%;
+  
+    max-width: 300px;
+    margin: 0px auto;
+
+    animation-name: error-anim;
+    animation-duration: 4s;
+    /* animation-play-state: paused; */
+    /* animation-fill-mode: forwards; */
+  
+  }
+
+@keyframes error-anim {
+    0% {
+        top: 0px;
+    }
+    20% {
+        top: 30px;
+    }
+    80% {
+        top: 30px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+
+
+  /*
+  .errorTest {
+    display: block;
+    background: rgb(240, 152, 152);
+    z-index: 3;
+    position: relative;
+    top: 20px;
+    height: 30px;
+    width: 30%;
+  
+    max-width: 300px;
+    margin: 0px auto;
+
+  }*/
+
+  /* @media (prefers-reduced-motion: no-preference) {
+    .error {
+      animation: Error-anim infinite 20s linear;
+    }
+  }
+
+  @keyframes Error-anim {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  } */
+
+/*=================================*/
+
+
+
+
 .styleUl {
     margin-left: 0;
     padding-left: 0;
@@ -127,3 +210,17 @@ li {
 
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

@@ -66,7 +66,7 @@ export const postMagnet = (magnet) => {
         formData.append('magnet', magnet);
 
 
-        fetch('http://localhost:80/magnet', {
+        fetch('http://localhost:3000/magnet', {
             method: 'POST',
             credentials: 'include',
             body: formData
@@ -75,21 +75,6 @@ export const postMagnet = (magnet) => {
             console.log(result);
             callForwarding();
         }).catch(err => console.log(err));
-
-
-
-        /* Axios
-            .post('http://localhost:80/magnet', {
-                magnet: magnet,                
-            })
-            .then(res => {
-                dispatch(postMagnetSuccess(res.data));
-                dispatch(callForwarding())
-            })
-            .catch(err => {
-                dispatch(postMagnetFailure(err.message));
-                console.log(err);
-            }); */
     };
 };
 
@@ -98,23 +83,23 @@ const postMagnetStarted = () => ({
     type: POST_STARTED,
 });
 
-const postMagnetSuccess = (sendMagnet) => ({
+/* const postMagnetSuccess = (sendMagnet) => ({
     type: POST_SUCCESS,
     payload: {
         ...sendMagnet
     }
-});
+}); */
 
 const callForwarding = () => {
     history.push('/downloadProgress');
 }
 
-const postMagnetFailure = error => ({
+/* const postMagnetFailure = error => ({
     type: POST_FAILURE,
     payload: {
         error
     }
-}); 
+});  */
 
 /*===================================================================================*/
 
@@ -139,22 +124,6 @@ export const postFile = (torrentFile) => {
             console.log(result);
             callForwarding();
         }).catch(err => console.log(err));
-
-
-        /* Axios
-            .post('http://localhost:3000/torrent', {
-                formData
-            })
-            .then(res => {
-                dispatch(postFileSuccess(res.data));
-                console.log(res);
-                // Переадресация
-                history.push('/downloadProgress')
-            })
-            .catch(err => {
-                dispatch(postFileFailure(err.message));
-                console.log(err);
-            }); */
     };
 };
 
@@ -163,19 +132,19 @@ const postFileStarted = () => ({
     type: POST_STARTED,
 });
 
-const postFileSuccess = (torrentFile) => ({
+/* const postFileSuccess = (torrentFile) => ({
     type: POST_SUCCESS,
     payload: {
         ...torrentFile
     }
-});
+}); */
 
-const postFileFailure = error => ({
+/* const postFileFailure = error => ({
     type: POST_FAILURE,
     payload: {
         error
     }
-}); 
+});  */
 
 
 /*===================================================================================*/
