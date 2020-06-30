@@ -16,7 +16,6 @@ header {
 }
 
 
-/*=================================*/
 .errorBlock {
     z-index: 2;
     position: absolute;
@@ -29,6 +28,13 @@ header {
     top: -30px;
   }
   .error {
+
+    margin: 0;
+    color: #414141;;
+    font-size: 120%;
+    font-weight: 700;
+
+
     display: block;
     background: rgb(240, 152, 152);
     z-index: 3;
@@ -51,10 +57,10 @@ header {
     0% {
         top: 0px;
     }
-    20% {
+    10% {
         top: 30px;
     }
-    80% {
+    90% {
         top: 30px;
     }
     100% {
@@ -63,38 +69,6 @@ header {
 }
 
 
-
-  /*
-  .errorTest {
-    display: block;
-    background: rgb(240, 152, 152);
-    z-index: 3;
-    position: relative;
-    top: 20px;
-    height: 30px;
-    width: 30%;
-  
-    max-width: 300px;
-    margin: 0px auto;
-
-  }*/
-
-  /* @media (prefers-reduced-motion: no-preference) {
-    .error {
-      animation: Error-anim infinite 20s linear;
-    }
-  }
-
-  @keyframes Error-anim {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  } */
-
-/*=================================*/
 
 
 
@@ -165,11 +139,20 @@ li {
     .logo {
         flex-basis: 70%;
     }
+    .userName {
+        flex-basis: 15%;
+    }
+    .navLink {
+        flex-basis: 10%;
+    }
 }
 @media (max-width:1260px){
     .logo {
-        flex-basis: 70%;
+        flex-basis: 65%;
         padding-left: 35px;
+    }
+    .userName {
+        flex-basis: 20%;
     }
     .navLink {
         flex-basis: 10%;
@@ -177,40 +160,81 @@ li {
   }
 @media (max-width:1200px){
     .logo {
-        
+        flex-basis: 60%;
+    }
+    .userName {
+        flex-basis: 20%;
     }
     .navLink {
-        flex-basis: 10%;
+        flex-basis: 20%;
     }
 
   }
   @media (max-width:992px){
     .logo {
-        flex-basis: 70%;
+        flex-basis: 55%;
         padding-left: 35px;
     }
+    .userName {
+        flex-basis: 25%;
+    }
     .navLink {
-        flex-basis: 10%;
+        flex-basis: 25%;
     }
   }
   @media (max-width:768px){
     .logo {
-        /* height: 0;
-        width: 0; */
-        flex-basis: 60%;
-        padding-left: 30px;
-    }
-    .navLink {
-        flex-basis: 10%;
-    }
-    ul {
-
+        flex-basis: 40%;
+        padding-left: 25px;
     }
     .userName {
-
+        flex-basis: 38%;
+    }
+    .navLink {
+        flex-basis: 23%;
     }
   }
-
+  @media (max-width:580px){
+    .error {  
+        background: rgb(240, 152, 152);
+        height: 30px;
+        width: 50%;
+      
+        max-width: 600px;
+        margin: 0px auto;
+      }
+      .logo {
+        flex-basis: 35%;
+        padding-left: 25px;
+        }
+        .userName {
+            flex-basis: 41%;
+        }
+        .navLink {
+            flex-basis: 25%;
+        }
+  }
+  @media (max-width:500px){
+      .logo {
+        display: none;
+        }
+        .userName {
+            flex-basis: 35%;
+            margin-left: 10%;
+        }
+        .navLink {
+            flex-basis: 65%;
+            margin-left: 130px;
+        }
+  }
+  @media (max-width:420px){
+      .userName {
+          display: none;
+      }
+      .navLink {
+          /* flex-basis: 100%; */
+      }
+}
 
 
 

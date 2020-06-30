@@ -99,6 +99,13 @@ let pushListInState = (result) => {
 }
 
 
+export const zeroingTorrentList = () => {
+    return {
+        type: 'PUSH-LIST-INSTATE',
+        newList: []
+    }
+}
+
 
 
 export default listReducer;

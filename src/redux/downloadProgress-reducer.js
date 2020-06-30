@@ -1,4 +1,4 @@
-
+import history from "../history";
 
 const GET_STARTED = 'GET-STARTED';
 const GET_SUCCESS = 'GET-SUCCESS';
@@ -64,12 +64,18 @@ export let getProgress = (infoHash) => {
 }
 
 
-
 let getTorrentStatus = (data) => {
     return {
         type: 'GET-TORRENT-STATUS',
         newStatus: data         // data.files
     }
+}
+
+export let setInfoHashToStorage = (infoHash) => {
+    localStorage.setItem('infoHash', infoHash);
+}
+export const removeInfoHashLocalStorage = () => {
+    localStorage.removeItem('infoHash');
 }
 
 export let ChangeFilesInfoButton = () => {
@@ -79,6 +85,16 @@ export let ChangeFilesInfoButton = () => {
     }
 }
 
+export const zeroingTorrentStatus = () => {
+    return {
+        type: 'GET-TORRENT-STATUS',
+        newStatus: []
+    }
+}
+
+export const callForwardingList = () => {
+    history.push('/list');
+}
 
 
 

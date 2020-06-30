@@ -1,7 +1,7 @@
 //import React from 'react';
 import { connect } from 'react-redux';
 import DownloadPogress from './DownloadPogress.jsx';
-import { getProgress, addHash, ChangeFilesInfoButton } from '../../redux/downloadProgress-reducer.js';
+import { getProgress, addHash, ChangeFilesInfoButton, callForwardingList, zeroingTorrentStatus, setInfoHashToStorage, removeInfoHashLocalStorage } from '../../redux/downloadProgress-reducer.js';
 
 
 
@@ -13,6 +13,7 @@ const mapStateToProps = (state) => {
         progressBar: state.progressPage.torrentStatus, // Все данные
         
         // Данные о загрузке
+        downloadName: state.progressPage.torrentStatus.name,
         downloadProgress: state.progressPage.torrentStatus.progress, // Шкала
         downloaded: state.progressPage.torrentStatus.downloaded, // Загружено
         downloadSpeed: state.progressPage.torrentStatus.downloadSpeed, // Скорость
@@ -34,15 +35,31 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
 
+        setInfoHashToLocalStorage: (infoHash) => {
+            setInfoHashToStorage(infoHash)
+        },
+        removeInfoHash: () => {
+            removeInfoHashLocalStorage()
+        },
+
         getProgressAC: (magnetInfoHash) => {
             dispatch(getProgress(magnetInfoHash))
         },
 
         changeButtonStatusAC: () => {
             dispatch(ChangeFilesInfoButton())
+        },
+
+        zeroingTorrent: () => {
+            dispatch(zeroingTorrentStatus())
+        },
+
+        callForowarding: () => {
+            callForwardingList()
         }
     }
 }
+
 
 
 const DownloadProgressContainer = connect(mapStateToProps, mapDispatchToProps)(DownloadPogress);

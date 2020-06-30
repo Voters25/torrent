@@ -18,6 +18,7 @@ class List extends React.Component {
 
         //console.log(this.props.torrentList);
         console.log(document.cookie);
+        console.log(this.props.torrentList);
 
         // Вывод листа
         this.torrentElements = this.props.torrentList

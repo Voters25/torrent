@@ -11,7 +11,11 @@ let FilesInfo = (props) => {
 
     return (
         <div>
-
+            <span>{'Name: ' + props.name + ' '}</span>
+            <span>{'Downloaded: ' + props.downloaded + ' '}</span>
+            <span>{'Path: ' + props.path + ' '}</span>
+            <span>{'Size: ' + props.size + ' '}</span>
+            <span>{'Progress: ' + props.progress + ' '}</span>
         </div>
     )
 }

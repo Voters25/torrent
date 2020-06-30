@@ -1,8 +1,7 @@
 import history from "../history";
+import { errorStatus } from "./RequestsStatus-reducer";
 
 const POST_STARTED = 'GET-STARTED';
-const POST_SUCCESS = 'GET-SUCCESS';
-const POST_FAILURE = 'GET-FAILURE';
 
 
 const UPDATE_NEW_GMAIL_VALUE = 'UPDATE-NEW-GMAIL-VALUE';
@@ -10,6 +9,8 @@ const UPDATE_NEW_PASSWORD_VALUE = 'UPDATE-NEW-PASSWORD-VALUE';
 const UPDATE_NEW_PASSWORD_TWO_VALUE = 'UPDATE-NEW-PASSWORD-TWO-VALUE';
 
 const ADD_FORM_DATA = 'ADD-FORM-DATA';
+
+const CHANGE_VALIDATION_STATUS = "CHANGE-VALIDATION-STATUS";
 
 
 
@@ -23,7 +24,8 @@ let initialState = {
     formData: {},
     gmailValue: '',
     passwordValue: '',
-    passwordTwoValue: ''
+    passwordTwoValue: '',
+    validation: true
     
 }
 
@@ -61,6 +63,11 @@ const RegistrationPageReducer = (state = initialState, action) => {
                 passwordValue: '',
                 PasswordTwo: ''
             };
+        case CHANGE_VALIDATION_STATUS:
+            return {
+                ...state,
+                validation: action.newStatus
+            }
         default:
             return state;
     }
@@ -104,8 +111,6 @@ export const postRegFormData = (form) => {
     return dispatch => {
         dispatch(postFormDataStarted());
 
-        //let formData = new FormData(form);
-        //formData.append('registration', form);
 
         let formData = new FormData();
         formData.append('email', form.email);
@@ -120,23 +125,19 @@ export const postRegFormData = (form) => {
         }).then(response => response.text())
         .then(result => {
             console.log(result);
-            callForwarding();
-        }).catch(err => console.log(err));
-
-
-        /* Axios
-            .post('http://localhost:80/users/register',
-                form
-                )
-            .then(res => {
-                dispatch(postFormDataSuccess(res.data));
-                dispatch(callForwarding())
-                console.log(res)
-            })
-            .catch(err => {
-                dispatch(postFormDataFailure(err.message));
-                console.log(err);
-            }); */
+            if (result !== "Error.") {
+                callForwarding();
+                dispatch(validationTrue());
+            } else if (result == "Error.") {
+                // Не прошла валидация
+                dispatch(validationFalse());
+            }
+        }).catch(err => {
+            console.log(err)
+            if (err == "TypeError: Failed to fetch") {
+                dispatch(errorStatus());
+            }
+        });
     };
 };
 
@@ -145,23 +146,26 @@ const postFormDataStarted = () => ({
     type: POST_STARTED,
 });
 
-/* const postFormDataSuccess = (form) => ({
-    type: POST_SUCCESS,
-    payload: {
-        ...form
-    }
-}); */
 
 const callForwarding = () => {
     history.push('/LogPage');
 }
 
-const postFormDataFailure = error => ({
-    type: POST_FAILURE,
-    payload: {
-        error
+
+
+const validationFalse = () => {
+    return {
+        type: "CHANGE-VALIDATION-STATUS",
+        newStatus: false
     }
-});
+}
+
+const validationTrue = () => {
+    return {
+        type: "CHANGE-VALIDATION-STATUS",
+        newStatus: true
+    }
+}
 
 /*===================================================================================*/
                         

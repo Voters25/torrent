@@ -22,7 +22,6 @@ let Header = (props) => {
     console.log(locUs)
                     /* FIX ME   (style header) */
                     /* Сделай человеческий адпатив на флексах, как в сите торрентов */
-                    /* Log Out  высвечивается при первом запуске? */
     return (
         <header className={classes.wripper}>
             <div className={classes.errorBlock}>

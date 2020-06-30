@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './DownloadPageC.module.css';
-import { Redirect, useHistory } from 'react-router-dom';
+
 
 
 class DownloadPageC extends React.Component {

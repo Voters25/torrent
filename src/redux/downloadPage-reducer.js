@@ -122,6 +122,7 @@ export const postFile = (torrentFile) => {
         }).then(res => res.text())
         .then(result => {
             console.log(result);
+            dispatch(updateNewMagnetAC(result));
             callForwarding();
         }).catch(err => console.log(err));
     };

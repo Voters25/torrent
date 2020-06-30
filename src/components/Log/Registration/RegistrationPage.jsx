@@ -9,7 +9,7 @@ class RegistrationPage extends React.Component {
     
 render() {
 
-    //console.log(this.props.logIn);
+
     console.log(this.props.formData);
 
     this.newGmailElement = React.createRef();
@@ -29,28 +29,44 @@ render() {
         this.props.updateNewPasswordTwoValue(passwordTwo);
     }
 
-
-    //console.log(this.props.checkPassword);
     
 
     this.onSendRegForm = async () => {
         await this.props.addRegInForm();
-
-        //this.props.checkPassword
-        //this.props.checkPasswordTwo
         console.log(this.props.checkPassword);
 
         if (this.props.checkPassword == this.props.checkPasswordTwo) {
             this.props.sendRegInForm(this.props.formData);
         } else {
             console.log('Несостыковочка вышла');
+            // ВВЕДЕНЫ НЕКОРРЕКТНЫЕ ДАННЫЕ
         }
 
     }
 
 
+    let regFormFailureValidation = () => {
+        return (
+            <form id="Reg" className={classes.regForm}>
+                <p className={classes.Registration}>Registration</p>
+                <br />
+                <input type="text" name="Gmail" placeholder="  Email" className={classes.logFailure} ref={this.newGmailElement} onChange={this.onGmailChange} value={this.props.propsGmail} />
+                <br />
+                <input type="password" name="Password" placeholder="  Password" className={classes.regFailure} ref={this.newPasswordElement} onChange={this.onPasswordChange} value={this.props.propsPassword} />
+                <br />
+                <input type="password" name="PasswordTwo" placeholder="  Check password" className={classes.regFailure} ref={this.newPasswordTwoElement} onChange={this.onPasswordTwoChange} value={this.props.propsPasswordTwo} />
+                <br />
+                <button className={classes.buttonReg} onClick={this.onSendRegForm} type="button" >Registration</button>
+            </form>
+        )
+    }
+
+
+
+
     return (
         <div className={classes.regWripper}>
+            {this.props.validation ?
             <form id="Reg" className={classes.regForm}>
                 <p className={classes.Registration}>Registration</p>
                 <br />
@@ -62,6 +78,9 @@ render() {
                 <br />
                 <button className={classes.buttonReg} onClick={this.onSendRegForm} type="button" >Registration</button>
             </form>
+            :
+            regFormFailureValidation()
+            }
         </div>
     )
     }

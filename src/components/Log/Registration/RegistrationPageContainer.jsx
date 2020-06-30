@@ -18,7 +18,9 @@ const mapStateToProps = (state) => {
         checkPassword: state.RegistrationPage.formData.password,
         checkPasswordTwo: state.RegistrationPage.formData.password2,
 
-        formData: state.RegistrationPage.formData
+        formData: state.RegistrationPage.formData,
+
+        validation: state.RegistrationPage.validation
     }
 }
 

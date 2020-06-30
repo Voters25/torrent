@@ -1,4 +1,7 @@
 import history from "../history";
+import { succesStatus, errorStatus } from "./RequestsStatus-reducer";
+import { zeroingTorrentList } from "./list-reducer";
+import { zeroingTorrentStatus } from "./downloadProgress-reducer";
 
 const POST_STARTED = 'GET-STARTED';
 
@@ -117,11 +120,16 @@ export const postFormData = (form) => {
                     dispatch(pushLogInToLocalStorage(result));
                     dispatch(succesStatus());
                     callForwarding();
+                } else if (result == "Error.") {
+                    // Неверно введённые данные. Вывести ошибку
+                    dispatch(errorStatus());
                 }
             }).catch(err => {
                 console.log(err)
-                // Неверно введённые данные. Вывести ошибку
-                dispatch(errorStatus());
+                if (err == "TypeError: Failed to fetch") {
+                    // Неверно введённые данные. Вывести ошибку
+                    dispatch(errorStatus());
+                }
             });
     };
 };
@@ -185,6 +193,7 @@ export const logOutUsers = () => {
             console.log(result);
             dispatch(LogOut());
             dispatch(succesStatus());
+            dispatch(zeroingTorrentList());
         }).catch(err => {
             console.log(err)
             if (err == "TypeError: Failed to fetch") {
@@ -204,8 +213,10 @@ const logOutStarted = () => ({
 
 let LogOut = () => {
     localStorage.removeItem('user');
+    localStorage.removeItem('infoHash');
     return dispatch => {
         dispatch(removeUserName());
+        //dispatch(zeroingTorrentStatus());
     }
 }
 
@@ -216,19 +227,22 @@ let removeUserName = () => {
     }
 }
 
-let errorStatus = () => {
-    return {
+
+/*
+let errorStatus = () => {       //  МОЖНО ЭКСПОРТНУТЬ И СТУЧАТЬСЯ ПРИ ОШИБКАХ ИЗ ДРУГИХ РЕДЬЮССЕРОВ
+    return {                    //  А ВООБЩЕ, ЛУЧШЕ СОЗДАЙ ОТДЕЛЬНЫЙ РЕДЬЮССЕР С СОСТОЯНИЕМ ОШИБОК
         type: 'PUSH-NEW-REQUEST-STATUS',
         newReqStatus: false
     }
 }
 
-let succesStatus = () => {
-    return {
+let succesStatus = () => {      //  МОЖНО ЭКСПОРТНУТЬ И СТУЧАТЬСЯ ПРИ ОШИБКАХ ИЗ ДРУГИХ РЕДЬЮССЕРОВ
+    return {                    //  А ВООБЩЕ, ЛУЧШЕ СОЗДАЙ ОТДЕЛЬНЫЙ РЕДЬЮССЕР С СОСТОЯНИЕМ ОШИБОК
         type: 'PUSH-NEW-REQUEST-STATUS',
         newReqStatus: true
     }
 }
+*/
 
 /* const callForwardinglogOut = () => {
     history.push('/logPage');
