@@ -70,9 +70,9 @@ export const postMagnet = (magnet) => {
             method: 'POST',
             credentials: 'include',
             body: formData
-        }).then(res => res.text())
+        }).then(res => res.json())
         .then(result => {
-            console.log(result);
+            console.log(result.id);
             callForwarding();
         }).catch(err => console.log(err));
     };
@@ -119,10 +119,10 @@ export const postFile = (torrentFile) => {
             method: 'POST',
             credentials: 'include',
             body: formData
-        }).then(res => res.text())
+        }).then(res => res.json())  // res.text()  Там сейчас json приходит?
         .then(result => {
-            console.log(result);
-            dispatch(updateNewMagnetAC(result));
+            console.log(result.id);
+            dispatch(updateNewMagnetAC(result.id));
             callForwarding();
         }).catch(err => console.log(err));
     };

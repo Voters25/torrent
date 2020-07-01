@@ -141,7 +141,9 @@ const postFormDataStarted = () => ({
 
 
 let pushLogInToLocalStorage = (result) => {
-    localStorage.setItem('user', result);
+    let user = JSON.parse(result);
+    // console.log(user);
+    localStorage.setItem('user', user.email);
     return dispatch => {
         dispatch(pushLogInState());
     }

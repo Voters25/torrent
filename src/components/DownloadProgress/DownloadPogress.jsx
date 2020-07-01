@@ -84,8 +84,13 @@ render() {
         console.log('пока нету фала');
     }
     
-
             // Если не приходит имя, то сделать какое-то оповещение об ожидании. Если истечёт время, то = ошибка
+
+            // ПРОПУСТИ date xthtp ->   let date = new Date(_сюда дату_)
+
+            // Сделай кнопку загрузки, когда 0.001 прогресс приходит. id и path динамически возьми. <button href=torrent\id\path download></button>
+            // <button href=`torrent\${downloadId}\${filesInfo.path}` download></button>
+            
     return (
         <div className={classes.wripper}>
 
@@ -95,8 +100,8 @@ render() {
                 </div>
                 :
                 <div>
-                    <p className={classes.DownloadPogress}>downloadProgress</p>
-                    <p className={classes.DownloadPogress}>ДОСАНЬ МАГНЕТ ИЗ ФАЙЛА</p>
+                    <p className={classes.DownloadPogress}>Download progress</p>
+                    <p className={classes.DownloadPogress}>КНОПКА ЗАГРУЗКИ (уже в комментарии написана)</p>
                     <p className={classes.DownloadPogress}>{downloadName}</p>
                     <div className={classes.paragraphProgress}><progress className={classes.progress} value={downloadProgressToFixed} max='1.00'></progress></div>
                     <div className={classes.downloadSpeed}>{
