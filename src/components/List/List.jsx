@@ -27,6 +27,8 @@ class List extends React.Component {
             
                     /* FIX ME */
                     /* Блок информации листа на пару пикселей меньше справа, при маленьких разрешениях */
+
+                                
         return (
             <div className={classes.wripper}>
                 <p className={classes.UploadedFiles}>Uploaded files</p>

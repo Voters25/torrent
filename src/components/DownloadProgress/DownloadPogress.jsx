@@ -57,6 +57,10 @@ render() {
     // Имя
     let downloadName = this.props.downloadName;
 
+    // размер
+    let downloadSize = this.props.downloadSize;
+
+
     // Скорость
     let downloadSpeed = this.props.downloadSpeed;
     downloadSpeed = formatSpeed(downloadSpeed);
@@ -77,6 +81,7 @@ render() {
     let filesInfo = this.props.filesInfo;
     console.log(filesInfo);
     
+    // Инфа по каждому файлу
     try {
         this.filesInfoComponent = this.props.filesInfo
             .map((e => <FilesInfo key={e.name} name={e.name} downloaded={e.downloaded} size={e.size} progress={e.progress} path={e.path} /> ))
@@ -84,12 +89,36 @@ render() {
         console.log('пока нету фала');
     }
     
+    // Кнопки загрузки
+    try {
+        this.downloadFilesInfoComponent = this.props.filesInfo
+    .map(
+        (e) => {
+            
+
+            //let newDownlHref = `torrent\${downloadId}\${e.path}`;
+
+            let downlHref = `http://localhost:3000/torrent\\${downloadId}\\${e.path}`;
+            //let downlHref = `torrent\\${downloadId}\\${e.path}`;
+            let newDownlHref = downlHref.replace(/\\/g, '/');
+            
+            //let newDownlHref = `torrent/${downloadId}/${e.path}`;
+            
+
+
+            return (
+                <a key={e.name} className={classes.downloadButton} href={newDownlHref} download>Download: {e.name}</a>
+            )
+        }
+        )
+    } catch {
+        console.log('Нету файлов для скачки');
+    }
+
+
             // Если не приходит имя, то сделать какое-то оповещение об ожидании. Если истечёт время, то = ошибка
 
-            // ПРОПУСТИ date xthtp ->   let date = new Date(_сюда дату_)
-
-            // Сделай кнопку загрузки, когда 0.001 прогресс приходит. id и path динамически возьми. <button href=torrent\id\path download></button>
-            // <button href=`torrent\${downloadId}\${filesInfo.path}` download></button>
+            // Сделай кнопку загрузки, когда 0.001 прогресс приходит. id и path динамически возьми.
             
     return (
         <div className={classes.wripper}>
@@ -108,10 +137,13 @@ render() {
                         downloadSpeed == 'NaN kbps' ? 0 : downloadSpeed
                     }</div>
                     <div className={classes.downloaded}>{
-                        downloaded == 'NaN undefined' ? 0 : downloaded  + ' из: ' + 'size'
+                        downloaded == 'NaN undefined' ? 0 : downloaded  + ' из: ' + formatBytes(downloadSize)
                     }</div>
                     <div>
                         {this.filesInfoComponent}
+                    </div>
+                    <div>
+                        {this.downloadFilesInfoComponent}
                     </div>
                 </div>
             }
@@ -123,6 +155,8 @@ render() {
     
 }
 
+// <button className={classes.button} href={`torrent\\${downloadId}\\${filesInfo.path}`, 'href2'} download>Download</button>
+// <button className={classes.button} href={'torrent' + `\`${downloadId}\`${filesInfo.path}`} download>Download</button>
 
 
 export default DownloadPogress;

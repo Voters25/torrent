@@ -19,6 +19,7 @@ const mapStateToProps = (state) => {
         downloadSpeed: state.progressPage.torrentStatus.downloadSpeed, // Скорость
         downloadId: state.progressPage.torrentStatus.id,
         downloadReady: state.progressPage.torrentStatus.ready, // Статус загрузки
+        downloadSize: state.progressPage.torrentStatus.length,
 
         filesInfo: state.progressPage.torrentStatus.files,
 

@@ -91,6 +91,26 @@ const getFailure = error => ({
 
 
 
+/*===================================================================================*/
+                    // Удаление из листа (ДОПИЛИТЬ)
+
+export let removeElement = (id) => {
+
+    fetch(`http://localhost:3000/users/remove/${id}`, {
+        credentials: "include"
+    })
+    .then(res => res.text())
+    .then(result => {
+        console.log(result);
+    })
+
+}
+
+/*===================================================================================*/
+
+
+
+
 let pushListInState = (result) => {
     return {
         type: 'PUSH-LIST-INSTATE',

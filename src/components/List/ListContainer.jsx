@@ -2,7 +2,7 @@
 //import DownloadPage from './DownloadPage.jsx';
 import { connect } from 'react-redux';
 import List from './List.jsx';
-import { getList } from '../../redux/list-reducer';
+import { getList, removeElement } from '../../redux/list-reducer';
 
 
 
@@ -20,10 +20,12 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getTorrentsList: () => {
             dispatch(getList());
+        },
+        removeTorrentElement: (id) => {
+            dispatch(removeElement(id));
         }
     }
 }
-
 
 
 const ListContainer = connect(mapStateToProps, mapDispatchToProps)(List);
