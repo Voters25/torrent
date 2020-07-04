@@ -94,20 +94,9 @@ render() {
         this.downloadFilesInfoComponent = this.props.filesInfo
     .map(
         (e) => {
-            
-
-            //let newDownlHref = `torrent\${downloadId}\${e.path}`;
-
-            let downlHref = `http://localhost:3000/torrent\\${downloadId}\\${e.path}`;
-            //let downlHref = `torrent\\${downloadId}\\${e.path}`;
-            let newDownlHref = downlHref.replace(/\\/g, '/');
-            
-            //let newDownlHref = `torrent/${downloadId}/${e.path}`;
-            
-
-
+            let downlHref = `http://localhost:3000/torrent/${downloadId}/${e.path}`;
             return (
-                <a key={e.name} className={classes.downloadButton} href={newDownlHref} download>Download: {e.name}</a>
+                <a key={e.name} className={classes.downloadButton} href={downlHref} download>Download: {e.name}</a>
             )
         }
         )
@@ -117,8 +106,9 @@ render() {
 
 
             // Если не приходит имя, то сделать какое-то оповещение об ожидании. Если истечёт время, то = ошибка
-
-            // Сделай кнопку загрузки, когда 0.001 прогресс приходит. id и path динамически возьми.
+            
+            // СКРЫТЬ КНОПКИ ЗАГРУЗКИ ЭЛЕМЕНТОВ, ЕСЛИ У НИХ НЕ 100% ПРОГРЕСС
+            // КРАСИВО ВЫВЕСТИ ЭЛЕМЕНТЫ, А ИМЕННО, СКРЫТЬ ИХ, ПОКА НЕ НАЖМЁШЬ НА КНОПКУ - РАЗВЕРНУТЬ ИНФУ
             
     return (
         <div className={classes.wripper}>
