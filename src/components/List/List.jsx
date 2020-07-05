@@ -15,14 +15,24 @@ class List extends React.Component {
 
     render() {
 
-
         //console.log(this.props.torrentList);
         console.log(document.cookie);
         console.log(this.props.torrentList);
 
+
+        let downloadTorrent = (magnet) => {
+            this.props.downloadTorrentElement(magnet);
+        }
+
+        let removeTorrent = (id) => {
+            this.props.removeTorrentElement(id);
+        }
+
+
+
         // Вывод листа
         this.torrentElements = this.props.torrentList
-            .map((elements => <TorrentList key={elements._id} name={elements.name} id={elements._id} size={elements.size} date={elements.date}  />));
+            .map((elements => <TorrentList key={elements._id} name={elements.name} id={elements._id} size={elements.size} date={elements.date} magnet={elements.magnet} deleteTorrent={removeTorrent} downloadNow={downloadTorrent}  />));
 
             
                     /* FIX ME */

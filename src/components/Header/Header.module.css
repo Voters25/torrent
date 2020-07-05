@@ -109,7 +109,7 @@ li {
     transition: 0.1s;
 }
 .navLink:hover {
-    color: rgba(29, 211, 89, 0.7);
+    color: rgba(29, 211, 89, 0.702);
 }
 
 .userName {

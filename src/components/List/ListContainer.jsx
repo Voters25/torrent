@@ -3,6 +3,7 @@
 import { connect } from 'react-redux';
 import List from './List.jsx';
 import { getList, removeElement } from '../../redux/list-reducer';
+import { postMagnet, updateNewMagnetAC } from '../../redux/downloadPage-reducer.js';
 
 
 
@@ -22,7 +23,11 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(getList());
         },
         removeTorrentElement: (id) => {
-            dispatch(removeElement(id));
+            removeElement(id);
+        },
+        downloadTorrentElement: (magnet) => {
+            dispatch(updateNewMagnetAC(magnet));
+            dispatch(postMagnet(magnet));
         }
     }
 }

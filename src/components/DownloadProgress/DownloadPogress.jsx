@@ -95,9 +95,17 @@ render() {
     .map(
         (e) => {
             let downlHref = `http://localhost:3000/torrent/${downloadId}/${e.path}`;
-            return (
-                <a key={e.name} className={classes.downloadButton} href={downlHref} download>Download: {e.name}</a>
-            )
+            console.log(e.progress);
+            if (e.progress == 1) {
+                return (
+                    <a key={e.name} className={classes.downloadButtonActive} href={downlHref} download>Download: {e.name}</a>
+                )
+            } else {
+                return (
+                    <a key={e.name} className={classes.downloadButton} href={downlHref} download>Download: {e.name}</a>
+                )
+            }
+            
         }
         )
     } catch {
@@ -114,13 +122,12 @@ render() {
         <div className={classes.wripper}>
 
             {downloadName == undefined ?
-                <div>
-                    <p>NOOOOOOOO</p>
+                <div className={classes.loadingContainer}>
+                    <p className={classes.Loading}>Loading...</p>
                 </div>
                 :
                 <div>
                     <p className={classes.DownloadPogress}>Download progress</p>
-                    <p className={classes.DownloadPogress}>КНОПКА ЗАГРУЗКИ (уже в комментарии написана)</p>
                     <p className={classes.DownloadPogress}>{downloadName}</p>
                     <div className={classes.paragraphProgress}><progress className={classes.progress} value={downloadProgressToFixed} max='1.00'></progress></div>
                     <div className={classes.downloadSpeed}>{
