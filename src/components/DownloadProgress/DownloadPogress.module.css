@@ -134,7 +134,8 @@
 
     
     transition: 0.3s;/* Время анимации */
-    cursor: pointer;
+    cursor: default;
+    pointer-events: none;
 }
 
 
