@@ -61,7 +61,7 @@ const RegistrationPageReducer = (state = initialState, action) => {
                 //formData: [...state.formData, newFormData],
                 gmailValue: '',
                 passwordValue: '',
-                PasswordTwo: ''
+                passwordTwoValue: ''
             };
         case CHANGE_VALIDATION_STATUS:
             return {

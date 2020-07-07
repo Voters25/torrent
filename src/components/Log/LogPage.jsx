@@ -61,7 +61,6 @@ render() {
 }
 
 
-
 export default LogPage;
 
 

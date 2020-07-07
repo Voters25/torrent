@@ -1,9 +1,13 @@
 
 .wripper {
-    height: 800px;
+    /* height: 800px; */
+    height: 100%;
+    /* background: red; */
 }
 
 .navNavBar {
+
+    /* background: blue; */
     
     /* align-items: center;
     padding: 33px 10%; */
@@ -44,13 +48,6 @@
     /* margin: 0 0; */
 }
 
-
-.logo {
-   /*  text-decoration: none;
-    color: #394040;
-    margin: 5px 55% 0px 5%; */
-
-}
 
 .navLink {
     text-decoration: none;
@@ -93,12 +90,7 @@
     }
   }
   @media (max-width:768px){     /* тут лучше уже всё по вертикали или бургер меню */
-    .logo {
-        /* margin: 5px 10% 0px 5%; */
-        margin: 5px 0 0 8%;
-        height: 0;
-        width: 0;
-    }
+    
     li .navLink {
         overflow: hidden;
         display: none;
