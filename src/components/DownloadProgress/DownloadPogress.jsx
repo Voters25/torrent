@@ -46,9 +46,9 @@ render() {
     let downloadProgressToFixed = parseFloat(downloadProgress).toFixed(2);
     if (downloadProgress == 1) {
         console.log("STOP DOWNL");
-        this.props.zeroingTorrent();
+        //this.props.zeroingTorrent();
         this.props.removeInfoHash();
-        this.props.callForowarding();
+        //this.props.callForowarding();
     }
 
 

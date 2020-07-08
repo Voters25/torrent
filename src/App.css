@@ -40,8 +40,8 @@
 
 
 .App-wripper {
-  /* background: rgb(42, 53, 73); */
-  background: #3B4A66;
+  /* background: #3B4A66; */
+  background: rgba(44, 52, 53, 0.9);
   /* height: 840px; */
   height: 100vh;                                   /* Изменено */
   width: 100%;
@@ -111,5 +111,6 @@
   }
   .footerApp {
     /* height: 100px; */
+    height: 12vh;
   }
 }

@@ -52,10 +52,19 @@ export let getProgress = (infoHash) => {
             console.log("Socket пашет");
         }
         socket.onmessage = (event) => {
+            /* console.log(event);
+            if (event.data == null) {
+                console.log(event);
+            } else {
+                dispatch(getTorrentStatus(JSON.parse(event.data)));
+            } */
             
             //JSON.parse(event.data);
             //console.log(JSON.parse(event.data));
             dispatch(getTorrentStatus(JSON.parse(event.data)));
+        }
+        socket.onerror = (error) => {
+            console.log(error);
         }
         socket.onclose = () => {
             console.log("Лавка сокетов прикрылась");
