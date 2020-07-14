@@ -113,6 +113,11 @@ render() {
     }
 
 
+    let stopDownload = () => {
+        this.props.stopDownl();
+    }
+
+
             // Если не приходит имя, то сделать какое-то оповещение об ожидании. Если истечёт время, то = ошибка
             
             // СКРЫТЬ КНОПКИ ЗАГРУЗКИ ЭЛЕМЕНТОВ, ЕСЛИ У НИХ НЕ 100% ПРОГРЕСС
@@ -136,6 +141,9 @@ render() {
                     <div className={classes.downloaded}>{
                         downloaded == 'NaN undefined' ? 0 : downloaded  + ' из: ' + formatBytes(downloadSize)
                     }</div>
+                    <div>
+                        <button onClick={stopDownload}>STOP</button>
+                    </div>
                     <div>
                         {this.filesInfoComponent}
                     </div>

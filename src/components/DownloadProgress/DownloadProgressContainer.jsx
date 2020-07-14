@@ -1,7 +1,7 @@
 //import React from 'react';
 import { connect } from 'react-redux';
 import DownloadPogress from './DownloadPogress.jsx';
-import { getProgress, addHash, ChangeFilesInfoButton, callForwardingList, zeroingTorrentStatus, setInfoHashToStorage, removeInfoHashLocalStorage } from '../../redux/downloadProgress-reducer.js';
+import { getProgress, addHash, ChangeFilesInfoButton, callForwardingList, zeroingTorrentStatus, setInfoHashToStorage, removeInfoHashLocalStorage, stopDownload } from '../../redux/downloadProgress-reducer.js';
 
 
 
@@ -45,6 +45,10 @@ const mapDispatchToProps = (dispatch) => {
 
         getProgressAC: (magnetInfoHash) => {
             dispatch(getProgress(magnetInfoHash))
+        },
+
+        stopDownl: () => {
+            dispatch(stopDownload())
         },
 
         changeButtonStatusAC: () => {

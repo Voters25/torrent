@@ -73,12 +73,46 @@ export let getProgress = (infoHash) => {
 }
 
 
+
+/*===================================================================================*/
+                    // callback -> Отправка на сервер formData
+
+export const stopDownload = (id) => {
+    return dispatch => {
+
+
+        let formData = new FormData();
+        formData.append('id', localStorage.getItem('infoHash'));
+
+        fetch('http://localhost:3000/cancel', {
+            method: 'POST',
+            credentials: "include",
+            body: formData
+            //body: localStorage.getItem('infoHash')
+        }).then(response => response.text())
+            .then(result => {
+                console.log(result);
+                callForwardingDownloadProgress();
+            }).catch(err => {
+                console.log(err);
+            });
+    };
+};
+
+
+
+
+
+
+
 let getTorrentStatus = (data) => {
     return {
         type: 'GET-TORRENT-STATUS',
         newStatus: data         // data.files
     }
 }
+
+
 
 export let setInfoHashToStorage = (infoHash) => {
     localStorage.setItem('infoHash', infoHash);
@@ -105,6 +139,8 @@ export const callForwardingList = () => {
     history.push('/list');
 }
 
-
+const callForwardingDownloadProgress = () => {
+    history.push('/downloadProgress');
+}
 
 export default downloadProgressReducer;

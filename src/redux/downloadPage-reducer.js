@@ -83,23 +83,11 @@ const postMagnetStarted = () => ({
     type: POST_STARTED,
 });
 
-/* const postMagnetSuccess = (sendMagnet) => ({
-    type: POST_SUCCESS,
-    payload: {
-        ...sendMagnet
-    }
-}); */
 
 const callForwarding = () => {
     history.push('/downloadProgress');
 }
 
-/* const postMagnetFailure = error => ({
-    type: POST_FAILURE,
-    payload: {
-        error
-    }
-});  */
 
 /*===================================================================================*/
 
@@ -132,20 +120,6 @@ export const postFile = (torrentFile) => {
 const postFileStarted = () => ({
     type: POST_STARTED,
 });
-
-/* const postFileSuccess = (torrentFile) => ({
-    type: POST_SUCCESS,
-    payload: {
-        ...torrentFile
-    }
-}); */
-
-/* const postFileFailure = error => ({
-    type: POST_FAILURE,
-    payload: {
-        error
-    }
-});  */
 
 
 /*===================================================================================*/
