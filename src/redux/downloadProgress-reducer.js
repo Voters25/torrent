@@ -1,5 +1,8 @@
 import history from "../history";
 
+import { zeroingMagnetURL } from "./downloadPage-reducer"
+
+
 const GET_STARTED = 'GET-STARTED';
 const GET_SUCCESS = 'GET-SUCCESS';
 const GET_FAILURE = 'GET-FAILURE';
@@ -92,7 +95,7 @@ export const stopDownload = (id) => {
         }).then(response => response.text())
             .then(result => {
                 console.log(result);
-                callForwardingDownloadProgress();
+                dispatch(changeDownloadProgress());
             }).catch(err => {
                 console.log(err);
             });
@@ -139,8 +142,14 @@ export const callForwardingList = () => {
     history.push('/list');
 }
 
-const callForwardingDownloadProgress = () => {
-    history.push('/downloadProgress');
+const changeDownloadProgress = () => {
+    //history.push('/downloadProgress');
+    removeInfoHashLocalStorage();
+    zeroingTorrentStatus();
+    zeroingMagnetURL();
+    // Занулить магнет
+
+    callForwardingList();
 }
 
 export default downloadProgressReducer;

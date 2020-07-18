@@ -149,6 +149,12 @@ export let incorrectFileAC = (button) => {
     }
 }
 
+export const zeroingMagnetURL = () => {
+    return {
+        type: 'UPDATE_NEW_MAGNET',
+        newMagnet: ""
+    }
+}
 
 
 
