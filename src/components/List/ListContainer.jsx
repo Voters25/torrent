@@ -12,7 +12,8 @@ import { postMagnet, updateNewMagnetAC } from '../../redux/downloadPage-reducer.
 // Тут данные из state
 const mapStateToProps = (state) => {
     return {
-        torrentList: state.list.torrentsList
+        torrentList: state.list.torrentsList,
+        magnetURL: state.downloadPage.newMagnetUrl   // УУУДДДАААЛЛЛИИИ
     }
 }
 

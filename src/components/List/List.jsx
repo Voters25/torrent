@@ -28,7 +28,7 @@ class List extends React.Component {
             this.props.removeTorrentElement(id);
         }
 
-
+        console.log(this.props.magnetURL); // УУУДДДАААЛЛЛИИИ
 
         // Вывод листа
         this.torrentElements = this.props.torrentList
@@ -38,10 +38,7 @@ class List extends React.Component {
                     /* FIX ME */
                     /* Блок информации листа на пару пикселей меньше справа, при маленьких разрешениях */
 
-
-                    // ДОБАВЬ КНОПКИ: УДАЛЕНИЕ (ФУНКЦИЯ УЖЕ НАПИСАНА)
-                    // И КНОПКУ ПОВТОРНОЙ ЗАГРУЗКИ (берёшь инфоХэш торрента,
-                    // по которому тыкнул и вызываешь запрос, который у тебя в downloadReducer с магнет)
+                    //   КОГДА МНОГО ТОРРЕНТОВ В ЛИСТЕ, БЛОК КОНТЕНТА НЕ УВЕЛИЧИВАЕТСЯ В ДЛИННЕ.
 
         return (
             <div className={classes.wripper}>

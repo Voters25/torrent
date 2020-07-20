@@ -2,11 +2,21 @@
     width: 100%;
     background: rgb(149, 172, 202);
     display: flex;
+    
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
+.progressContainer {
+    /* background: #31b659; */
+    background: white;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
 .DownloadPogress {
     margin: 0;
@@ -20,30 +30,71 @@
 }
 
 
+
+.downloadData {
+    /* background: #5bc3ff; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+
+    border: 1px solid rgba(80, 80, 80, 0.5);
+
+}
+.paragraphProgress {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: 25%;
+}
 .progress {
     border-radius: 0;
-    color: rgba(29, 211, 89, 0.6);
+    /* color: rgba(29, 211, 89, 0.6); */
+    background-color: rgba(217, 255, 0, 0.863);
+
+
+    background: yellow;
+
+    margin: 0 auto;
 }
-
-
 .downloadSpeed {
     color: #414141;
     font-size: 100%;
     font-weight: 700;
 
+    flex-basis: 15%;
+
+    text-align: center;
 
     background: #f13333;
 }
-
-
 .downloaded {
     color: #414141;;
     font-size: 100%;
     font-weight: 700;
 
+    flex-basis: 30%;
+
+    text-align: center;
 
     background: #d6ec0d;
 }
+.stopDownloadButton {
+    flex-basis: 30%;
+    background: rgba(211, 29, 29, 0.6);
+    /* background: rgba(211, 29, 29, 0.7); */
+    border: 1px solid #7e7e7e;
+
+    margin: 0 auto;
+    flex-basis: 120px;
+
+    transition: 0.3s;
+    outline: none;
+}
+.stopDownloadButton:hover {
+    background: rgba(211, 29, 29, 0.75);
+}
+
 
 
 

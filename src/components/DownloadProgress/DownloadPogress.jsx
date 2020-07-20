@@ -46,8 +46,8 @@ render() {
     let downloadProgressToFixed = parseFloat(downloadProgress).toFixed(2);
     if (downloadProgress == 1) {
         console.log("STOP DOWNL");
-        //this.props.zeroingTorrent();
-        this.props.removeInfoHash();
+        //this.props.removeInfoHash();
+        //this.props.zeroingTorrent();  Не стоит занулять
         //this.props.callForowarding();
     }
 
@@ -131,18 +131,18 @@ render() {
                     <p className={classes.Loading}>Loading...</p>
                 </div>
                 :
-                <div>
+                <div className={classes.progressContainer}>
                     <p className={classes.DownloadPogress}>Download progress</p>
                     <p className={classes.DownloadPogress}>{downloadName}</p>
-                    <div className={classes.paragraphProgress}><progress className={classes.progress} value={downloadProgressToFixed} max='1.00'></progress></div>
-                    <div className={classes.downloadSpeed}>{
-                        downloadSpeed == 'NaN kbps' ? 0 : downloadSpeed
-                    }</div>
-                    <div className={classes.downloaded}>{
-                        downloaded == 'NaN undefined' ? 0 : downloaded  + ' из: ' + formatBytes(downloadSize)
-                    }</div>
-                    <div>
-                        <button onClick={stopDownload}>STOP</button>
+                    <div className={classes.downloadData}>
+                        <div className={classes.paragraphProgress}><progress className={classes.progress} value={downloadProgressToFixed} max='1.00'></progress></div>
+                        <div className={classes.downloadSpeed}>{
+                            downloadSpeed == 'NaN kbps' ? 0 : downloadSpeed
+                        }</div>
+                        <div className={classes.downloaded}>{
+                            downloaded == 'NaN undefined' ? 0 : downloaded + ' из: ' + formatBytes(downloadSize)
+                        }</div>
+                        <button className={classes.stopDownloadButton} onClick={stopDownload}>STOP</button>
                     </div>
                     <div>
                         {this.filesInfoComponent}
@@ -165,6 +165,15 @@ render() {
 
 
 export default DownloadPogress;
+
+
+/*
+
+                    <div>
+                        <button onClick={stopDownload}>STOP</button>
+                    </div>
+
+*/
 
 
 //                         <FilesInfo key={this.props.filesInfo.name} name={this.props.filesInfo.name} downloaded={this.props.filesInfo.downloaded} size={this.props.filesInfo.size} progress={this.props.filesInfo.progress} path={this.props.filesInfo.path} />

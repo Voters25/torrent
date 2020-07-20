@@ -75,10 +75,11 @@ export let removeElement = (id) => {
     fetch(`http://localhost:3000/users/remove/${id}`, {
         credentials: "include"
     })
+    //.then(res => res.json())
     .then(res => res.text())
     .then(result => {
         console.log(result);
-        callForwarding();
+        callForwarding();   // НЕ ПАШЕТ, нет ответа с серва
     })
 
 }

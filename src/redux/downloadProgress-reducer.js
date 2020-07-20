@@ -95,7 +95,10 @@ export const stopDownload = (id) => {
         }).then(response => response.text())
             .then(result => {
                 console.log(result);
-                dispatch(changeDownloadProgress());
+                removeInfoHashLocalStorage();
+                dispatch(zeroingTorrentStatus());         //   НЕ ПАШЕТ (((((
+                dispatch(zeroingMagnetURL());   //   НЕ ОБНУЛЯЕТСЯ И НЕ ЗАТИРАЕТСЯ....
+                callForwardingList();
             }).catch(err => {
                 console.log(err);
             });
@@ -144,12 +147,8 @@ export const callForwardingList = () => {
 
 const changeDownloadProgress = () => {
     //history.push('/downloadProgress');
-    removeInfoHashLocalStorage();
-    zeroingTorrentStatus();
-    zeroingMagnetURL();
-    // Занулить магнет
-
-    callForwardingList();
+    //removeInfoHashLocalStorage();
+    //zeroingTorrentStatus();
 }
 
 export default downloadProgressReducer;
