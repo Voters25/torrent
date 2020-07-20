@@ -80,6 +80,9 @@ render() {
 
     let filesInfo = this.props.filesInfo;
     console.log(filesInfo);
+
+
+
     
     // Инфа по каждому файлу
     try {
@@ -88,7 +91,7 @@ render() {
     } catch {
         console.log('пока нету фала');
     }
-    
+
     // Кнопки загрузки
     try {
         this.downloadFilesInfoComponent = this.props.filesInfo
@@ -113,6 +116,8 @@ render() {
     }
 
 
+
+
     let stopDownload = () => {
         this.props.stopDownl();
     }
@@ -120,8 +125,9 @@ render() {
 
             // Если не приходит имя, то сделать какое-то оповещение об ожидании. Если истечёт время, то = ошибка
             
-            // СКРЫТЬ КНОПКИ ЗАГРУЗКИ ЭЛЕМЕНТОВ, ЕСЛИ У НИХ НЕ 100% ПРОГРЕСС
-            // КРАСИВО ВЫВЕСТИ ЭЛЕМЕНТЫ, А ИМЕННО, СКРЫТЬ ИХ, ПОКА НЕ НАЖМЁШЬ НА КНОПКУ - РАЗВЕРНУТЬ ИНФУ
+
+            //   ОТДЕЛИТЬ ОБЩУЮ ИНФУ О ЗАГРУЗКЕ ОТ ИНФЫ КАЖДОГО ФАЙЛА !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            //   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             
     return (
         <div className={classes.wripper}>
@@ -144,10 +150,8 @@ render() {
                         }</div>
                         <button className={classes.stopDownloadButton} onClick={stopDownload}>STOP</button>
                     </div>
-                    <div>
+                    <div className={classes.filesContainer}>
                         {this.filesInfoComponent}
-                    </div>
-                    <div>
                         {this.downloadFilesInfoComponent}
                     </div>
                 </div>

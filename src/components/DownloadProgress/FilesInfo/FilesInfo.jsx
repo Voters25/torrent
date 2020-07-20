@@ -9,12 +9,21 @@ import { formatBytes } from '../../../Scripts/formatBytes';
 let FilesInfo = (props) => {
 
     console.log(props);
-
-    let progr = String(props.progress).slice(0, 4);
-    
-    
+    let progr = String(props.progress).slice(0, 4);    
 
     return (
+        <div>
+            <span>{'Name: ' + props.name + ' '}</span>
+            <span>{'Downloaded: ' + formatBytes(props.downloaded) + ' ' + 'of ' + formatBytes(props.size) + ' '}</span>
+            <span>{'Progress: ' + (progr * 100) + '%'}</span>
+        </div>
+    )
+}
+
+export default FilesInfo;
+
+/*
+
         <div>
             <span>{'Name: ' + props.name + ' '}</span>
             <span>{'Downloaded: ' + formatBytes(props.downloaded) + ' '}</span>
@@ -22,8 +31,5 @@ let FilesInfo = (props) => {
             <span>{'Size: ' + formatBytes(props.size) + ' '}</span>
             <span>{'Progress: ' + (progr * 100) + '%'}</span>
         </div>
-    )
-}
 
-
-export default FilesInfo;
+*/
