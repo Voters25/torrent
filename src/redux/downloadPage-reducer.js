@@ -66,7 +66,7 @@ export const postMagnet = (magnet) => {
         formData.append('magnet', magnet);
 
 
-        fetch('http://localhost:3000/magnet', {
+        fetch('https://easywebtor.herokuapp.com/magnet', {
             method: 'POST',
             credentials: 'include',
             body: formData
@@ -103,7 +103,7 @@ export const postFile = (torrentFile) => {
         formData.append('torrent', torrentFile);
 
 
-        fetch('http://localhost:3000/torrent', {
+        fetch('https://easywebtor.herokuapp.com/torrent', {
             method: 'POST',
             credentials: 'include',
             body: formData

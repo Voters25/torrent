@@ -118,7 +118,7 @@ export const postRegFormData = (form) => {
         formData.append('password2', form.password2);
 
 
-        fetch('http://localhost:3000/users/register', {
+        fetch('https://easywebtor.herokuapp.com/users/register', {
             method: 'POST',
             credentials: "include",
             body: formData

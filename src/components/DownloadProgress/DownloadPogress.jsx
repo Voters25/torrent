@@ -97,7 +97,7 @@ render() {
         this.downloadFilesInfoComponent = this.props.filesInfo
     .map(
         (e) => {
-            let downlHref = `http://localhost:3000/torrent/${downloadId}/${e.path}`;
+            let downlHref = `https://easywebtor.herokuapp.com/torrent/${downloadId}/${e.path}`;
             console.log(e.progress);
             if (e.progress == 1) {
                 return (
@@ -149,6 +149,14 @@ render() {
                             downloaded == 'NaN undefined' ? 0 : downloaded + ' из: ' + formatBytes(downloadSize)
                         }</div>
                         <button className={classes.stopDownloadButton} onClick={stopDownload}>STOP</button>
+                    </div>
+                    <div>
+                        {/* СДЕЛАЙ ЕЁ НЕАКТИВНОЙ ЕСЛИ ПРОГРЕСС МЕНЬШЕ 1 */}
+                        {this.downloadProgress == 1 ?
+                            <a className={classes.downloadButtonActive} href={`https://easywebtor.herokuapp.com/torrent/${downloadId}/torrent.zip`}>СКАЧАТЬ АРХИВ</a>
+                            :
+                            <a className={classes.downloadButton} href={`https://easywebtor.herokuapp.com/torrent/${downloadId}/torrent.zip`}>СКАЧАТЬ АРХИВ</a>
+                        }
                     </div>
                     <div className={classes.filesContainer}>
                         {this.filesInfoComponent}

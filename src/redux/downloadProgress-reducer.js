@@ -48,7 +48,7 @@ const downloadProgressReducer = (state = initialState, action) => {
 export let getProgress = (infoHash) => {
     return dispatch => {
         
-        let socket = new WebSocket(`ws://localhost:3000?id=${infoHash}`); // динамически подставлять айди торрента
+        let socket = new WebSocket(`ws://easywebtor.herokuapp.com?id=${infoHash}`); // динамически подставлять айди торрента
 
         
         socket.onopen = () => {
@@ -87,7 +87,7 @@ export const stopDownload = (id) => {
         let formData = new FormData();
         formData.append('id', localStorage.getItem('infoHash'));
 
-        fetch('http://localhost:3000/cancel', {
+        fetch('https://easywebtor.herokuapp.com/cancel', {
             method: 'POST',
             credentials: "include",
             body: formData

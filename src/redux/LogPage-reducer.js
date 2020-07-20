@@ -109,7 +109,7 @@ export const postFormData = (form) => {
         formData.append('password', form.password);
 
 
-        fetch('http://localhost:3000/users/login', {
+        fetch('https://easywebtor.herokuapp.com/users/login', {
             method: 'POST',
             credentials: "include",
             body: formData
@@ -185,7 +185,7 @@ export const logOutUsers = () => {
         dispatch(logOutStarted());
 
 
-        fetch('http://localhost:3000/users/logout', {
+        fetch('https://easywebtor.herokuapp.com/users/logout', {
             credentials: "include"
         })
         .then(res => {
