@@ -11,10 +11,13 @@ const CHANGE_FILES_INFO_BUTTON_STATUS = 'CHANGE-FILES-INFO-BUTTON-STATUS';
 
 const GET_TORRENT_STATUS = 'GET-TORRENT-STATUS';
 
+const CHANGE_ZIP_STATUS = 'CHANGE-ZIP-STATUS';
+
 
 let initialState = {
     torrentStatus: [],
-    FilesInfoButton: true
+    FilesInfoButton: true,
+    zipStatus: false
 }
 
 // В пост запросе parseTorrent(магнет) -> infoHash  перекинуть его сюда.
@@ -33,6 +36,11 @@ const downloadProgressReducer = (state = initialState, action) => {
             return {
                 ...state,
                 FilesInfoButton: action.newButtonStatus
+            };
+        case CHANGE_ZIP_STATUS:
+            return {
+                ...state,
+                zipStatus: action.newZipStatus
             }
         default:
             return state;
@@ -48,7 +56,7 @@ const downloadProgressReducer = (state = initialState, action) => {
 export let getProgress = (infoHash) => {
     return dispatch => {
         
-        let socket = new WebSocket(`ws://easywebtor.herokuapp.com?id=${infoHash}`); // динамически подставлять айди торрента
+        let socket = new WebSocket(`ws://localhost:3000?id=${infoHash}`); // динамически подставлять айди торрента
 
         
         socket.onopen = () => {
@@ -77,6 +85,43 @@ export let getProgress = (infoHash) => {
 
 
 
+
+
+
+/*===================================================================================*/
+                    // Создать архив
+export const createZip = () => {
+    return dispatch => {
+
+        let id = localStorage.getItem('infoHash');
+
+        fetch(`http://localhost:3000/zip/${id}`, {
+            credentials: "include"
+        }).then(responce => responce.text())
+        .then(result => {
+            console.log(result);
+            //------
+
+            if (result == 'file ready') {
+                dispatch(changeTrueZipStatus());
+            } else if (result == 'file not ready') {
+                dispatch(changeFalseZipStatus());
+            } else if (result == 'Error: this file not supported') {
+                console.log('Error');
+                dispatch(changeFalseZipStatus());
+            }
+
+
+        })
+
+    }
+}
+
+
+
+
+
+
 /*===================================================================================*/
                     // callback -> Отправка на сервер formData
 
@@ -87,7 +132,7 @@ export const stopDownload = (id) => {
         let formData = new FormData();
         formData.append('id', localStorage.getItem('infoHash'));
 
-        fetch('https://easywebtor.herokuapp.com/cancel', {
+        fetch('http://localhost:3000/cancel', {
             method: 'POST',
             credentials: "include",
             body: formData
@@ -131,6 +176,19 @@ export let ChangeFilesInfoButton = () => {
     return {
         type: 'CHANGE-FILES-INFO-BUTTON-STATUS',
         newButtonStatus: true
+    }
+}
+
+export let changeTrueZipStatus = () => {
+    return {
+        type: 'CHANGE-ZIP-STATUS',
+        newZipStatus: true
+    }
+}
+export let changeFalseZipStatus = () => {
+    return {
+        type: 'CHANGE-ZIP-STATUS',
+        newZipStatus: false
     }
 }
 

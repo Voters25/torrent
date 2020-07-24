@@ -44,7 +44,7 @@ export const getList = () => {
         dispatch(getListStarted());
 
 
-        fetch('https://easywebtor.herokuapp.com/users/torrents', {
+        fetch('http://localhost:3000/users/torrents', {
             credentials: "include"
         })
         .then(res => res.json())
@@ -72,7 +72,7 @@ const getListStarted = () => ({
 
 export let removeElement = (id) => {
 
-    fetch(`https://easywebtor.herokuapp.com/users/remove/${id}`, {
+    fetch(`http://localhost:3000/users/remove/${id}`, {
         credentials: "include"
     })
     //.then(res => res.json())

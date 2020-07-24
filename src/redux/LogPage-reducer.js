@@ -1,7 +1,8 @@
 import history from "../history";
 import { succesStatus, errorStatus } from "./RequestsStatus-reducer";
 import { zeroingTorrentList } from "./list-reducer";
-import { zeroingTorrentStatus } from "./downloadProgress-reducer";
+import { zeroingTorrentStatus, changeFalseZipStatus } from "./downloadProgress-reducer";
+import { zeroingMagnetURL } from "./downloadPage-reducer";
 
 const POST_STARTED = 'GET-STARTED';
 
@@ -109,7 +110,7 @@ export const postFormData = (form) => {
         formData.append('password', form.password);
 
 
-        fetch('https://easywebtor.herokuapp.com/users/login', {
+        fetch('http://localhost:3000/users/login', {
             method: 'POST',
             credentials: "include",
             body: formData
@@ -185,7 +186,7 @@ export const logOutUsers = () => {
         dispatch(logOutStarted());
 
 
-        fetch('https://easywebtor.herokuapp.com/users/logout', {
+        fetch('http://localhost:3000/users/logout', {
             credentials: "include"
         })
         .then(res => {
@@ -196,6 +197,8 @@ export const logOutUsers = () => {
             dispatch(LogOut());
             dispatch(succesStatus());
             dispatch(zeroingTorrentList());
+            dispatch(zeroingMagnetURL());
+            dispatch(changeFalseZipStatus());
         }).catch(err => {
             console.log(err)
             if (err == "TypeError: Failed to fetch") {

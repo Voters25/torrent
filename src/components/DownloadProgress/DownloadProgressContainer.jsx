@@ -1,7 +1,7 @@
 //import React from 'react';
 import { connect } from 'react-redux';
 import DownloadPogress from './DownloadPogress.jsx';
-import { getProgress, addHash, ChangeFilesInfoButton, callForwardingList, zeroingTorrentStatus, setInfoHashToStorage, removeInfoHashLocalStorage, stopDownload } from '../../redux/downloadProgress-reducer.js';
+import { getProgress, addHash, ChangeFilesInfoButton, callForwardingList, zeroingTorrentStatus, setInfoHashToStorage, removeInfoHashLocalStorage, stopDownload, createZip } from '../../redux/downloadProgress-reducer.js';
 
 
 
@@ -24,6 +24,8 @@ const mapStateToProps = (state) => {
         filesInfo: state.progressPage.torrentStatus.files,
 
         buttonStatus: state.progressPage.FilesInfoButton,
+
+        zipStatus: state.progressPage.zipStatus,
 
 
         // Краду у downloadPage newMagnetUrl для парсинга
@@ -49,6 +51,10 @@ const mapDispatchToProps = (dispatch) => {
 
         stopDownl: () => {
             dispatch(stopDownload())
+        },
+
+        createZipFile: () => {
+            dispatch(createZip())
         },
 
         changeButtonStatusAC: () => {

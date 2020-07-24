@@ -43,6 +43,7 @@ render() {
 
     // Шкала
     let downloadProgress = this.props.downloadProgress;
+    console.log('Прогресс: ' + downloadProgress);
     let downloadProgressToFixed = parseFloat(downloadProgress).toFixed(2);
     if (downloadProgress == 1) {
         console.log("STOP DOWNL");
@@ -83,6 +84,10 @@ render() {
 
 
 
+    let zipStatus = this.props.zipStatus;
+    console.log('Статус: ' + zipStatus);
+
+
     
     // Инфа по каждому файлу
     try {
@@ -97,7 +102,7 @@ render() {
         this.downloadFilesInfoComponent = this.props.filesInfo
     .map(
         (e) => {
-            let downlHref = `https://easywebtor.herokuapp.com/torrent/${downloadId}/${e.path}`;
+            let downlHref = `http://localhost:3000/torrent/${downloadId}/${e.path}`;
             console.log(e.progress);
             if (e.progress == 1) {
                 return (
@@ -120,6 +125,10 @@ render() {
 
     let stopDownload = () => {
         this.props.stopDownl();
+    }
+
+    let createZip = () => {
+        this.props.createZipFile()
     }
 
 
@@ -151,11 +160,14 @@ render() {
                         <button className={classes.stopDownloadButton} onClick={stopDownload}>STOP</button>
                     </div>
                     <div>
-                        {/* СДЕЛАЙ ЕЁ НЕАКТИВНОЙ ЕСЛИ ПРОГРЕСС МЕНЬШЕ 1 */}
-                        {this.downloadProgress == 1 ?
-                            <a className={classes.downloadButtonActive} href={`https://easywebtor.herokuapp.com/torrent/${downloadId}/torrent.zip`}>СКАЧАТЬ АРХИВ</a>
+                        {/* При клике, высвети загрузку, ибо архив может долго создаваться */}
+                        <button onClick={createZip}>Zip</button>
+                    </div>
+                    <div>
+                        {zipStatus ?
+                            <a className={classes.downloadButtonActive} href={`http://localhost:3000/torrent/${downloadId}/torrent.zip`}>Download ZIP</a>
                             :
-                            <a className={classes.downloadButton} href={`https://easywebtor.herokuapp.com/torrent/${downloadId}/torrent.zip`}>СКАЧАТЬ АРХИВ</a>
+                            <a className={classes.downloadButton} href={`http://localhost:3000/torrent/${downloadId}/torrent.zip`}>Download ZIP</a>
                         }
                     </div>
                     <div className={classes.filesContainer}>
@@ -181,9 +193,11 @@ export default DownloadPogress;
 
 /*
 
-                    <div>
-                        <button onClick={stopDownload}>STOP</button>
-                    </div>
+                        {this.downloadProgress == 1 ?
+                            <a className={classes.downloadButtonActive} href={`http://localhost:3000/torrent/${downloadId}/torrent.zip`}>СКАЧАТЬ АРХИВ</a>
+                            :
+                            <a className={classes.downloadButton} href={`http://localhost:3000/torrent/${downloadId}/torrent.zip`}>СКАЧАТЬ АРХИВ</a>
+                        }
 
 */
 
