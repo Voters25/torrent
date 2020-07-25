@@ -42,10 +42,14 @@
 .App-wripper {
   /* background: #3B4A66; */
   background: rgba(44, 52, 53, 0.9);
-  /* height: 840px; */
+
+  /* background: rgba(44, 52, 53, 0.9); */
+  
   height: 100vh;                                   /* Изменено */
   width: 100%;
   margin: 0px auto;
+
+  overflow: hidden;
 }
 
 
@@ -77,8 +81,9 @@
 }
 
 .footerApp {
-  /* height: 150px; */
+  
   height: 13.9%;
+
   background: rgba(44, 52, 53, 0.9);
 }
 
@@ -110,7 +115,9 @@
     width: 0px;
   }
   .footerApp {
-    /* height: 100px; */
-    height: 12vh;
+    
+    /* height: 12vh; */
+
+    height: 14vh;
   }
 }

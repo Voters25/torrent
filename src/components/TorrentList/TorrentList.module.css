@@ -6,6 +6,10 @@
 
   background: white;
 
+  
+  height: 70px;
+  max-height: 70px;
+
   border: 1px solid black;
   /* color: #414141; */
   color: white;
@@ -14,23 +18,28 @@
 }
 
 .name {
-  flex-basis: 20%;
+  flex-basis: 35%;
   padding-left: 30px;
   background: #48627a;
   text-align: center;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
 }
-.id {
+/* .id {
   flex-basis: 5%;
   background: #8bc7ff;
   text-align: center;
-}
+} */
 .size {
   flex-basis: 20%;
   background: #48627a;
   text-align: center;
 }
 .date {
-  flex-basis: 55%;
+  flex-basis: 35%;
   background: #8bc7ff;
   text-align: center;
 }
@@ -40,8 +49,11 @@
 
 .button {
   /* margin-top: 30px; */
-  flex-basis: 25px;
-  width: 200px;
+  /* flex-basis: 25px; */
+  flex-basis: 10%;
+
+  /* width: 100px; */
+  height: 50%;
   background: rgba(29, 211, 89, 0.6);
   border-bottom: 1px solid #7e7e7e;
   border-top: 1px solid #7e7e7e;
@@ -52,6 +64,7 @@
   box-shadow: 0 11px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   transition: 0.3s;/* Время анимации */
   cursor: pointer;
+  white-space: nowrap;
 }
 .button:hover {
   background: rgba(29, 211, 89, 0.7);
@@ -63,8 +76,11 @@
 
 .buttonDelete {
   /* margin-top: 30px; */
-  flex-basis: 25px;
-  width: 200px;
+  /* flex-basis: 25px; */
+  flex-basis: 10%;
+
+  /* width: 100px; */
+  height: 50%;
   background: rgba(211, 29, 29, 0.6);
   border-bottom: 1px solid #7e7e7e;
   border-top: 1px solid #7e7e7e;
@@ -80,3 +96,4 @@
   background: rgba(211, 29, 29, 0.7);
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 15px 40px 0 rgba(0,0,0,0.17);
 }
+

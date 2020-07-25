@@ -30,6 +30,7 @@ class List extends React.Component {
 
         console.log(this.props.magnetURL); // УУУДДДАААЛЛЛИИИ
 
+        
         // Вывод листа
         this.torrentElements = this.props.torrentList
             .map((elements => <TorrentList key={elements._id} name={elements.name} id={elements._id} size={elements.size} date={elements.date} magnet={elements.magnet} deleteTorrent={removeTorrent} downloadNow={downloadTorrent}  />));
