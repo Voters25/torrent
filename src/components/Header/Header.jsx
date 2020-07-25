@@ -33,6 +33,7 @@ let Header = (props) => {
             </div>
             <div className={classes.headerNavigation}>
                 <ul className={classes.styleUl}>
+                    <span className={classes.empty}></span>
                     <li className={classes.logo} ><NavLink to="/" className={classes.logo} >LOGO</NavLink></li>
                     <li className={classes.userName}>{user}</li>
                     {props.user == '' || localStorage.getItem('user') == null ?

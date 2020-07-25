@@ -58,6 +58,12 @@ render() {
     }
 //*************************************************
 
+    /* let URL = this.props.propsMagnet;
+    console.log(URL);
+    this.clearMagnet = () => {
+        this.props.clearMagnetURL();
+    } */
+
 
 // РАБОЧАЯ ПРОВЕРКА СОСТОЯНИЯ   
 this.onTest = () => {
@@ -111,7 +117,11 @@ this.onTest = () => {
 export default DownloadPageC;
 
 
+/*
 
+                <button className={classes.clearMagnetButton} type="button" onClick={this.clearMagnet} >Clear magnet</button>
+
+*/
 
 
 

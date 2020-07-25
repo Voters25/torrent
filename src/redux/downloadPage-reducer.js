@@ -84,7 +84,7 @@ const postMagnetStarted = () => ({
 });
 
 
-const callForwarding = () => {
+export const callForwarding = () => {
     history.push('/downloadProgress');
 }
 

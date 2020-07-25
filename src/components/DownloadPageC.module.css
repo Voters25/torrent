@@ -43,6 +43,10 @@
 
     margin-bottom: 20px;
 }
+.magnetInput:hover {
+  border-bottom: 1px solid rgba(29, 211, 89, 0.6);
+}
+
 
 /*      File input       */
 .fileInput {
@@ -70,14 +74,33 @@
 
 
 
+
+
+.clearMagnetButton {
+  flex-basis: 25px;
+  width: 200px;
+  background: rgba(211, 29, 29, 0.6);
+  border: 1px solid #7e7e7e;
+  border-radius: 3px;
+  outline: none;
+  box-shadow: 0 11px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition: 0.3s;/* Время анимации */
+  cursor: pointer;
+
+  margin-bottom: 10px;
+}
+.clearMagnetButton:hover {
+  background: rgba(211, 29, 29, 0.7);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 15px 40px 0 rgba(0,0,0,0.17);
+}
+
+
+
 .sendMagnetButton { 
   flex-basis: 25px;
   width: 200px;
   background: rgba(29, 211, 89, 0.6);
-  border-bottom: 1px solid #7e7e7e;
-  border-top: 1px solid #7e7e7e;
-  border-right: 1px solid #7e7e7e;
-  border-left: 1px solid #7e7e7e;
+  border: 1px solid #7e7e7e;
   border-radius: 3px;
   outline: none;
   box-shadow: 0 11px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);

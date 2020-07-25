@@ -1,6 +1,6 @@
 import history from "../history";
 
-import { zeroingMagnetURL } from "./downloadPage-reducer"
+import { zeroingMagnetURL, callForwarding } from "./downloadPage-reducer"
 
 
 const GET_STARTED = 'GET-STARTED';
