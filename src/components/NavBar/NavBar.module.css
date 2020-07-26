@@ -39,6 +39,8 @@
     align-items: center;
     margin: 0 auto;
     display: flex;
+
+    
 }
 
 .styleLi {
@@ -80,6 +82,9 @@
         margin: 0 10px 0 0;
     }
 
+  }
+  @media (max-width:1080px){
+      /* ВСЁ ЛОМАЕТСЯ НА СТРАНИЦЕ ЛИСТА */
   }
   @media (max-width:992px){
     .logo {

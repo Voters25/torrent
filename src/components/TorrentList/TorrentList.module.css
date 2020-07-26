@@ -1,5 +1,6 @@
 .torrentList {
-  width: 99.9%;
+  width: 99.8%;
+  
   
   /* background: #13283b;
   background: linear-gradient(to right,#244c5e, #1a2f36, #0e1d24); */
@@ -23,11 +24,24 @@
   background: #48627a;
   text-align: center;
 
+  align-self: center; /* убр. margin */
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 
 }
+.torrentName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* .id {
   flex-basis: 5%;
   background: #8bc7ff;
@@ -37,11 +51,27 @@
   flex-basis: 20%;
   background: #48627a;
   text-align: center;
+
+  align-self: center; /* убр. margin */
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 .date {
   flex-basis: 35%;
   background: #8bc7ff;
   text-align: center;
+
+  align-self: center; /* убр. margin */
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 
@@ -53,7 +83,7 @@
   flex-basis: 10%;
 
   /* width: 100px; */
-  height: 50%;
+  /* height: 50%; */
   background: rgba(29, 211, 89, 0.6);
   border-bottom: 1px solid #7e7e7e;
   border-top: 1px solid #7e7e7e;
@@ -61,14 +91,15 @@
   border-left: 1px solid #7e7e7e;
   border-radius: 3px;
   outline: none;
-  box-shadow: 0 11px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   transition: 0.3s;/* Время анимации */
   cursor: pointer;
   white-space: nowrap;
+
+  align-self: center; /* убр. margin */
+  height: 100%;
 }
 .button:hover {
   background: rgba(29, 211, 89, 0.7);
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 15px 40px 0 rgba(0,0,0,0.17);
 }
 
 
@@ -80,7 +111,7 @@
   flex-basis: 10%;
 
   /* width: 100px; */
-  height: 50%;
+  /* height: 50%; */
   background: rgba(211, 29, 29, 0.6);
   border-bottom: 1px solid #7e7e7e;
   border-top: 1px solid #7e7e7e;
@@ -88,12 +119,30 @@
   border-left: 1px solid #7e7e7e;
   border-radius: 3px;
   outline: none;
-  box-shadow: 0 11px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   transition: 0.3s;/* Время анимации */
   cursor: pointer;
+
+  align-self: center; /* убр. margin */
+  height: 100%;
 }
 .buttonDelete:hover {
   background: rgba(211, 29, 29, 0.7);
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 15px 40px 0 rgba(0,0,0,0.17);
 }
 
+
+
+
+@media (max-width:1200px){
+  
+}
+@media (max-width:992px){
+  .torrentList {
+    width: 99.7%;
+  }
+}
+@media (max-width:768px){
+
+}
+@media (max-width:580px){
+
+}

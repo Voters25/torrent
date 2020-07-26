@@ -21,7 +21,7 @@ const TorrentList = (props) => {
 
     return (
         <div className={classes.torrentList} >
-            <p className={classes.name}>{props.name}</p>
+            <div className={classes.name}><p className={classes.torrentName}>{props.name}</p></div>
             
             <p className={classes.size}>{formatBytes(props.size)}</p>
             <p className={classes.date}>{new Date(props.date).toLocaleString()}</p>
