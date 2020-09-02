@@ -6,7 +6,9 @@ header {
 
 
     max-width: 1920px;
-    background: #fff;
+    background: #fff; /* Бывший цвет */
+    /* background: #13113d; */
+    /* background: #e2546e; */ /* #E15F78 */
 
     border-bottom: 1px solid black;
 

@@ -17,8 +17,6 @@ ReactDOM.render(
   
   <Provider store={store}>
     <Router history={history}>
-      <title>{document.title = 'Easy web torrent'}</title>
-      <link rel="shortcut icon" href="./img/utorrent_torrent_2088.ico" type="image/x-icon" />
       <App />
     </Router>
   </Provider>, document.getElementById('root')

@@ -10,7 +10,6 @@ let Header = (props) => {
     let user = props.user;
     let errorStatus = props.errorStatus;
 
-
     
     
 

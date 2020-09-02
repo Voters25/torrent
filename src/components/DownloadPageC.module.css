@@ -1,5 +1,6 @@
 .filePage {
-  background:  rgb(149, 172, 202);
+  background:  rgb(149, 172, 202); /* Бывший цвет */
+  /* background: #13113d; */
   width: 100%;
   display: flex;
   justify-content: center;

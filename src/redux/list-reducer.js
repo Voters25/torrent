@@ -9,7 +9,6 @@ const PUSH_LIST_INSTATE = 'PUSH-LIST-INSTATE';
 
 let initialState = {
     torrentsList: []
-    // [{date: ..., infoHash: ..., magnet: ..., name: ..., size: ..., id: ..., v: ...}]
 }
 
 
@@ -18,12 +17,6 @@ const listReducer = (state = initialState, action) => {
 
     switch(action.type) {
         case PUSH_LIST_INSTATE:
-            /* let torrentList = {
-                id: this.newList.id,
-                name: this.newList.name,
-                size: this.newList.size,
-                date: this.newList.date
-            }; */
             return {
                 ...state,
                 torrentsList: action.newList
@@ -49,7 +42,6 @@ export const getList = () => {
         })
         .then(res => res.json())
         .then(result => {
-            //console.log(result);
             dispatch(pushListInState(result))
         }).catch(err => console.log(err))
 
@@ -75,11 +67,10 @@ export let removeElement = (id) => {
     fetch(`http://localhost:3000/users/remove/${id}`, {
         credentials: "include"
     })
-    //.then(res => res.json())
     .then(res => res.text())
     .then(result => {
         console.log(result);
-        callForwarding();   // НЕ ПАШЕТ, нет ответа с серва
+        callForwarding();
     })
 
 }

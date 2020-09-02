@@ -1,6 +1,7 @@
 .wripper {
     width: 100%;
-    background: rgb(149, 172, 202);
+    background: rgb(149, 172, 202); /* Бывший цвет */
+    /* background: #13113d; */
     display: flex;
     
     align-items: center;

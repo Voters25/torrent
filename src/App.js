@@ -2,7 +2,7 @@ import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import DownloadPageContainer from './components/DownloadPageContainer';
-import { Route, StaticRouter, Link } from 'react-router-dom';
+import { Route, StaticRouter, Link, Redirect } from 'react-router-dom';
 import ListContainer from './components/List/ListContainer';
 import DownloadProgressContainer from './components/DownloadProgress/DownloadProgressContainer';
 import LogPageContainer from './components/Log/LogPageContainer';
@@ -29,6 +29,8 @@ const App = (props) => {
           <Route path='/downloadProgress' component={DownloadProgressContainer} />
           <Route path='/logPage' component={LogPageContainer} />
           <Route path='/registration' component={RegistrationPageContainer} />
+
+          <Redirect from='/' to='logPage' />
         </div>
       </div>
       <div className="footerApp">

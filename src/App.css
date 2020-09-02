@@ -37,6 +37,13 @@
   }
 } */
 
+/*
+
+#13113d - светлый
+#00002d - тёмный
+#e2546e - роз.
+
+*/
 
 
 .App-wripper {
@@ -68,9 +75,9 @@
 }
 
 .NavBar {
-  /* background: rgb(111, 129, 153); */
-  background: rgba(44, 52, 53, 0.9);
+  background: rgba(44, 52, 53, 0.9); /* Бывший цвет */
   width: 250px;
+  /* background: #00002d; */
 }
 
 .Content {
@@ -85,7 +92,8 @@
   
   height: 13.9%;
 
-  background: rgba(44, 52, 53, 0.9);
+  background: rgba(44, 52, 53, 0.9); /* Бывший цвет */
+  /* background: #00002d; */
 }
 
 
