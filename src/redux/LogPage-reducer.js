@@ -98,7 +98,7 @@ export let addNewFormDataAC = () => {
 }
 
 /*===================================================================================*/
-                    // callback -> Отправка на сервер formData
+                    // log in
 
 export const postFormData = (form) => {
     return dispatch => {
@@ -167,16 +167,6 @@ let pushLogInState = () => {
 }
 
 
-//let userName = localStorage.getItem('user');
-
-
-
-
-
-
-
-
-
 
 /*===================================================================================*/
 //                                logOut
@@ -232,30 +222,47 @@ let removeUserName = () => {
     }
 }
 
+/*===================================================================================*/
 
-/*
-let errorStatus = () => {       //  МОЖНО ЭКСПОРТНУТЬ И СТУЧАТЬСЯ ПРИ ОШИБКАХ ИЗ ДРУГИХ РЕДЬЮССЕРОВ
-    return {                    //  А ВООБЩЕ, ЛУЧШЕ СОЗДАЙ ОТДЕЛЬНЫЙ РЕДЬЮССЕР С СОСТОЯНИЕМ ОШИБОК
-        type: 'PUSH-NEW-REQUEST-STATUS',
-        newReqStatus: false
-    }
-}
-
-let succesStatus = () => {      //  МОЖНО ЭКСПОРТНУТЬ И СТУЧАТЬСЯ ПРИ ОШИБКАХ ИЗ ДРУГИХ РЕДЬЮССЕРОВ
-    return {                    //  А ВООБЩЕ, ЛУЧШЕ СОЗДАЙ ОТДЕЛЬНЫЙ РЕДЬЮССЕР С СОСТОЯНИЕМ ОШИБОК
-        type: 'PUSH-NEW-REQUEST-STATUS',
-        newReqStatus: true
-    }
-}
-*/
-
-/* const callForwardinglogOut = () => {
-    history.push('/logPage');
-} */
 
 
 /*===================================================================================*/
+//                                is Login?
 
+export const isLogin = () => {
+    return dispatch => {
+
+
+        fetch('http://localhost:3000/users/isLogin', {
+            credentials: "include"
+        })
+        .then(res => res.json())
+        .then(result => {
+            console.log(result);
+
+            if (result.email) {
+                dispatch(pushLogInToLocalStorage(result));
+                dispatch(succesStatus());
+                callForwarding();
+            } else if (!result.email) {
+                dispatch(LogOut());
+                dispatch(succesStatus());
+                dispatch(zeroingTorrentList());
+                dispatch(zeroingMagnetURL());
+                dispatch(changeFalseZipStatus());
+            }
+
+        }).catch(err => {
+            console.log(err)
+            if (err == "TypeError: Failed to fetch") {
+                dispatch(errorStatus());
+            }
+        });
+    };
+};
+
+
+/*===================================================================================*/
 
 
 

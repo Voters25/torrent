@@ -1,16 +1,22 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './Header.module.css';
+import { useEffect } from 'react';
 
 
 
-let Header = (props) => {
+const Header = (props) => {
+
+
+    useEffect(() => {
+        props.checkUser();
+    }, []);
+
 
     //let userName = props.propsUser;
     let user = props.user;
     let errorStatus = props.errorStatus;
 
-    
     
 
     let logOut = () => {
@@ -46,7 +52,5 @@ let Header = (props) => {
     )
 }
 
-
-/*<form id="sendFile" onSubmit={this.onFileSend}>*/
 
 export default Header;
